@@ -65,6 +65,14 @@
                       {{ option.name | escape }}
                     </option>
                   {%- endfor -%}
+                  <option
+                    value="discount"
+                    {% if sort_by == 'discount' %}
+                      selected="selected"
+                    {% endif %}
+                  >
+                    Ordenar por descuento
+                  </option>
                 </select>
                 <span class="svg-wrapper">
                   {{- 'icon-caret.svg' | inline_asset_content -}}
