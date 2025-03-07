@@ -106,8 +106,9 @@
     "badge_corner_radius": 40,
     "sale_badge_color_scheme": "scheme-4",
     "sold_out_badge_color_scheme": "scheme-3",
-    "brand_headline": "",
-    "brand_description": "<p></p>",
+    "brand_headline": "Lorem ipsum",
+    "brand_description": "<p>Lorem ipsum</p>",
+    "brand_image": "shopify://shop_images/Logo_2x_2a6fa293-aa45-4c0a-9fd1-e0f7fb854a1d.png",
     "brand_image_width": 100,
     "social_facebook_link": "",
     "social_instagram_link": "",
@@ -156,7 +157,7 @@
       },
       "scheme-2": {
         "settings": {
-          "background": "#f3f3f3",
+          "background": "#f8f8f8",
           "background_gradient": "",
           "text": "#121212",
           "button": "#121212",
