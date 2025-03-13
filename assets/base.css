@@ -3595,3 +3595,27 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
+@media only screen and (min-width:900px) { 
+  .product--small .thumbnail-list.slider--tablet-up li.thumbnail-list__item.slider__slide {
+    transform: rotate(-90deg);
+    width: calc(20% - .8rem);
+  }
+  .grid__item.product__media-wrapper slider-component.thumbnail-slider {
+    position: absolute;
+    top: 0;
+    transform: rotate(90deg);
+    width: 602px; /* manage width of small image */
+    left: 0;
+    transform-origin: left top;
+    height: 100px;
+    overflow: hidden;
+  }
+  .grid__item.product__media-wrapper {
+    position: relative;
+    padding-left: 100px;
+  }
+  .thumbnail-list.slider--tablet-up li.thumbnail-list__item.slider__slide {
+    transform: rotate(-90deg);
+    width: calc(16.8% - .8rem); /* decrease percentage and it will increase items */
+  }
+}
