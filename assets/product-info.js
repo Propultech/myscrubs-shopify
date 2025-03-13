@@ -308,6 +308,31 @@ if (!customElements.get('product-info')) {
         const modalContent = this.productModal?.querySelector(`.product-media-modal__content`);
         const newModalContent = html.querySelector(`product-modal .product-media-modal__content`);
         if (modalContent && newModalContent) modalContent.innerHTML = newModalContent.innerHTML;
+
+        // CUSTOM FEATURE: actualizar imagenes segun variante
+
+        const featuredMedia = this.querySelector('.product__media-item.is-active');
+        const featuredVariantGrouping = featuredMedia ? featuredMedia.getAttribute('data-variant-grouping') : null;
+        const mediaGallery = this.querySelector('media-gallery');
+        const groupVariants = mediaGallery.getAttribute('data-group-variants');
+        const hasOnlyDefaultVariant = mediaGallery.getAttribute('data-has-only-default-variant');
+        const disableImageGrouping = mediaGallery.getAttribute('data-disable-image-grouping');
+        if (groupVariants == 'false' || hasOnlyDefaultVariant === 'true' || disableImageGrouping === 'true') {
+          return;
+        }
+
+        document
+          .querySelectorAll(
+            `#${mediaGallery.id} .product__media-item, #${mediaGallery.id} .thumbnail-list__item, .product-media-modal__content .product-modal-image`
+          )
+          .forEach((mediaItem) => {
+            const mediaVariantGrouping = mediaItem.getAttribute('data-variant-grouping');
+            if (mediaVariantGrouping !== featuredVariantGrouping || mediaVariantGrouping === '') {
+              mediaItem.classList.add('hide-image');
+            } else {
+              mediaItem.classList.remove('hide-image');
+            }
+          });
       }
 
       setQuantityBoundries() {
