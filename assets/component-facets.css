@@ -1255,3 +1255,54 @@ input.mobile-facets__checkbox {
     padding: 0 1rem 1rem;
   }
 }
+.facets__price input[type='range'] {
+  -webkit-appearance: none; 
+  padding: 0;               
+  font: inherit;            
+  outline: none;
+  color: rgb(var(--color-foreground));             
+  opacity: .8;
+  background: rgb(var(--color-foreground));        
+  box-sizing: border-box;
+  transition: opacity .2s;
+  cursor: pointer;
+  height: 1px;
+}
+
+
+.facets__price input[type='range']::-webkit-slider-thumb {
+  cursor: ew-resize;
+  background: rgb(var(--color-foreground));  
+  color: rgb(var(--color-foreground));  
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+.facets__price input[type="range"]::-moz-range-progress {
+  background: rgb(var(--color-foreground));        
+}
+.facets__price input[type="range"]::-moz-range-track {  
+  background: rgb(var(--color-foreground));        
+}
+/* IE*/
+.facets__price input[type="range"]::-ms-fill-lower {
+  background: rgb(var(--color-foreground));        
+}
+.facets__price input[type="range"]::-ms-fill-upper {  
+  background: rgb(var(--color-foreground));        
+}
+
+.facets__price .range-wrap {
+	position: relative;
+  margin: 0 auto 3rem;
+}
+.facets__price .range {
+  width: 100%;
+}
+.facets__price .bubble {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}

@@ -1,0 +1,66 @@
+{% comment %}
+  Renders a price range filter with sliders
+
+  Accepts:
+  - filter: {Object} Filter object from the collection's filters
+  - uses_comma_decimals: {Boolean} Whether the store uses comma as decimal separator
+
+  Usage:
+  {% render 'price-range-filter', filter: filter, uses_comma_decimals: uses_comma_decimals %}
+{% endcomment %}
+
+<price-range class="facets__price">
+  <div class="range-wrap">
+    <input
+      class="range"
+      name="{{ filter.min_value.param_name }}"
+      id="Filter-{{ filter.label | escape }}-GTE"
+      {% if filter.min_value.value %}
+        value="
+          {%- if uses_comma_decimals -%}
+          {{ filter.min_value.value | money_without_currency | replace: '.', '' | replace: ',', '' }}
+          {% else %}
+          {{ filter.min_value.value | money_without_currency | replace: ',', '' }}
+          {% endif %}
+        "
+      {% else %}
+        value="0"
+        min="0"
+        step="0.5"
+        max="
+          {%- if uses_comma_decimals -%}
+          {{ filter.range_max | divided_by: 2 | money_without_currency | replace: '.', '' | replace: ',', '' }}
+          {% else %}
+          {{ filter.range_max | divided_by: 2 | money_without_currency | replace: ',', '' }}
+          {% endif %}
+        "
+      {% endif %}
+      type="range"
+    >
+    <output class="bubble"></output>
+  </div>
+  <div class="range-wrap">
+    <input
+      class="range"
+      name="{{ filter.max_value.param_name }}"
+      id="Filter-{{ filter.label | escape }}-LTE"
+      step="0.5"
+      {% if filter.max_value.value %}
+        value="
+          {%- if uses_comma_decimals -%}
+          {{ filter.max_value.value | money_without_currency | replace: '.', '' | replace: ',', '' }}
+          {% else %}
+          {{ filter.max_value.value | money_without_currency | replace: ',', '' }}
+          {% endif %}
+        "
+      {% else %}
+        value="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+        min="{{ filter.range_max | divided_by: 2 | money_without_currency | replace: ',', '' }}"
+      {% endif %}
+      value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
+      type="range"
+      max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+    >
+    <output class="bubble"></output>
+  </div>
+</price-range>
