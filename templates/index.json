@@ -106,11 +106,137 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "multicolumn_wjYUFn": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_6Dqyfp": {
+          "type": "column",
+          "settings": {
+            "title": "infinity",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_ApQq9C": {
+          "type": "column",
+          "settings": {
+            "title": "mecdocture",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_XJd9F6": {
+          "type": "column",
+          "settings": {
+            "title": "cherokee",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_6Dqyfp",
+        "column_ApQq9C",
+        "column_XJd9F6"
+      ],
+      "settings": {
+        "title": "banners marcas carusel",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "scheme-3",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_CdQk6p": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_NKJVjU": {
+          "type": "column",
+          "settings": {
+            "title": "Columna",
+            "text": "<p>Vincula un texto con una imagen para atraer la atención hacia tu producto, colección o artículo de blog seleccionados. Agrega detalles sobre disponibilidad y estilo, o incluso ofrece una reseña.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_NwjemF": {
+          "type": "column",
+          "settings": {
+            "title": "Columna",
+            "text": "<p>Vincula un texto con una imagen para atraer la atención hacia tu producto, colección o artículo de blog seleccionados. Agrega detalles sobre disponibilidad y estilo, o incluso ofrece una reseña.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_qgL8xk": {
+          "type": "column",
+          "settings": {
+            "title": "Columna",
+            "text": "<p>Vincula un texto con una imagen para atraer la atención hacia tu producto, colección o artículo de blog seleccionados. Agrega detalles sobre disponibilidad y estilo, o incluso ofrece una reseña.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_NKJVjU",
+        "column_NwjemF",
+        "column_qgL8xk"
+      ],
+      "settings": {
+        "title": "Comprar por color, carousel images",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "Etiqueta de botón",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_MDqTLg": {
+      "type": "image-with-text",
+      "settings": {
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "slideshow_YF4Daz",
     "featured_collection",
-    "video_CX6PyR"
+    "video_CX6PyR",
+    "multicolumn_wjYUFn",
+    "multicolumn_CdQk6p",
+    "image_with_text_MDqTLg"
   ]
 }
