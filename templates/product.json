@@ -70,6 +70,13 @@
             "image_ratio": "square",
             "enable_quick_add": false
           }
+        },
+        "popup_itkbQN": {
+          "type": "popup",
+          "settings": {
+            "text": "Guia de talles",
+            "page": "{{ product.metafields.custom.guia_de_talles.value }}"
+          }
         }
       },
       "block_order": [
@@ -81,7 +88,8 @@
         "quantity_selector",
         "buy_buttons",
         "collapsible_tab_bykPtr",
-        "complementary_mCnT7h"
+        "complementary_mCnT7h",
+        "popup_itkbQN"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -95,6 +103,10 @@
         "image_zoom": "lightbox",
         "hide_variants": true,
         "enable_video_looping": true,
+        "group_variants_enable": false,
+        "group_variants_source": "metafield",
+        "variant_grouping_delimiter": "__",
+        "variant_grouping_position": 1,
         "padding_top": 36,
         "padding_bottom": 12
       }
