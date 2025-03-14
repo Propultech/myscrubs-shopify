@@ -45,7 +45,7 @@
         "popup_7HjnCe": {
           "type": "popup",
           "settings": {
-            "text": "Texto del enlace emergente",
+            "text": "Guia de talles",
             "page": "{{ product.metafields.custom.guia_de_talles.value }}"
           }
         },
