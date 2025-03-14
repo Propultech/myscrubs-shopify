@@ -38,6 +38,13 @@
             "swatch_shape": "circle"
           }
         },
+        "popup_itkbQN": {
+          "type": "popup",
+          "settings": {
+            "text": "Guia de talles",
+            "page": "{{ product.metafields.custom.guia_de_talles.value }}"
+          }
+        },
         "quantity_selector": {
           "type": "quantity_selector",
           "settings": {}
@@ -70,13 +77,6 @@
             "image_ratio": "square",
             "enable_quick_add": false
           }
-        },
-        "popup_itkbQN": {
-          "type": "popup",
-          "settings": {
-            "text": "Guia de talles",
-            "page": "{{ product.metafields.custom.guia_de_talles.value }}"
-          }
         }
       },
       "block_order": [
@@ -85,11 +85,11 @@
         "title",
         "price",
         "variant_picker",
+        "popup_itkbQN",
         "quantity_selector",
         "buy_buttons",
         "collapsible_tab_bykPtr",
-        "complementary_mCnT7h",
-        "popup_itkbQN"
+        "complementary_mCnT7h"
       ],
       "settings": {
         "enable_sticky_info": true,
