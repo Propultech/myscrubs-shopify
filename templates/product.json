@@ -38,16 +38,16 @@
             "swatch_shape": "circle"
           }
         },
-        "popup_itkbQN": {
-          "type": "popup",
-          "settings": {
-            "text": "Guia de talles",
-            "page": "{{ product.metafields.custom.guia_de_talles.value }}"
-          }
-        },
         "quantity_selector": {
           "type": "quantity_selector",
           "settings": {}
+        },
+        "popup_7HjnCe": {
+          "type": "popup",
+          "settings": {
+            "text": "Texto del enlace emergente",
+            "page": "{{ product.metafields.custom.guia_de_talles.value }}"
+          }
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -85,8 +85,8 @@
         "title",
         "price",
         "variant_picker",
-        "popup_itkbQN",
         "quantity_selector",
+        "popup_7HjnCe",
         "buy_buttons",
         "collapsible_tab_bykPtr",
         "complementary_mCnT7h"
