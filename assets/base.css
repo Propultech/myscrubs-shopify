@@ -3616,6 +3616,6 @@ details-disclosure > details {
   }
   .thumbnail-list.slider--tablet-up li.thumbnail-list__item.slider__slide {
     transform: rotate(-90deg);
-    width: calc(16.8% - .8rem); /* decrease percentage and it will increase items */
+    width: 30%; /* decrease percentage and it will increase items */
   }
 }
