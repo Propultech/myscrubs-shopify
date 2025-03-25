@@ -1,4 +1,4 @@
-Dawn 15.2.0 provides a few fixes for known bugs and updates the styling for the new dynamic checkout buttons.
+Dawn 15.3.0 provides a few fixes for known bugs and updates the styling for the new dynamic checkout buttons.
 ### Changed
 - Adjust the local selector dropdown to match the maximum width of its content.
 - Adjust the styling for dynamic checkout buttons now that they’re using a new HTML structure.
