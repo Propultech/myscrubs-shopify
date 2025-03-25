@@ -90,33 +90,6 @@
           <div class="complementary-products__column complementary-products__cta">
             <form method="post" action="/cart/add" class="complementary-products__form" data-product-id="{{ recommended_product.id }}">
               <input type="hidden" name="id" value="{{ recommended_product.variants.first.id }}" class="variant-id-input">
-
-              <!-- Bloque exclusivo para mobile: selección de tallas (si existe) -->
-              <div class="complementary-products__mobile-sizes">
-                {% if size_option %}
-                  <div class="complementary-products__options sizes-only">
-                    <label>{{ size_option.name }}:</label>
-                    <div class="complementary-products__sizes">
-                      {% for value in size_option.values %}
-                        <input
-                          type="radio"
-                          name="option_size_{{ forloop.parentloop.index0 }}"
-                          id="option_{{ recommended_product.id }}_size_{{ forloop.index }}"
-                          value="{{ value }}"
-                          {% if forloop.first %}checked{% endif %}
-                        >
-                        <label
-                          for="option_{{ recommended_product.id }}_size_{{ forloop.index }}"
-                          class="label complementary-products__size-label"
-                        >
-                          {{ value }}
-                        </label>
-                      {% endfor %}
-                    </div>
-                  </div>
-                {% endif %}
-              </div>
-
               <script type="application/json" class="variant-data">
                 {{ recommended_product.variants | json }}
               </script>
@@ -223,7 +196,7 @@
       box-sizing: border-box;
     }
     .complementary-products__image-wrapper {
-      width: 50%;
+      width: 70%;
       display: flex;
       justify-content: center;
     }
@@ -233,12 +206,12 @@
       display: block;
     }
     .complementary-products__info {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
+      display: inline;
+      align-content: center;
+      gap: 10px;
     }
     .complementary-products__vendor {
-      font-size: 0.75rem;
+      font-size: 1rem;
       color: #555;
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -315,7 +288,11 @@
         grid-template-columns: 15% 15% 35% 35%;
       }
       .complementary-products__desktop-variants {
-        display: block;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
       }
       .complementary-products__mobile-sizes,
       .complementary-products__mobile-colors {
@@ -335,6 +312,9 @@
       }
       .complementary-products__desktop-variants {
         display: none;
+      }
+      .complementary-products__image-wrapper {
+        width: 100%;
       }
     }
   </style>

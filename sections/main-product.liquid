@@ -121,20 +121,6 @@
                     <span>{{ 'products.product.volume_pricing.note' | t }}</span>
                   </div>
                 {%- endif -%}
-                {%- if cart.taxes_included or cart.duties_included or shop.shipping_policy.body != blank -%}
-                  <div class="product__tax caption rte">
-                    {%- if cart.duties_included and cart.taxes_included -%}
-                      {{ 'products.product.duties_and_taxes_included' | t }}
-                    {%- elsif cart.taxes_included -%}
-                      {{ 'products.product.taxes_included' | t }}
-                    {%- elsif cart.duties_included -%}
-                      {{ 'products.product.duties_included' | t }}
-                    {%- endif -%}
-                    {%- if shop.shipping_policy.body != blank -%}
-                      {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
-                    {%- endif -%}
-                  </div>
-                {%- endif -%}
                 <div {{ block.shopify_attributes }}>
                   {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
                   {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
@@ -221,7 +207,8 @@
                           {{ block.settings.heading | default: block.settings.page.title | escape }}
                         </h2>
                       </div>
-                      {{- 'icon-caret.svg' | inline_asset_content -}}
+                       <img class="icon-collapsed" src="https://cdn.shopify.com/s/files/1/0922/9706/8866/files/plus.svg?v=1742918587" alt="Icono" width="20" height="20" loading="lazy">
+                       <img class="icon-expanded" src="https://cdn.shopify.com/s/files/1/0922/9706/8866/files/minus.svg?v=1742918587" alt="Icono" width="20" height="20" loading="lazy">
                     </summary>
                     <div class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
                       {{ block.settings.content }}
@@ -906,6 +893,14 @@
             }
           ],
           "default": "circle"
+        },
+        {
+          "id": "border_radius",
+          "label": "Border radius variantes",
+          "type": "range",
+          "min": 0,
+          "max": 50,
+          "default": 4
         }
       ]
     },
@@ -927,6 +922,26 @@
           "default": true,
           "label": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.label",
           "info": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.info"
+        },
+        {
+          "type": "color",
+          "id": "button_color",
+          "default": "#ff0000",
+          "label": "Color del botón"
+        },
+        {
+          "type": "range",
+          "id": "button_border_radius",
+          "default": 5,
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "label": "Border Radius del botón"
+        },
+        {
+          "type": "text",
+          "id": "extra_text_botton",
+          "label": "Texto abajo del boton"
         }
       ]
     },
