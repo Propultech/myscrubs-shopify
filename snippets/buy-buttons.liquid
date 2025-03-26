@@ -71,7 +71,7 @@
             endif
           -%}
           <button
-            id="ProductSubmitButton-{{ section_id }}"
+            id="ProductSubmitButton-{{ section_id }}" type="submit"
             {% if block.settings.button_color or block.settings.button_border_radius %}style="{% if block.settings.button_color %}background-color: {{ block.settings.button_color }};{% endif %}{% if block.settings.button_border_radius %} border-radius: {{ block.settings.button_border_radius }}px;{% endif %}"{% endif %}
             name="add"
             class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
