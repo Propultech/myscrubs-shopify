@@ -14,15 +14,30 @@
       "blocks": {
         "vendor": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "{{ product.vendor }}",
             "text_style": "uppercase"
+          }
+        },
+        "vendor_eBeK7N": {
+          "type": "vendor",
+          "settings": {
+            "hide_on_desktop": false,
+            "hide_on_mobile": true
           }
         },
         "title": {
           "type": "title",
           "settings": {
             "font_size": 30
+          }
+        },
+        "vendor_PYcY9M": {
+          "type": "vendor",
+          "settings": {
+            "hide_on_desktop": true,
+            "hide_on_mobile": false
           }
         },
         "price": {
@@ -79,7 +94,9 @@
       },
       "block_order": [
         "vendor",
+        "vendor_eBeK7N",
         "title",
+        "vendor_PYcY9M",
         "price",
         "variant_picker",
         "popup_7HjnCe",

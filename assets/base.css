@@ -3625,3 +3625,17 @@ details-disclosure > details {
     width: 30%; /* decrease percentage and it will increase items */
   }
 }
+
+/*vendor main product*/
+
+@media (max-width: 767px) {
+  .vendor-none-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .vendor-none-desktop {
+    display: none !important;
+  }
+}

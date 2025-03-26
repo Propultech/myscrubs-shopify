@@ -128,6 +128,15 @@
                     {{ form | payment_terms }}
                   {%- endform -%}
                 </div>
+              {%- when 'vendor' -%}  
+                {%- if product.vendor != blank -%}
+                  <div class="product-vendor 
+                    {%- if block.settings.hide_on_desktop %} vendor-none-desktop{% endif -%}
+                    {%- if block.settings.hide_on_mobile %} vendor-none-mobile{% endif -%}
+                  " {{ block.shopify_attributes }}>
+                    <span class="product-vendor__name">{{ product.vendor }}</span>
+                  </div>
+                {%- endif -%}
               {%- when 'inventory' -%}
                 <p
                   class="product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
@@ -844,6 +853,29 @@
           "id": "show_inventory_quantity",
           "label": "t:sections.main-product.blocks.inventory.settings.show_inventory_quantity.label",
           "default": true
+        }
+      ]
+    },
+    {
+      "type": "vendor",
+      "name": "Vendor",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Display the product's vendor name"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_on_desktop",
+          "label": "Hide on Desktop",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_on_mobile",
+          "label": "Hide on Mobile",
+          "default": false
         }
       ]
     },
