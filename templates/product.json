@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
     "main": {
       "type": "main-product",
@@ -19,13 +19,11 @@
             "text_style": "uppercase"
           }
         },
-        "rating_7TjLPR": {
-          "type": "rating",
-          "settings": {}
-        },
         "title": {
           "type": "title",
-          "settings": {}
+          "settings": {
+            "font_size": 30
+          }
         },
         "price": {
           "type": "price",
@@ -35,12 +33,9 @@
           "type": "variant_picker",
           "settings": {
             "picker_type": "button",
-            "swatch_shape": "circle"
+            "swatch_shape": "circle",
+            "border_radius": 4
           }
-        },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
         },
         "popup_7HjnCe": {
           "type": "popup",
@@ -52,51 +47,53 @@
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true,
+            "button_color": "#106b98",
+            "button_border_radius": 5,
+            "extra_text_botton": "ENVÍO GRATUITO PARA PEDIDOS SOBRE $70.000"
           }
+        },
+        "description_Bbzp9r": {
+          "type": "description",
+          "settings": {}
         },
         "collapsible_tab_bykPtr": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Descripción",
+            "heading": "Composición",
             "icon": "none",
-            "content": "{{ product.description }}",
+            "content": "<p>{{ product.metafields.custom.composicion.value }}</p>",
             "page": ""
           }
         },
-        "complementary_mCnT7h": {
-          "type": "complementary",
+        "collapsible_tab_g4f9it": {
+          "type": "collapsible_tab",
           "settings": {
-            "block_heading": "Combina bien con",
-            "make_collapsible_row": false,
-            "icon": "price_tag",
-            "product_list_limit": 10,
-            "products_per_page": 3,
-            "pagination_style": "counter",
-            "image_ratio": "square",
-            "enable_quick_add": false
+            "heading": "Cuidados",
+            "icon": "none",
+            "content": "<p>{{ product.metafields.custom.cuidados.value }}</p>",
+            "page": ""
           }
         }
       },
       "block_order": [
         "vendor",
-        "rating_7TjLPR",
         "title",
         "price",
         "variant_picker",
-        "quantity_selector",
         "popup_7HjnCe",
         "buy_buttons",
+        "description_Bbzp9r",
         "collapsible_tab_bykPtr",
-        "complementary_mCnT7h"
+        "collapsible_tab_g4f9it"
       ],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-2",
         "media_size": "medium",
         "constrain_to_viewport": true,
-        "media_fit": "cover",
+        "media_fit": "contain",
         "gallery_layout": "thumbnail_slider",
         "mobile_thumbnails": "hide",
         "media_position": "left",
@@ -109,6 +106,15 @@
         "variant_grouping_position": 1,
         "padding_top": 36,
         "padding_bottom": 12
+      }
+    },
+    "complementary_products_YRTFbx": {
+      "type": "complementary-products",
+      "settings": {
+        "title": "Completa tu conjunto",
+        "title_font_size": 18,
+        "price_font_size": 16,
+        "side_padding_desktop": 5
       }
     },
     "related-products": {
@@ -132,6 +138,7 @@
   },
   "order": [
     "main",
+    "complementary_products_YRTFbx",
     "related-products"
   ]
 }

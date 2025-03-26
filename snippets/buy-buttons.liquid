@@ -72,7 +72,7 @@
           -%}
           <button
             id="ProductSubmitButton-{{ section_id }}"
-            type="submit"
+            {% if block.settings.button_color or block.settings.button_border_radius %}style="{% if block.settings.button_color %}background-color: {{ block.settings.button_color }};{% endif %}{% if block.settings.button_border_radius %} border-radius: {{ block.settings.button_border_radius }}px;{% endif %}"{% endif %}
             name="add"
             class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
             {% if product.selected_or_first_available_variant.available == false
@@ -93,6 +93,9 @@
             </span>
             {%- render 'loading-spinner' -%}
           </button>
+          {%- if block.settings.extra_text_botton != blank -%}
+            <span style="display:block; text-align:center; margin-top:10px; font-size:14px">{{ block.settings.extra_text_botton }}</span>
+          {%- endif -%}
           {%- if show_dynamic_checkout -%}
             {{ form | payment_button }}
           {%- endif -%}

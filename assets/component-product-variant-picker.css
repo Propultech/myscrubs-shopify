@@ -10,6 +10,10 @@ variant-selects {
   justify-content: center;
   text-align: center;
 }
+legend.form__label {
+  font-weight: 600;
+  font-size: 1em;
+}
 
 .product--no-media .product-form__input.product-form__input--pill,
 .product--no-media .product-form__input.product-form__input--swatch {
@@ -58,14 +62,15 @@ variant-selects {
 
 /* Custom styles for Pill display type */
 .product-form__input--pill input[type='radio'] + label {
+  font-weight: var(--font-body-weight-bold);
   border: var(--variant-pills-border-width) solid rgba(var(--color-foreground), var(--variant-pills-border-opacity));
-  background-color: rgb(var(--color-background));
+  background-color: white;
   color: rgba(var(--color-foreground));
   border-radius: var(--variant-pills-radius);
   color: rgb(var(--color-foreground));
   display: inline-block;
   margin: 0.7rem 0.5rem 0.2rem 0;
-  padding: 1rem 2rem;
+  padding: 0.6rem 1.2rem;
   font-size: 1.4rem;
   letter-spacing: 0.1rem;
   line-height: 1;
