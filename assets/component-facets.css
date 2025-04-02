@@ -52,6 +52,8 @@
   margin: 0 2rem 0 0;
 }
 
+.facet-filters__label, .facet-filters__field .select__select, .mobile-facets__sort .select__select, .product-count__text {font-family: var(--font-ibm-plex-condensed);}
+
 .facet-filters__summary {
   display: flex;
   align-items: center;
@@ -846,6 +848,12 @@ a.active-facets__button.focused .active-facets__button-inner {
   display: flex;
   align-items: center;
   color: rgba(var(--color-link), var(--alpha-link));
+  flex-direction: row-reverse;
+  border: 1px solid #CAC4D0;
+  border-radius: 8px;
+  font-weight: 500;
+  padding: 8px 6px;
+  font-family: var(--font-ibm-plex-condensed);
 }
 
 .mobile-facets__open:hover {
@@ -872,6 +880,7 @@ a.active-facets__button.focused .active-facets__button-inner {
 
 .mobile-facets__open .svg-wrapper {
   width: 2rem;
+  margin-left: 6px;
 }
 
 .mobile-facets__open line,
@@ -963,6 +972,7 @@ details.menu-opening .mobile-facets__close .svg-wrapper {
 
 .mobile-facets__summary {
   padding: 1.3rem 2.5rem;
+  font-weight: 500;
 }
 
 .mobile-facets__summary .svg-wrapper {
@@ -1114,6 +1124,7 @@ input.mobile-facets__checkbox {
   font-size: 1.4rem;
   line-height: calc(1 + 0.5 / var(--font-body-scale));
   margin: 0;
+  font-family: var(--font-ibm-plex-condensed);
 }
 
 #ProductCountDesktop.loading,

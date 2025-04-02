@@ -435,6 +435,7 @@ blockquote {
   letter-spacing: 0.13rem;
   line-height: calc(1 + 0.2 / var(--font-body-scale));
   text-transform: uppercase;
+  margin-bottom: 4px;
 }
 
 .caption-with-letter-spacing--medium {
