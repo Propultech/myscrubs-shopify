@@ -64,4 +64,37 @@
 
 .focus\:text-custom-black:focus {
   color: var(--color-custom-black);
+}
+
+/* Custom Blue Color Utilities */
+.color-custom-blue {
+  color: var(--color-custom-blue);
+}
+
+.bg-custom-blue {
+  background-color: var(--color-custom-blue);
+}
+
+.border-custom-blue {
+  border-color: var(--color-custom-blue);
+}
+
+.text-custom-blue {
+  color: var(--color-custom-blue);
+}
+
+.hover\:bg-custom-blue:hover {
+  background-color: var(--color-custom-blue);
+}
+
+.hover\:text-custom-blue:hover {
+  color: var(--color-custom-blue);
+}
+
+.focus\:bg-custom-blue:focus {
+  background-color: var(--color-custom-blue);
+}
+
+.focus\:text-custom-blue:focus {
+  color: var(--color-custom-blue);
 } 
