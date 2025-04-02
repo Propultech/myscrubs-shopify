@@ -9,7 +9,7 @@
  */
 {
   "current": {
-    "logo": "shopify://shop_images/Logo_2x_2a6fa293-aa45-4c0a-9fd1-e0f7fb854a1d.png",
+    "logo": "shopify://shop_images/Logo_MYSCRUBS_Color_Full_1.svg",
     "logo_width": 200,
     "type_header_font": "ibm_plex_sans_n5",
     "heading_scale": 100,
@@ -146,7 +146,7 @@
     "color_schemes": {
       "scheme-1": {
         "settings": {
-          "background": "rgba(0,0,0,0)",
+          "background": "#f8f8f8",
           "background_gradient": "",
           "text": "#121212",
           "button": "#106b98",
@@ -157,7 +157,7 @@
       },
       "scheme-2": {
         "settings": {
-          "background": "#f8f8f8",
+          "background": "#ffffff",
           "background_gradient": "",
           "text": "#121212",
           "button": "#121212",
