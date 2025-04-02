@@ -449,9 +449,9 @@
   padding: 1rem 2rem 1rem 0;
   flex-grow: 1;
   position: relative;
-  font-size: 1.4rem;
   display: flex;
   word-break: break-word;
+  font-family: var(--font-ibm-plex-condensed);
 }
 
 /* Hover, active, and focus states */
@@ -662,7 +662,8 @@ span.active-facets__button-inner:after {
   box-shadow: 0 0 0 0.1rem rgba(var(--color-foreground), 0.2);
   background-color: var(--color-custom-blue);
   color: white;
-  font-weight: 600;
+  font-weight: 500;
+  font-family: var(--font-ibm-plex-condensed);
 }
 
 .active-facets__button--light:hover .active-facets__button-inner {
@@ -1400,4 +1401,60 @@ input.mobile-facets__checkbox {
 }
 .facets__selected-count {
   display: none !important;
+}
+
+/* Estilos para el filtro de colores */
+.facets__disclosure-vertical:has(input[name="filter.v.t.shopify.color-pattern"]),
+.facets__disclosure-vertical[id*="filter.v.t.shopify.color-pattern"] {
+  /* Estilos para el contenedor principal del filtro de colores */
+  
+  .facets-layout-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem 2rem;
+    padding: 1rem 0;
+  }
+
+  .list-menu__item {
+    margin: 0;
+  }
+
+  .facets__label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .swatch-input-wrapper {
+    margin-right: 0.8rem;
+  }
+
+  .swatch {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px rgba(var(--color-foreground), 0.2);
+    display: block;
+  }
+
+  .facet-checkbox__text {
+    font-family: var(--font-ibm-plex-condensed);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    letter-spacing: 0.39px;
+  }
+
+  .facets__selected-count {
+    font-size: 0.85rem;
+    color: rgba(var(--color-foreground), 0.7);
+  }
+
+
+  /* Responsive */
+  @media screen and (max-width: 749px) {
+    .facets-layout-list {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
 }
