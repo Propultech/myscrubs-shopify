@@ -1,0 +1,67 @@
+/* Custom Color Utility Classes */
+.color-custom-pink {
+  color: var(--color-custom-pink);
+}
+
+.bg-custom-pink {
+  background-color: var(--color-custom-pink);
+}
+
+.border-custom-pink {
+  border-color: var(--color-custom-pink);
+}
+
+.text-custom-pink {
+  color: var(--color-custom-pink);
+}
+
+/* Hover states */
+.hover\:color-custom-pink:hover {
+  color: var(--color-custom-pink);
+}
+
+.hover\:bg-custom-pink:hover {
+  background-color: var(--color-custom-pink);
+}
+
+/* Focus states */
+.focus\:color-custom-pink:focus {
+  color: var(--color-custom-pink);
+}
+
+.focus\:bg-custom-pink:focus {
+  background-color: var(--color-custom-pink);
+}
+
+/* Custom Black Color Utilities */
+.color-custom-black {
+  color: var(--color-custom-black);
+}
+
+.bg-custom-black {
+  background-color: var(--color-custom-black);
+}
+
+.border-custom-black {
+  border-color: var(--color-custom-black);
+}
+
+.text-custom-black {
+  color: var(--color-custom-black);
+}
+
+.hover\:bg-custom-black:hover {
+  background-color: var(--color-custom-black);
+}
+
+.hover\:text-custom-black:hover {
+  color: var(--color-custom-black);
+}
+
+.focus\:bg-custom-black:focus {
+  background-color: var(--color-custom-black);
+}
+
+.focus\:text-custom-black:focus {
+  color: var(--color-custom-black);
+} 
