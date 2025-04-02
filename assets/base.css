@@ -6,6 +6,20 @@
   --focused-base-outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
   --focused-base-outline-offset: 0.3rem;
   --focused-base-box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
+  
+  /* Custom Colors */
+  --color-custom-pink: #D51B62;
+  --color-custom-pink-rgb: 213, 27, 98;
+  
+  /* Color Schemes */
+  --color-scheme-custom-pink: {
+    "background": var(--color-custom-pink),
+    "text": var(--color-background),
+    "buttons": {
+      "background": var(--color-background),
+      "text": var(--color-custom-pink)
+    }
+  }
 }
 
 .product-card-wrapper .card,
@@ -249,26 +263,17 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 
 /* IBM Plex Sans Condensed utility classes */
 .font-ibm-plex {
-  font-family: var(--font-ibm-plex);
+  font-family: var(--font-ibm-plex-condensed);
 }
 
 .font-ibm-plex-regular {
-  font-family: var(--font-ibm-plex);
+  font-family: var(--font-ibm-plex-condensed);
   font-weight: 400;
 }
 
-.font-ibm-plex-medium {
-  font-family: var(--font-ibm-plex);
-  font-weight: 500;
-}
-
-.font-ibm-plex-semibold {
-  font-family: var(--font-ibm-plex);
-  font-weight: 600;
-}
 
 .font-ibm-plex-bold {
-  font-family: var(--font-ibm-plex);
+  font-family: var(--font-ibm-plex-condensed);
   font-weight: 700;
 }
 

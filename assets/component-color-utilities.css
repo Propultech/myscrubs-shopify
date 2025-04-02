@@ -1,0 +1,34 @@
+/* Custom Color Utility Classes */
+.color-custom-pink {
+  color: var(--color-custom-pink);
+}
+
+.bg-custom-pink {
+  background-color: var(--color-custom-pink);
+}
+
+.border-custom-pink {
+  border-color: var(--color-custom-pink);
+}
+
+.text-custom-pink {
+  color: var(--color-custom-pink);
+}
+
+/* Hover states */
+.hover\:color-custom-pink:hover {
+  color: var(--color-custom-pink);
+}
+
+.hover\:bg-custom-pink:hover {
+  background-color: var(--color-custom-pink);
+}
+
+/* Focus states */
+.focus\:color-custom-pink:focus {
+  color: var(--color-custom-pink);
+}
+
+.focus\:bg-custom-pink:focus {
+  background-color: var(--color-custom-pink);
+} 

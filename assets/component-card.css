@@ -302,6 +302,8 @@
 
 .card__heading {
   margin-top: 0;
+  font-family: var(--font-ibm-plex-condensed);
+  font-weight: 500;
   margin-bottom: 0;
 }
 
