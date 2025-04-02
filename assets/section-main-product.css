@@ -250,6 +250,10 @@ a.product__text {
   word-break: break-word;
   margin-bottom: 1.5rem;
 }
+div.product__title h1 {
+  font-weight: 700;
+  font-family: var(--font-ibm-plex);
+}
 
 .product__title > * {
   margin: 0;
@@ -277,6 +281,17 @@ a.product__text {
 
 .product .price__container {
   margin-bottom: 0.5rem;
+}
+div.price__regular span.price-item--regular {
+  color: #494949;
+  font-family: var(--font-ibm-plex);
+  font-weight: 700;
+} 
+
+legend.form__label{
+  font-family: var(--font-ibm-plex); 
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .product .price dl {

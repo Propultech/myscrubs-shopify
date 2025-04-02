@@ -10,10 +10,6 @@ variant-selects {
   justify-content: center;
   text-align: center;
 }
-legend.form__label {
-  font-weight: 600;
-  font-size: 1em;
-}
 
 .product--no-media .product-form__input.product-form__input--pill,
 .product--no-media .product-form__input.product-form__input--swatch {

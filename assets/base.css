@@ -247,6 +247,31 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   font-weight: var(--font-body-weight);
 }
 
+/* IBM Plex Sans Condensed utility classes */
+.font-ibm-plex {
+  font-family: var(--font-ibm-plex);
+}
+
+.font-ibm-plex-regular {
+  font-family: var(--font-ibm-plex);
+  font-weight: 400;
+}
+
+.font-ibm-plex-medium {
+  font-family: var(--font-ibm-plex);
+  font-weight: 500;
+}
+
+.font-ibm-plex-semibold {
+  font-family: var(--font-ibm-plex);
+  font-weight: 600;
+}
+
+.font-ibm-plex-bold {
+  font-family: var(--font-ibm-plex);
+  font-weight: 700;
+}
+
 h1,
 h2,
 h3,

@@ -8,8 +8,6 @@
 
     <div class="complementary-products__grid">
       {% for recommended_product in complementary_products %}
-        {% assign color_option = recommended_product.options_with_values | where: "name", "Color" | first %}
-        {% assign size_option = recommended_product.options_with_values | where_exp: "opt", "opt.name != 'Color'" | first %}
 
         <article class="complementary-products__item">
           <!-- Columna 1: Imagen -->
@@ -23,6 +21,7 @@
             </a>
           </div>
 
+          <!-- Columna 2: Información básica -->
           <div class="complementary-products__column complementary-products__info">
             <span class="complementary-products__vendor">
               {{ recommended_product.vendor }}
@@ -35,61 +34,39 @@
             <p class="complementary-products__price" style="font-size: {{ section.settings.price_font_size }}px">
               {{ recommended_product.price | money }}
             </p>
-            {% if color_option %}
-              <div class="complementary-products__mobile-colors">
-                <p class="complementary-products__colors-count">
-                  {{ color_option.values.size }} colores disponibles
-                </p>
-                <div class="complementary-products__swatches">
-                  {% for value in color_option.values %}
-                    <input
-                      type="radio"
-                      name="option_color_{{ forloop.parentloop.index0 }}"
-                      id="option_{{ recommended_product.id }}_color_{{ forloop.index }}"
-                      value="{{ value }}"
-                      {% if forloop.first %}checked{% endif %}
-                      class="visually-hidden"
-                    >
-                    <label
-                      for="option_{{ recommended_product.id }}_color_{{ forloop.index }}"
-                      class="complementary-products__swatch"
-                      style="background-color: {{ value | handleize }};"
-                    ></label>
-                  {% endfor %}
-                </div>
-              </div>
-            {% endif %}
           </div>
 
+          <!-- Columna 3 y 4: Bloque de variantes + Botón (copiado de la versión corta) -->
           <div class="complementary-products__column complementary-products__variants complementary-products__desktop-variants">
-            {% for option in recommended_product.options_with_values %}
-              <div class="complementary-products__options">
-                <label>{{ option.name }}:</label>
-                <div class="{% if option.name == 'Color' %}complementary-products__swatches{% else %}complementary-products__sizes{% endif %}">
-                  {% for value in option.values %}
-                    <input
-                      type="radio"
-                      name="option{{ forloop.parentloop.index0 }}"
-                      id="option_{{ recommended_product.id }}_{{ option.name | handleize }}_{{ forloop.index }}"
-                      value="{{ value }}"
-                      {% if forloop.first %}checked{% endif %}
-                    >
-                    <label
-                      for="option_{{ recommended_product.id }}_{{ option.name | handleize }}_{{ forloop.index }}"
-                      class="{% if option.name == 'Color' %}complementary-products__swatch{% else %}label complementary-products__size-label{% endif %}"
-                      {% if option.name == 'Color' %}style="background-color: {{ value | handleize }};"{% endif %}
-                    >
-                      {% unless option.name == 'Color' %}{{ value }}{% endunless %}
-                    </label>
-                  {% endfor %}
-                </div>
-              </div>
-            {% endfor %}
-          </div>
-
-          <div class="complementary-products__column complementary-products__cta">
+            <!-- BLOQUE DE VARIANTES (copiado de la versión corta que funcionaba) -->
             <form method="post" action="/cart/add" class="complementary-products__form" data-product-id="{{ recommended_product.id }}">
+              <!-- Primer input hidden con la primera variante por defecto -->
               <input type="hidden" name="id" value="{{ recommended_product.variants.first.id }}" class="variant-id-input">
+
+              {% for option in recommended_product.options_with_values %}
+                <div class="complementary-products__options">
+                  <label>{{ option.name }}:</label>
+                  <div class="{% if option.name == 'Color' %}complementary-products__swatches{% else %}complementary-products__sizes{% endif %}">
+                    {% for value in option.values %}
+                      <input
+                        type="radio"
+                        name="option{{ forloop.parentloop.index0 }}"
+                        id="option_{{ recommended_product.id }}_{{ option.name | handleize }}_{{ forloop.index }}"
+                        value="{{ value }}"
+                        {% if forloop.first %}checked{% endif %}
+                      >
+                      <label
+                        for="option_{{ recommended_product.id }}_{{ option.name | handleize }}_{{ forloop.index }}"
+                        class="{% if option.name == 'Color' %}complementary-products__swatch{% else %}complementary-products__size-label{% endif %}"
+                        {% if option.name == 'Color' %}style="background-color: {{ value | handleize }};"{% endif %}
+                      >
+                        {% unless option.name == 'Color' %}{{ value }}{% endunless %}
+                      </label>
+                    {% endfor %}
+                  </div>
+                </div>
+              {% endfor %}
+
               <script type="application/json" class="variant-data">
                 {{ recommended_product.variants | json }}
               </script>
@@ -98,95 +75,99 @@
                 Añadir al carrito
               </button>
             </form>
+            <!-- FIN BLOQUE DE VARIANTES -->
           </div>
+
         </article>
       {% endfor %}
     </div>
   </div>
 
-   <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('.complementary-products__form').forEach(form => {
-      const variantInput = form.querySelector('.variant-id-input');
-      const variantData = JSON.parse(form.querySelector('.variant-data').textContent);
-      const radios = form.querySelectorAll('input[type=radio]');
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.complementary-products__form').forEach(form => {
+        const variantInput = form.querySelector('.variant-id-input');
+        const variantData = JSON.parse(form.querySelector('.variant-data').textContent);
 
-      function updateVariantId() {
-        const selectedOptions = [];
-        // Se consideran solo los radios que sean visibles (offsetParent distinto de null)
-        Array.from(form.querySelectorAll('input[type=radio]')).forEach(input => {
-          if (input.offsetParent !== null && input.checked) {
+        const radios = form.querySelectorAll('input[type=radio]');
+
+        function updateVariantId() {
+          const selectedOptions = [];
+
+          // Toma los radios checked (sin filtrar visibilidad, tal como en la versión corta)
+          form.querySelectorAll('input[type=radio]:checked').forEach(input => {
             selectedOptions.push(input.value);
+          });
+
+          // Busca la variante que coincida con esos selectedOptions
+          const matchedVariant = variantData.find(variant =>
+            variant.options.every((opt, index) => opt === selectedOptions[index])
+          );
+
+          if (matchedVariant) {
+            variantInput.value = matchedVariant.id;
           }
+        }
+
+        radios.forEach(input => {
+          input.addEventListener('change', updateVariantId);
         });
 
-        const matchedVariant = variantData.find(variant =>
-          variant.options.every((opt, index) => opt === selectedOptions[index])
-        );
+        updateVariantId();
 
-        if (matchedVariant) {
-          variantInput.value = matchedVariant.id;
-        }
-      }
+        // Manejo de submit -> añadir al carrito con fetch
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const variantId = variantInput.value;
 
-      radios.forEach(input => {
-        input.addEventListener('change', updateVariantId);
-      });
+          fetch('/cart/add.js', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify({ id: variantId, quantity: 1 })
+          })
+          .then(response => {
+            if (!response.ok) throw new Error('No se pudo agregar al carrito.');
+            return fetch('/cart');
+          })
+          .then(response => response.text())
+          .then(cartHtml => {
+            const parser = new DOMParser();
+            const newDocument = parser.parseFromString(cartHtml, 'text/html');
+            const newDrawer = newDocument.querySelector('cart-drawer');
+            const existingDrawer = document.querySelector('cart-drawer');
 
-      updateVariantId();
-
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        const variantId = variantInput.value;
-
-        fetch('/cart/add.js', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({ id: variantId, quantity: 1 })
-        })
-        .then(response => {
-          if (!response.ok) throw new Error('No se pudo agregar al carrito.');
-          return fetch('/cart');
-        })
-        .then(response => response.text())
-        .then(cartHtml => {
-          const parser = new DOMParser();
-          const newDocument = parser.parseFromString(cartHtml, 'text/html');
-          const newDrawer = newDocument.querySelector('cart-drawer');
-          const existingDrawer = document.querySelector('cart-drawer');
-
-          if (newDrawer && existingDrawer) {
-            existingDrawer.innerHTML = newDrawer.innerHTML;
-            existingDrawer.classList.add('is-open', 'animate', 'active');
-            document.body.classList.add('overflow-hidden');
-            const focusElement = existingDrawer.querySelector('.drawer__close') || existingDrawer;
-            const trapFocus = window.trapFocus || function () {};
-            trapFocus(existingDrawer, focusElement);
-          }
-        })
-        .catch(error => {
-          console.error('Error al agregar al carrito:', error);
-          alert('Error al agregar al carrito.');
+            if (newDrawer && existingDrawer) {
+              existingDrawer.innerHTML = newDrawer.innerHTML;
+              existingDrawer.classList.add('is-open', 'animate', 'active');
+              document.body.classList.add('overflow-hidden');
+              const focusElement = existingDrawer.querySelector('.drawer__close') || existingDrawer;
+              const trapFocus = window.trapFocus || function () {};
+              trapFocus(existingDrawer, focusElement);
+            }
+          })
+          .catch(error => {
+            console.error('Error al agregar al carrito:', error);
+            alert('Error al agregar al carrito.');
+          });
         });
       });
     });
-  });
-</script>
-
-
+  </script>
 
   <style>
     .complementary-products__container {
       background: #F8F8F8;
     }
+
     .complementary-products__grid {
       display: flex;
       flex-direction: column;
       gap: 2rem;
     }
+
     .complementary-products__item {
       display: grid;
       gap: 2rem;
@@ -195,41 +176,49 @@
       border-radius: 12px;
       box-sizing: border-box;
     }
+
     .complementary-products__image-wrapper {
       width: 70%;
       display: flex;
       justify-content: center;
     }
+
     .complementary-products__image-wrapper img {
       max-width: 100%;
       border-radius: 8px;
       display: block;
     }
+
     .complementary-products__info {
       display: inline;
       align-content: center;
       gap: 10px;
     }
+
     .complementary-products__vendor {
       font-size: 1rem;
       color: #555;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
+
     .complementary-products__product-title a {
       text-decoration: none;
       color: #121212;
     }
+
     .complementary-products__price {
       font-weight: bold;
       color: #333;
     }
+
     .complementary-products__swatches,
     .complementary-products__sizes {
       display: flex;
       gap: 0.5rem;
       flex-wrap: wrap;
     }
+
     .complementary-products__swatch {
       width: 22px;
       height: 22px;
@@ -237,6 +226,7 @@
       border: 1px solid #ccc;
       cursor: pointer;
     }
+
     .complementary-products__size-label {
       padding: 0.35rem 0.75rem;
       border: 1px solid #ccc;
@@ -246,11 +236,13 @@
       cursor: pointer;
       transition: all 0.2s ease;
     }
+
     .complementary-products__cta {
       display: flex;
       justify-content: center;
       align-items: center;
     }
+
     .complementary-products__add-to-cart {
       background-color: #005E95;
       color: #fff;
@@ -263,11 +255,13 @@
       text-transform: uppercase;
       transition: background 0.2s ease;
     }
+
     .complementary-products__add-to-cart:hover {
       background-color: #004a78;
     }
+
+    /* Inputs radio "ocultos" pero accesibles */
     .complementary-products__options input[type="radio"] {
-      /* La clase visually-hidden evita mostrar el input pero lo deja accesible */
       position: absolute;
       width: 1px;
       height: 1px;
@@ -278,10 +272,11 @@
       white-space: nowrap;
       border: 0;
     }
+
+    /* Borde destacado al estar seleccionado */
     .complementary-products__options input[type="radio"]:checked + label {
       border: 2px solid #005E95;
     }
-
 
     @media screen and (min-width: 1024px) {
       .complementary-products__item {
@@ -294,10 +289,6 @@
         align-items: center;
         flex-direction: column;
       }
-      .complementary-products__mobile-sizes,
-      .complementary-products__mobile-colors {
-        display: none;
-      }
       .complementary-products__container {
         padding-left: {{ section.settings.side_padding_desktop }}%;
         padding-right: {{ section.settings.side_padding_desktop }}%;
@@ -309,9 +300,6 @@
         grid-template-columns: 30% 40% 30%;
         gap: 1rem;
         padding: 1rem;
-      }
-      .complementary-products__desktop-variants {
-        display: none;
       }
       .complementary-products__image-wrapper {
         width: 100%;
