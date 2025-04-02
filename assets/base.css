@@ -10,6 +10,8 @@
   /* Custom Colors */
   --color-custom-pink: #D51B62;
   --color-custom-pink-rgb: 213, 27, 98;
+  --color-custom-black: #121212;
+  --color-custom-black-rgb: 18, 18, 18;
   
   /* Color Schemes */
   --color-scheme-custom-pink: {
@@ -18,6 +20,14 @@
     "buttons": {
       "background": var(--color-background),
       "text": var(--color-custom-pink)
+    }
+  }
+  --color-scheme-custom-black: {
+    "background": var(--color-custom-black),
+    "text": var(--color-background),
+    "buttons": {
+      "background": var(--color-background),
+      "text": var(--color-custom-black)
     }
   }
 }

@@ -58,6 +58,7 @@
 
   .collection-hero__description {
     max-width: 66.67%;
+    font-size: 1.5rem;
   }
 
   .collection-hero--with-image .collection-hero__description {

@@ -178,7 +178,7 @@
 }
 
 .facets__heading {
-  display: block;
+  display: none;
   color: rgba(var(--color-foreground), 0.85);
   font-size: 1.4rem;
   margin: -1.5rem 2rem 0 0;
@@ -194,9 +194,12 @@
 
 .facets__summary {
   color: rgba(var(--color-foreground), 0.75);
-  font-size: 1.4rem;
   padding: 0 1.75rem 0 0;
   margin-bottom: 1.5rem;
+  font-family: var(--font-ibm-plex-condensed);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-custom-black);
 }
 
 .facets__summary .svg-wrapper {
@@ -227,6 +230,7 @@
 .facets__summary:hover .facets__summary-label {
   text-decoration: underline;
   text-underline-offset: 0.3rem;
+
 }
 
 .facets__and-helptext {

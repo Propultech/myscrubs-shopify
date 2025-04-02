@@ -31,4 +31,37 @@
 
 .focus\:bg-custom-pink:focus {
   background-color: var(--color-custom-pink);
+}
+
+/* Custom Black Color Utilities */
+.color-custom-black {
+  color: var(--color-custom-black);
+}
+
+.bg-custom-black {
+  background-color: var(--color-custom-black);
+}
+
+.border-custom-black {
+  border-color: var(--color-custom-black);
+}
+
+.text-custom-black {
+  color: var(--color-custom-black);
+}
+
+.hover\:bg-custom-black:hover {
+  background-color: var(--color-custom-black);
+}
+
+.hover\:text-custom-black:hover {
+  color: var(--color-custom-black);
+}
+
+.focus\:bg-custom-black:focus {
+  background-color: var(--color-custom-black);
+}
+
+.focus\:text-custom-black:focus {
+  color: var(--color-custom-black);
 } 
