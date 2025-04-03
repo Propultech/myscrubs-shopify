@@ -355,7 +355,7 @@
   position: absolute;
   right: 0;
   top: 0;
-  z-index: 1;
+  z-index: 0;
 }
 
 .card__heading a:after {
@@ -603,6 +603,8 @@
   margin-top: 0.8rem;
   margin-bottom: 0.6rem;
   width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
 .card-product__swatches {
@@ -614,8 +616,6 @@
   margin-bottom: 0.4rem;
   width: 100%;
 }
-
-
 
 .card-wrapper .card-product__swatch-link {
   display: flex;
@@ -632,6 +632,11 @@
   background-color: transparent;
   overflow: hidden;
   margin: 0 auto;
+  position: relative;
+  z-index: 3;
+  cursor: pointer;
+  appearance: none;
+  border: 1px solid rgba(var(--color-foreground), 0.15);
 }
 
 .card-wrapper .card-product__swatch-link .swatch {
@@ -660,6 +665,13 @@
   margin-top: 0.3rem;
   text-align: left;
   display: block;
+  position: relative;
+  z-index: 3;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .card-product__swatch-more:hover {
@@ -693,4 +705,20 @@
     width: 100%;
     gap: .9rem;
   }
+}
+
+.card-wrapper .card-product__swatch-link.is-active {
+  border: 2px solid rgba(var(--color-foreground), 0.7);
+  transform: scale(1.1);
+}
+
+/* Modificar el comportamiento del pseudo-elemento para las tarjetas con swatches */
+.card-wrapper .card__heading a::after {
+  z-index: 0;
+}
+
+/* Asegurar que el enlace de título sea clicable */
+.card-wrapper .card__heading a {
+  position: relative;
+  z-index: 1;
 }

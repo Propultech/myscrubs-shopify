@@ -29,6 +29,10 @@
 
 {%- if has_color_option and card_product.has_only_default_variant == false -%}
   <div class="card-product__swatches-container">
+    <div class="card-product__swatches-header">
+      <span class="card-product__swatches-title visually-hidden">Colores disponibles</span>
+    </div>
+
     {%- liquid
       assign color_option = card_product.options_by_name[color_option_name]
       assign total_colors = color_option.values.size
@@ -40,20 +44,40 @@
         {%- if swatches_shown < max_swatches and value.swatch != blank -%}
           {%- liquid
             assign variant_for_value = null
+            assign variant_featured_image = null
             assign option_index = color_option_position | minus: 1
             for variant in card_product.variants
               if variant.options[option_index] == value.name
                 assign variant_for_value = variant
+                if variant.featured_media != null
+                  assign variant_featured_image = variant.featured_media
+                endif
                 break
               endif
             endfor
           -%}
-          <a
-            href="{{ card_product.url }}{% if variant_for_value %}?variant={{ variant_for_value.id }}{% endif %}"
-            class="card-product__swatch-link"
+          <button
+            type="button"
+            class="card-product__swatch-link js-card-swatch-link{% if variant_featured_image and variant_featured_image.id == card_product.featured_media.id %} is-active{% endif %}"
+            aria-label="Ver {{ card_product.title }} en color {{ value.name | escape }}"
+            data-variant-id="{% if variant_for_value %}{{ variant_for_value.id }}{% endif %}"
+            data-product-url="{{ card_product.url }}{% if variant_for_value %}?variant={{ variant_for_value.id }}{% endif %}"
+            {% if variant_featured_image %}
+              data-variant-image="{{ variant_featured_image | image_url: width: 720 }}"
+              data-variant-image-id="{{ variant_featured_image.id }}"
+              data-product-id="{{ card_product.id }}"
+              data-image-position="{% if card_product.featured_media %}{{ card_product.featured_media.position }}{% else %}1{% endif %}"
+            {% endif %}
+            data-swatch-color="{{ value.name | escape }}"
+            {% if variant_for_value.available == false %}
+              data-variant-unavailable="true"
+              aria-disabled="true"
+            {% endif %}
+            onclick="changeProductImage(this); this.dblclickTimeout = setTimeout(() => { this.dblclickTimeout = null; }, 300)"
+            ondblclick="clearTimeout(this.dblclickTimeout); window.location.href = this.dataset.productUrl"
           >
             {% render 'swatch', swatch: value.swatch, shape: 'circle' %}
-          </a>
+          </button>
           {%- assign swatches_shown = swatches_shown | plus: 1 -%}
         {%- endif -%}
       {%- endfor -%}
@@ -61,9 +85,15 @@
 
     {%- assign remaining_colors = total_colors | minus: swatches_shown -%}
     {%- if remaining_colors > 0 -%}
-      <a href="{{ card_product.url }}" class="card-product__swatch-more">
+      <button
+        type="button"
+        class="card-product__swatch-more"
+        data-product-url="{{ card_product.url }}"
+        aria-label="Ver {{ remaining_colors }} colores más de {{ card_product.title }}"
+        onclick="window.location.href='{{ card_product.url }}'"
+      >
         Disponible en {{ remaining_colors }} colores más
-      </a>
+      </button>
     {%- endif -%}
   </div>
 {%- endif -%}
