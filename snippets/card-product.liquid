@@ -205,35 +205,60 @@
 
             {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
 
-            {%- if card_product.has_only_default_variant == false
-              and card_product.options_by_name.Color != blank
-              or card_product.options_by_name.Colour != blank
+            {%- liquid
+              assign has_color_option = false
+              assign color_option_name = ''
+              assign color_option_position = 0
+
+              for option in card_product.options_with_values
+                assign downcased_option = option.name | downcase
+                if downcased_option contains 'color' or downcased_option contains 'colour'
+                  assign has_color_option = true
+                  assign color_option_name = option.name
+                  assign color_option_position = option.position
+                  break
+                endif
+              endfor
             -%}
-              <div class="card-product__swatches">
+
+            {%- if has_color_option and card_product.has_only_default_variant == false -%}
+              <div class="card-product__swatches-container">
                 {%- liquid
-                  assign color_option = card_product.options_by_name.Color
-                  if color_option == blank
-                    assign color_option = card_product.options_by_name.Colour
-                  endif
-                  assign swatch_count = 0
+                  assign color_option = card_product.options_by_name[color_option_name]
+                  assign total_colors = color_option.values.size
+                  assign max_swatches = 12
+                  assign swatches_shown = 0
                 -%}
-                {%- if color_option != blank -%}
+
+                <div class="card-product__swatches">
                   {%- for value in color_option.values -%}
-                    {%- if swatch_count < 3 and value.swatch != blank -%}
+                    {%- if swatches_shown < max_swatches and value.swatch != blank -%}
+                      {%- liquid
+                        assign variant_for_value = null
+                        assign option_index = color_option_position | minus: 1
+                        for variant in card_product.variants
+                          if variant.options[option_index] == value.name
+                            assign variant_for_value = variant
+                            break
+                          endif
+                        endfor
+                      -%}
                       <a
-                        href="{{ card_product.url }}?variant={{ value.variants.first.id }}"
+                        href="{{ card_product.url }}{% if variant_for_value %}?variant={{ variant_for_value.id }}{% endif %}"
                         class="card-product__swatch-link"
                       >
                         {% render 'swatch', swatch: value.swatch, shape: 'circle' %}
                       </a>
-                      {%- assign swatch_count = swatch_count | plus: 1 -%}
+                      {%- assign swatches_shown = swatches_shown | plus: 1 -%}
                     {%- endif -%}
                   {%- endfor -%}
-                  {%- if color_option.values.size > 3 -%}
-                    <a href="{{ card_product.url }}" class="card-product__swatch-more"
-                      >+{{ color_option.values.size | minus: 3 -}}
-                    </a>
-                  {%- endif -%}
+                </div>
+
+                {%- assign remaining_colors = total_colors | minus: swatches_shown -%}
+                {%- if remaining_colors > 0 -%}
+                  <a href="{{ card_product.url }}" class="card-product__swatch-more">
+                    Disponible en {{ remaining_colors }} colores más
+                  </a>
                 {%- endif -%}
               </div>
             {%- endif -%}
