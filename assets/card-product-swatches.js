@@ -52,6 +52,82 @@ function changeProductImage(element) {
 
   // Actualizar srcset si está disponible
   updateImageSrcset(productImage, variantImageUrl);
+
+  // Actualizar precios si existen
+  updatePrices(cardWrapper, element);
+}
+
+/**
+ * Actualiza los precios de un producto cuando se cambia de variante
+ * @param {HTMLElement} cardWrapper - El contenedor de la tarjeta del producto
+ * @param {HTMLElement} selectedSwatch - El swatch seleccionado
+ */
+function updatePrices(cardWrapper, selectedSwatch) {
+  // Verificar si el swatch tiene información de precios
+  if (!selectedSwatch.dataset.variantPrice) return;
+
+  // Encontrar los elementos de precio
+  const priceRegular = cardWrapper.querySelector('.price-item--regular');
+  const priceSale = cardWrapper.querySelector('.price-item--sale');
+  const compareAtPrice = cardWrapper.querySelector('.price-item--regular.price-item--last, s.price-item--regular');
+  const priceContainer = cardWrapper.querySelector('.price');
+
+  // Actualizar precio regular
+  if (priceRegular) {
+    priceRegular.textContent = selectedSwatch.dataset.variantPrice;
+  }
+
+  // Actualizar precio de oferta y comparativo
+  if (selectedSwatch.dataset.variantCompareAtPrice && compareAtPrice) {
+    compareAtPrice.textContent = selectedSwatch.dataset.variantCompareAtPrice;
+
+    if (priceSale) {
+      priceSale.textContent = selectedSwatch.dataset.variantPrice;
+    }
+
+    // Añadir clase de oferta
+    if (priceContainer) {
+      priceContainer.classList.add('price--on-sale');
+    }
+  } else {
+    // Quitar clase de oferta si no hay precio comparativo
+    if (priceContainer) {
+      priceContainer.classList.remove('price--on-sale');
+    }
+
+    // Limpiar precio comparativo
+    if (compareAtPrice) {
+      compareAtPrice.textContent = '';
+    }
+  }
+
+  // Actualizar badge de agotado
+  updateBadges(cardWrapper, selectedSwatch);
+}
+
+/**
+ * Actualiza los badges de producto según la disponibilidad de la variante
+ * @param {HTMLElement} cardWrapper - El contenedor de la tarjeta del producto
+ * @param {HTMLElement} selectedSwatch - El swatch seleccionado
+ */
+function updateBadges(cardWrapper, selectedSwatch) {
+  const soldOutBadge = cardWrapper.querySelector('.badge--sold-out');
+  const saleBadge = cardWrapper.querySelector('.badge--bottom-left.color-accent-2');
+
+  if (!soldOutBadge) return;
+
+  const isAvailable = selectedSwatch.dataset.variantAvailable === 'true';
+  const hasCompareAtPrice = selectedSwatch.dataset.variantCompareAtPrice !== '';
+
+  // Mostrar/ocultar badge de agotado
+  if (soldOutBadge) {
+    soldOutBadge.style.display = isAvailable ? 'none' : 'flex';
+  }
+
+  // Mostrar/ocultar badge de oferta
+  if (saleBadge) {
+    saleBadge.style.display = isAvailable && hasCompareAtPrice ? 'flex' : 'none';
+  }
 }
 
 /**

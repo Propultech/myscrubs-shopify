@@ -69,6 +69,11 @@
               data-image-position="{% if card_product.featured_media %}{{ card_product.featured_media.position }}{% else %}1{% endif %}"
             {% endif %}
             data-swatch-color="{{ value.name | escape }}"
+            {% if variant_for_value %}
+              data-variant-price="{{ variant_for_value.price | money }}"
+              data-variant-compare-at-price="{% if variant_for_value.compare_at_price > variant_for_value.price %}{{ variant_for_value.compare_at_price | money }}{% endif %}"
+              data-variant-available="{{ variant_for_value.available }}"
+            {% endif %}
             {% if variant_for_value.available == false %}
               data-variant-unavailable="true"
               aria-disabled="true"
