@@ -787,8 +787,8 @@
 }
 
 .card__information a.full-unstyled-link {
-  padding-top: 200% !important;
-  margin-top: -200% !important;
+  padding-top: 140% !important;
+  margin-top: -140% !important;
 }
 
 .product-card-wrapper {
