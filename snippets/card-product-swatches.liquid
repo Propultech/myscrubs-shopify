@@ -1,0 +1,99 @@
+{% comment %}
+  Renders a grid of product color swatches for card-product
+
+  Accepts:
+  - card_product: {Object} Product Liquid object
+  - max_swatches: {Number} Maximum number of swatches to display (default: 12)
+
+  Usage:
+  {% render 'card-product-swatches', card_product: card_product, max_swatches: 12 %}
+{% endcomment %}
+
+{%- liquid
+  assign has_color_option = false
+  assign color_option_name = ''
+  assign color_option_position = 0
+
+  for option in card_product.options_with_values
+    assign downcased_option = option.name | downcase
+    if downcased_option contains 'color' or downcased_option contains 'colour'
+      assign has_color_option = true
+      assign color_option_name = option.name
+      assign color_option_position = option.position
+      break
+    endif
+  endfor
+
+  assign max_swatches = max_swatches | default: 12
+-%}
+
+{%- if has_color_option and card_product.has_only_default_variant == false -%}
+  <div class="card-product__swatches-container">
+    <div class="card-product__swatches-header">
+      <span class="card-product__swatches-title visually-hidden">Colores disponibles</span>
+    </div>
+
+    {%- liquid
+      assign color_option = card_product.options_by_name[color_option_name]
+      assign total_colors = color_option.values.size
+      assign swatches_shown = 0
+    -%}
+
+    <div class="card-product__swatches">
+      {%- for value in color_option.values -%}
+        {%- if swatches_shown < max_swatches and value.swatch != blank -%}
+          {%- liquid
+            assign variant_for_value = null
+            assign variant_featured_image = null
+            assign option_index = color_option_position | minus: 1
+            for variant in card_product.variants
+              if variant.options[option_index] == value.name
+                assign variant_for_value = variant
+                if variant.featured_media != null
+                  assign variant_featured_image = variant.featured_media
+                endif
+                break
+              endif
+            endfor
+          -%}
+          <button
+            type="button"
+            class="card-product__swatch-link js-card-swatch-link{% if variant_featured_image and variant_featured_image.id == card_product.featured_media.id %} is-active{% endif %}"
+            aria-label="Ver {{ card_product.title }} en color {{ value.name | escape }}"
+            data-variant-id="{% if variant_for_value %}{{ variant_for_value.id }}{% endif %}"
+            data-product-url="{{ card_product.url | split: '?' | first }}{% if variant_for_value %}?variant={{ variant_for_value.id }}{% endif %}"
+            {% if variant_featured_image %}
+              data-variant-image="{{ variant_featured_image | image_url: width: 720 }}"
+              data-variant-image-id="{{ variant_featured_image.id }}"
+              data-product-id="{{ card_product.id }}"
+              data-image-position="{% if card_product.featured_media %}{{ card_product.featured_media.position }}{% else %}1{% endif %}"
+            {% endif %}
+            data-swatch-color="{{ value.name | escape }}"
+            {% if variant_for_value.available == false %}
+              data-variant-unavailable="true"
+              aria-disabled="true"
+            {% endif %}
+            onclick="changeProductImage(this); this.dblclickTimeout = setTimeout(() => { this.dblclickTimeout = null; }, 300)"
+            ondblclick="clearTimeout(this.dblclickTimeout); window.location.href = this.dataset.productUrl"
+          >
+            {% render 'swatch', swatch: value.swatch, shape: 'circle' %}
+          </button>
+          {%- assign swatches_shown = swatches_shown | plus: 1 -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    {%- assign remaining_colors = total_colors | minus: swatches_shown -%}
+    {%- if remaining_colors > 0 -%}
+      <button
+        type="button"
+        class="card-product__swatch-more"
+        data-product-url="{{ card_product.url | split: '?' | first }}"
+        aria-label="Ver {{ remaining_colors }} colores más de {{ card_product.title }}"
+        onclick="window.location.href='{{ card_product.url | split: '?' | first }}'"
+      >
+        Disponible en {{ remaining_colors }} colores más
+      </button>
+    {%- endif -%}
+  </div>
+{%- endif -%}

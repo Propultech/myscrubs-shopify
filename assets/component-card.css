@@ -355,7 +355,7 @@
   position: absolute;
   right: 0;
   top: 0;
-  z-index: 1;
+  z-index: 0;
 }
 
 .card__heading a:after {
@@ -594,4 +594,131 @@
   .grid__item:nth-child(8n) .product-card-wrapper:hover .shape--blob {
     clip-path: polygon(var(--shape--blob-5));
   }
+}
+
+/* Product card swatches */
+.card-product__swatches-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.8rem;
+  margin-bottom: 0.6rem;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.card-product__swatches {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.3rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.4rem;
+  width: 100%;
+}
+
+.card-wrapper .card-product__swatch-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border: 1px solid rgba(var(--color-foreground), 0.15);
+  border-radius: 50%;
+  padding: 0;
+  box-sizing: content-box;
+  transition: transform 0.2s ease;
+  width: calc(var(--swatch--size) + 2px);
+  height: calc(var(--swatch--size) + 2px);
+  background-color: transparent;
+  overflow: hidden;
+  margin: 0 auto;
+  position: relative;
+  z-index: 3;
+  cursor: pointer;
+  appearance: none;
+  border: 1px solid rgba(var(--color-foreground), 0.15);
+}
+
+.card-wrapper .card-product__swatch-link .swatch {
+  --swatch--size: 24px;
+  width: var(--swatch--size) !important;
+  height: var(--swatch--size) !important;
+  min-width: var(--swatch--size);
+  min-height: var(--swatch--size);
+  max-width: var(--swatch--size);
+  max-height: var(--swatch--size);
+  margin: 0;
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  border: none;
+}
+
+.card-wrapper .card-product__swatch-link:hover {
+  transform: scale(1.1);
+  border-color: rgba(var(--color-foreground), 0.4);
+}
+
+.card-product__swatch-more {
+  font-size: 1.2rem;
+  color: rgba(var(--color-foreground), 0.75);
+  text-decoration: none;
+  margin-top: 0.3rem;
+  text-align: left;
+  display: block;
+  position: relative;
+  z-index: 3;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.card-product__swatch-more:hover {
+  color: rgba(var(--color-foreground), 1);
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 750px) {
+  .card-product__swatches {
+    gap: 0.5rem;
+  }
+  
+  .card-wrapper .card-product__swatch-link {
+    --swatch--size: 20px;
+    width: calc(var(--swatch--size) + 2px);
+    height: calc(var(--swatch--size) + 2px);
+  }
+  
+  .card-wrapper .card-product__swatch-link .swatch {
+    --swatch--size: 20px;
+    width: var(--swatch--size) !important;
+    height: var(--swatch--size) !important;
+    min-width: var(--swatch--size);
+    min-height: var(--swatch--size);
+    max-width: var(--swatch--size);
+    max-height: var(--swatch--size);
+  }
+}
+@media screen and (max-width: 750px) {
+  .card-product__swatches {
+    width: 100%;
+    gap: .9rem;
+  }
+}
+
+.card-wrapper .card-product__swatch-link.is-active {
+  border: 2px solid rgba(var(--color-foreground), 0.7);
+  transform: scale(1.1);
+}
+
+/* Modificar el comportamiento del pseudo-elemento para las tarjetas con swatches */
+.card-wrapper .card__heading a::after {
+  z-index: 0;
+}
+
+/* Asegurar que el enlace de título sea clicable */
+.card-wrapper .card__heading a {
+  position: relative;
+  z-index: 1;
 }
