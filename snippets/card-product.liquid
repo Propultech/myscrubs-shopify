@@ -23,8 +23,8 @@
 {%- unless skip_styles -%}
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
   {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
-
   {{ 'component-price.css' | asset_url | stylesheet_tag }}
+  {{ 'component-swatch.css' | asset_url | stylesheet_tag }}
   {{ 'quick-order-list.css' | asset_url | stylesheet_tag }}
   {{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
 {%- endunless -%}
@@ -204,6 +204,40 @@
             {%- endif -%}
 
             {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
+
+            {%- if card_product.has_only_default_variant == false
+              and card_product.options_by_name.Color != blank
+              or card_product.options_by_name.Colour != blank
+            -%}
+              <div class="card-product__swatches">
+                {%- liquid
+                  assign color_option = card_product.options_by_name.Color
+                  if color_option == blank
+                    assign color_option = card_product.options_by_name.Colour
+                  endif
+                  assign swatch_count = 0
+                -%}
+                {%- if color_option != blank -%}
+                  {%- for value in color_option.values -%}
+                    {%- if swatch_count < 3 and value.swatch != blank -%}
+                      <a
+                        href="{{ card_product.url }}?variant={{ value.variants.first.id }}"
+                        class="card-product__swatch-link"
+                      >
+                        {% render 'swatch', swatch: value.swatch, shape: 'circle' %}
+                      </a>
+                      {%- assign swatch_count = swatch_count | plus: 1 -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+                  {%- if color_option.values.size > 3 -%}
+                    <a href="{{ card_product.url }}" class="card-product__swatch-more"
+                      >+{{ color_option.values.size | minus: 3 -}}
+                    </a>
+                  {%- endif -%}
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+
             {%- if card_product.quantity_price_breaks_configured? -%}
               {% if card_product.variants_count == 1 and quick_add == 'bulk' %}
                 {% liquid

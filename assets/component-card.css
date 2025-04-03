@@ -595,3 +595,36 @@
     clip-path: polygon(var(--shape--blob-5));
   }
 }
+
+/* Product card swatches */
+.card-product__swatches {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 0.75rem;
+}
+
+.card-product__swatch-link {
+  display: flex;
+  text-decoration: none;
+  border: 1px solid rgba(var(--color-foreground), 0.1);
+  border-radius: 50%;
+  padding: 1px;
+  transition: transform 0.2s ease;
+}
+
+.card-product__swatch-link:hover {
+  transform: scale(1.1);
+  border-color: rgba(var(--color-foreground), 0.4);
+}
+
+.card-product__swatch-more {
+  font-size: 1.2rem;
+  color: rgba(var(--color-foreground), 0.75);
+  text-decoration: none;
+}
+
+.card-product__swatch-more:hover {
+  color: rgba(var(--color-foreground), 1);
+  text-decoration: underline;
+}
