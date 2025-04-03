@@ -17,6 +17,32 @@
         "color_scheme": "scheme-1"
       }
     },
+    "collection_button_carousel_BGtCKj": {
+      "type": "collection-button-carousel",
+      "blocks": {
+        "button_KHT9Jy": {
+          "type": "button",
+          "settings": {
+            "title": "Nombre del botón",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_KHT9Jy"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "source": "metafield",
+        "show_controls": false,
+        "full_width": true,
+        "show_divider": false,
+        "padding_top": 4,
+        "padding_bottom": 12,
+        "color_scheme": "scheme-1"
+      }
+    },
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
@@ -40,6 +66,7 @@
   },
   "order": [
     "banner",
+    "collection_button_carousel_BGtCKj",
     "product-grid"
   ]
 }
