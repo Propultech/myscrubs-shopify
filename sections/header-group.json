@@ -45,6 +45,9 @@
     },
     "header": {
       "type": "header",
+      "custom_css": [
+        "#HeaderMenu-ofertas {color: #D51B62; text-transform: uppercase;}"
+      ],
       "settings": {
         "logo_position": "middle-left",
         "mobile_logo_position": "center",
