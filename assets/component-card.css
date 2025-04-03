@@ -599,9 +599,10 @@
 /* Product card swatches */
 .card-product__swatches {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.4rem;
   align-items: center;
-  margin-top: 0.75rem;
+  margin-top: 0.6rem;
+  margin-bottom: 0.4rem;
 }
 
 .card-product__swatch-link {
@@ -611,6 +612,16 @@
   border-radius: 50%;
   padding: 1px;
   transition: transform 0.2s ease;
+}
+
+.card-product__swatch-link .swatch {
+  --swatch--size: 20px;
+  width: var(--swatch--size) !important;
+  height: var(--swatch--size) !important;
+  min-width: var(--swatch--size);
+  min-height: var(--swatch--size);
+  max-width: var(--swatch--size);
+  max-height: var(--swatch--size);
 }
 
 .card-product__swatch-link:hover {
@@ -627,4 +638,16 @@
 .card-product__swatch-more:hover {
   color: rgba(var(--color-foreground), 1);
   text-decoration: underline;
+}
+
+@media screen and (min-width: 750px) {
+  .card-product__swatch-link .swatch {
+    --swatch--size: 24px;
+    width: var(--swatch--size) !important;
+    height: var(--swatch--size) !important;
+    min-width: var(--swatch--size);
+    min-height: var(--swatch--size);
+    max-width: var(--swatch--size);
+    max-height: var(--swatch--size);
+  }
 }
