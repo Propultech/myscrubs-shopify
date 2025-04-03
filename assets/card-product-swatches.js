@@ -13,6 +13,9 @@ const preloadedImages = new Map();
  * @param {HTMLElement} element - El botón de swatch en el que se hizo clic
  */
 function changeProductImage(element) {
+  // Verificar si es un swatch de variante no disponible
+  const isUnavailable = element.dataset.variantUnavailable === 'true';
+
   // Encontrar el contenedor de la tarjeta del producto
   const cardWrapper = element.closest('.card-wrapper');
   if (!cardWrapper) return;
@@ -53,7 +56,7 @@ function changeProductImage(element) {
   // Actualizar srcset si está disponible
   updateImageSrcset(productImage, variantImageUrl);
 
-  // Actualizar precios si existen
+  // Actualizar precios si existen, incluso para variantes no disponibles
   updatePrices(cardWrapper, element);
 }
 

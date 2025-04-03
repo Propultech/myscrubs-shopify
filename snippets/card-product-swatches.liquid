@@ -46,20 +46,29 @@
             assign variant_for_value = null
             assign variant_featured_image = null
             assign option_index = color_option_position | minus: 1
+            assign color_available = false
+
             for variant in card_product.variants
               if variant.options[option_index] == value.name
                 assign variant_for_value = variant
                 if variant.featured_media != null
                   assign variant_featured_image = variant.featured_media
                 endif
-                break
+
+                if variant.available
+                  assign color_available = true
+                endif
+
+                if variant_featured_image != null and color_available
+                  break
+                endif
               endif
             endfor
           -%}
           <button
             type="button"
-            class="card-product__swatch-link js-card-swatch-link{% if variant_featured_image and variant_featured_image.id == card_product.featured_media.id %} is-active{% endif %}"
-            aria-label="Ver {{ card_product.title }} en color {{ value.name | escape }}"
+            class="card-product__swatch-link js-card-swatch-link{% if variant_featured_image and variant_featured_image.id == card_product.featured_media.id %} is-active{% endif %}{% if color_available == false %} visually-disabled{% endif %}"
+            aria-label="Ver {{ card_product.title }} en color {{ value.name | escape }}{% if color_available == false %} - Agotado{% endif %}"
             data-variant-id="{% if variant_for_value %}{{ variant_for_value.id }}{% endif %}"
             data-product-url="{{ card_product.url | split: '?' | first }}{% if variant_for_value %}?variant={{ variant_for_value.id }}{% endif %}"
             {% if variant_featured_image %}
@@ -72,9 +81,9 @@
             {% if variant_for_value %}
               data-variant-price="{{ variant_for_value.price | money }}"
               data-variant-compare-at-price="{% if variant_for_value.compare_at_price > variant_for_value.price %}{{ variant_for_value.compare_at_price | money }}{% endif %}"
-              data-variant-available="{{ variant_for_value.available }}"
+              data-variant-available="{{ color_available }}"
             {% endif %}
-            {% if variant_for_value.available == false %}
+            {% if color_available == false %}
               data-variant-unavailable="true"
               aria-disabled="true"
             {% endif %}
@@ -82,6 +91,21 @@
             ondblclick="clearTimeout(this.dblclickTimeout); window.location.href = this.dataset.productUrl"
           >
             {% render 'swatch', swatch: value.swatch, shape: 'circle' %}
+            {% if color_available == false %}
+              <span class="visually-hidden">{{ 'products.product.sold_out' | t }}</span>
+              <span class="color-swatch-disabled-line">
+                <svg
+                  aria-hidden="true"
+                  focusable="false"
+                  class="icon cross-icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <line x1="0" y1="24" x2="24" y2="0" stroke-width="1" stroke="currentColor"></line>
+                </svg>
+              </span>
+            {% endif %}
           </button>
           {%- assign swatches_shown = swatches_shown | plus: 1 -%}
         {%- endif -%}

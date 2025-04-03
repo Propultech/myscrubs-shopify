@@ -722,3 +722,45 @@
   position: relative;
   z-index: 1;
 }
+
+/* Estilos para swatches disabled */
+.card-wrapper .card-product__swatch-link.visually-disabled {
+  opacity: 0.6;
+  position: relative;
+}
+
+.card-wrapper .card-product__swatch-link.visually-disabled .color-swatch-disabled-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.card-wrapper .card-product__swatch-link.visually-disabled .cross-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+.card-wrapper .card-product__swatch-link.visually-disabled:hover {
+  transform: none;
+  border-color: rgba(var(--color-foreground), 0.15);
+}
+
+/* Estilo para evitar hover effects en swatches agotados */
+.card-wrapper .card-product__swatch-link.visually-disabled .swatch {
+  opacity: 0.6;
+}
+
+/* Mantenemos el efecto visual para el swatch activo, incluso si está agotado */
+.card-wrapper .card-product__swatch-link.visually-disabled.is-active {
+  border: 2px solid rgba(var(--color-foreground), 0.7);
+}
