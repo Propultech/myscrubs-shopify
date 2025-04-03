@@ -644,7 +644,7 @@
 }
 
 .card-wrapper .card-product__swatch-link .swatch {
-  --swatch--size: 24px;
+  --swatch--size: 20px;
   width: var(--swatch--size) !important;
   height: var(--swatch--size) !important;
   min-width: var(--swatch--size);
@@ -709,11 +709,12 @@
     width: 100%;
     gap: .9rem;
   }
+  .card-wrapper .card-product__swatch-link .swatch {
+    --swatch--size: 17px;}
 }
 
 .card-wrapper .card-product__swatch-link.is-active {
   border: 2px solid rgba(var(--color-foreground), 0.7);
-  transform: scale(1.1);
 }
 
 /* Modificar el comportamiento del pseudo-elemento para las tarjetas con swatches */
