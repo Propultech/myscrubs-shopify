@@ -61,7 +61,7 @@
             class="card-product__swatch-link js-card-swatch-link{% if variant_featured_image and variant_featured_image.id == card_product.featured_media.id %} is-active{% endif %}"
             aria-label="Ver {{ card_product.title }} en color {{ value.name | escape }}"
             data-variant-id="{% if variant_for_value %}{{ variant_for_value.id }}{% endif %}"
-            data-product-url="{{ card_product.url }}{% if variant_for_value %}?variant={{ variant_for_value.id }}{% endif %}"
+            data-product-url="{{ card_product.url | split: '?' | first }}{% if variant_for_value %}?variant={{ variant_for_value.id }}{% endif %}"
             {% if variant_featured_image %}
               data-variant-image="{{ variant_featured_image | image_url: width: 720 }}"
               data-variant-image-id="{{ variant_featured_image.id }}"
@@ -88,9 +88,9 @@
       <button
         type="button"
         class="card-product__swatch-more"
-        data-product-url="{{ card_product.url }}"
+        data-product-url="{{ card_product.url | split: '?' | first }}"
         aria-label="Ver {{ remaining_colors }} colores más de {{ card_product.title }}"
-        onclick="window.location.href='{{ card_product.url }}'"
+        onclick="window.location.href='{{ card_product.url | split: '?' | first }}'"
       >
         Disponible en {{ remaining_colors }} colores más
       </button>
