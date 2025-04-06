@@ -188,10 +188,23 @@
   }
 
   .custom-block-heading {
-    font-size: 1.6rem;
     font-weight: 500;
-    margin: 0 0 10px;
-    color: rgb(var(--color-foreground));
+    font-size: 1.8rem;
+    font-family: var(--font-ibm-plex-condensed);
+    margin: 0;
+    line-height: calc(1 + 0.3 / var(--font-body-scale));
+    padding-bottom: 0.6rem;
+    padding-top: 0.6rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    .mobile-menu-custom-block {
+      display: flex;
+      line-height: calc(1 + 0.3 / var(--font-body-scale));
+      font-size: 1.7rem;
+      font-weight: 600;
+      padding: 1.1rem 3rem;
+    }
   }
 
   .custom-block-text {
