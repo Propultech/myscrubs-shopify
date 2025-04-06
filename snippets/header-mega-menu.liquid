@@ -2,7 +2,7 @@
   Renders a megamenu for the header.
 
   Usage:
-  {% render 'header-mega-menu' %}
+  {% render 'header-mega-menu', section: section %}
 {% endcomment %}
 
 <nav class="header__inline-menu">
@@ -35,7 +35,7 @@
                   role="list"
                 >
                   {%- for childlink in link.links -%}
-                    <li>
+                    <li class="mega-menu__link-item">
                       <a
                         id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
                         href="{{ childlink.url }}"
@@ -66,6 +66,48 @@
                       {%- endif -%}
                     </li>
                   {%- endfor -%}
+
+                  {%- comment -%} Mostrar bloques personalizados en el mega menú {%- endcomment -%}
+                  {%- for block in section.blocks -%}
+                    {%- if block.type == 'menu_block' and block.settings.parent_link_title == link.title -%}
+                      <li class="custom-mega-menu-block" data-column-position="{{ block.settings.column_position }}">
+                        <div class="custom-block-content">
+                          {% if block.settings.display_mode == 'html_only' %}
+                            {% if block.settings.text != blank %}
+                              <div class="custom-block-text custom-html-content">{{ block.settings.text }}</div>
+                            {% endif %}
+                          {% else %}
+                            {%- if block.settings.heading != blank -%}
+                              <h3 class="custom-block-heading">{{ block.settings.heading }}</h3>
+                            {%- endif -%}
+
+                            {%- if block.settings.text != blank -%}
+                              <div class="custom-block-text">{{ block.settings.text }}</div>
+                            {%- endif -%}
+
+                            {%- if block.settings.image != blank -%}
+                              <div class="custom-block-image">
+                                {%- assign img_url = block.settings.image | image_url: width: 300 -%}
+                                <img
+                                  src="{{ img_url }}"
+                                  alt="{{ block.settings.image.alt | escape }}"
+                                  width="{{ block.settings.image.width }}"
+                                  height="{{ block.settings.image.height }}"
+                                  loading="lazy"
+                                >
+                              </div>
+                            {%- endif -%}
+
+                            {%- if block.settings.button_label != blank and block.settings.button_link != blank -%}
+                              <a href="{{ block.settings.button_link }}" class="custom-block-button button">
+                                {{ block.settings.button_label | escape }}
+                              </a>
+                            {%- endif -%}
+                          {% endif %}
+                        </div>
+                      </li>
+                    {%- endif -%}
+                  {%- endfor -%}
                 </ul>
               </div>
             </details>
@@ -92,3 +134,256 @@
     {%- endfor -%}
   </ul>
 </nav>
+
+<style>
+  .custom-mega-menu-block {
+    display: flex;
+    flex-direction: column;
+    will-change: transform, opacity;
+    margin-top: 20px; /* Separación entre elementos regulares y bloques */
+  }
+
+  .custom-block-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 4px;
+    height: 100%;
+    contain: content;
+  }
+
+  .custom-block-heading {
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin: 0 0 10px;
+  }
+
+  .custom-block-text {
+    font-size: 1.4rem;
+    line-height: 1.5;
+  }
+
+  /* Estilos para el contenido HTML personalizado */
+  .custom-html-content {
+    width: 100%;
+    height: 100%;
+  }
+
+  .custom-html-content > *:first-child {
+    margin-top: 0;
+  }
+
+  .custom-html-content > *:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Estilos para los menús de enlaces en el contenido HTML */
+  .custom-block-text .menu-links-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .custom-block-text .menu-links-grid li {
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+
+  /* Estilo de viñetas */
+  .custom-block-text .menu-links-grid li:before {
+    content: '■';
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 0.8rem;
+    color: rgb(var(--color-foreground));
+    vertical-align: middle;
+  }
+
+  .custom-block-text a {
+    display: inline-block;
+    text-decoration: none;
+    color: rgb(var(--color-link));
+    font-size: 1.4rem;
+    line-height: 1.6;
+    padding: 5px 0;
+    transition: opacity 0.2s ease;
+    vertical-align: middle;
+  }
+
+  .custom-block-text a:hover {
+    color: rgb(var(--color-link));
+    opacity: 0.85;
+    transform: none;
+  }
+
+  /* Estilos homologados con el menú estándar */
+  .custom-block-text .menu-links-grid a {
+    color: rgb(var(--color-link));
+    font-weight: 400;
+  }
+
+  /* Quitar la transformación en hover para mantener consistencia */
+  .custom-block-text a:hover {
+    transform: none;
+  }
+
+  /* Variantes de estilo para enlaces */
+  .custom-block-text a.highlight {
+    font-weight: 500;
+    text-decoration: underline;
+  }
+
+  .custom-block-text a.highlight:hover {
+    text-decoration: none;
+  }
+
+  .custom-block-text a.with-bg {
+    background-color: rgba(var(--color-foreground), 0.04);
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin: 2px 0;
+  }
+
+  .custom-block-text a.with-bg:hover {
+    background-color: rgba(var(--color-foreground), 0.06);
+  }
+
+  .custom-block-text a.view-all {
+    margin-top: 12px;
+    font-style: italic;
+    color: rgb(var(--color-link));
+    opacity: 0.9;
+  }
+
+  .custom-block-text a.view-all:hover {
+    opacity: 1;
+  }
+
+  .custom-block-text h3,
+  .custom-block-text h4 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 15px 0 10px;
+    color: rgb(var(--color-foreground));
+  }
+
+  .custom-block-text h3:first-child,
+  .custom-block-text h4:first-child {
+    margin-top: 0;
+  }
+
+  /* Separadores */
+  .custom-block-text hr {
+    border: none;
+    border-top: 1px solid rgba(var(--color-foreground), 0.08);
+    margin: 12px 0;
+  }
+
+  .custom-block-image {
+    margin-bottom: 10px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .custom-block-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .custom-block-image:hover img {
+    transform: scale(1.05);
+  }
+
+  .custom-block-button {
+    margin-top: auto;
+    display: inline-block;
+    padding: 8px 15px;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 500;
+    border-radius: 4px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .custom-block-button:hover {
+    opacity: 0.85;
+  }
+
+  /* Ajustes para el layout del mega menú */
+  .mega-menu__list {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  /* Configuración de columnas para bloques personalizados */
+  [data-column-position='1'] {
+    grid-column: 1;
+  }
+  [data-column-position='2'] {
+    grid-column: 2;
+  }
+  [data-column-position='3'] {
+    grid-column: 3;
+  }
+  [data-column-position='4'] {
+    grid-column: 4;
+  }
+  [data-column-position='5'] {
+    grid-column: 5;
+  }
+  [data-column-position='6'] {
+    grid-column: 6;
+  }
+
+  /* Estilos para móvil */
+  @media screen and (max-width: 749px) {
+    .mega-menu__list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Separador visual entre los bloques */
+    .custom-mega-menu-block {
+      padding-top: 10px;
+      border-top: 1px solid rgba(var(--color-foreground), 0.08);
+    }
+
+    /* Espaciado adicional entre bloques en móvil */
+    .custom-mega-menu-block:not(:first-child) {
+      margin-top: 10px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    /* En móvil muy pequeño, alinear todo en una columna */
+    .mega-menu__list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Crear un grupo visual para los bloques personalizados */
+    .custom-mega-menu-block {
+      margin-top: 20px;
+    }
+
+    /* Espaciado entre los bloques en móvil */
+    .custom-mega-menu-block + .custom-mega-menu-block {
+      margin-top: 15px;
+    }
+  }
+
+  /* Para mejorar la visibilidad en móvil sin cambiar la estructura */
+  @media (hover: none) {
+    .custom-block-image:hover img {
+      transform: none;
+    }
+  }
+</style>

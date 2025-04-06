@@ -759,15 +759,33 @@
           "content": "Contenido del bloque"
         },
         {
+          "type": "select",
+          "id": "display_mode",
+          "label": "Modo de visualización",
+          "options": [
+            {
+              "value": "structured",
+              "label": "Elementos estructurados"
+            },
+            {
+              "value": "html_only",
+              "label": "Solo HTML personalizado"
+            }
+          ],
+          "default": "structured",
+          "info": "Elige si quieres mostrar los elementos estructurados (título, texto, imagen, botón) o solo el contenido HTML del campo de texto"
+        },
+        {
           "type": "text",
           "id": "heading",
           "label": "Título del bloque",
           "default": "Título personalizado"
         },
         {
-          "type": "richtext",
+          "type": "textarea",
           "id": "text",
-          "label": "Texto",
+          "label": "Texto / Contenido HTML",
+          "info": "Cuando el 'Modo de visualización' es 'Solo HTML personalizado', puedes introducir código HTML directamente en este campo",
           "default": "<p>Agrega texto personalizado aquí</p>"
         },
         {
