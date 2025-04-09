@@ -1,3 +1,4 @@
+
 {% comment %}
   Renders a product media gallery. Should be used with 'media-gallery.js'
   Also see 'product-media-modal'
@@ -66,13 +67,13 @@
   data-disable-image-grouping="{{ product.metafields.custom.disable_image_grouping.value }}"
 >
   <div id="GalleryStatus-{{ section.id }}" class="visually-hidden" role="status"></div>
-  <slider-component id="GalleryViewer-{{ section.id }}" class="slider-mobile-gutter">
+  <slider-component id="GalleryViewer-{{ section.id }}" class="slider-mobile-gutter ">
     <a class="skip-to-content-link button visually-hidden quick-add-hidden" href="#ProductInfo-{{ section.id }}">
       {{ 'accessibility.skip_to_product_info' | t }}
     </a>
     <ul
-      id="Slider-Gallery-{{ section.id }}"
-      class="product__media-list contains-media grid grid--peek list-unstyled slider slider--mobile"
+      id="Slider-Gallery-{{ section.id }} "
+      class="product__media-list contains-media grid grid--peek list-unstyled slider slider--mobile swiper-container"
       role="list"
     >
       {%- if product.selected_or_first_available_variant.featured_media != null -%}
@@ -109,7 +110,7 @@
         {% endif %}
         <li
           id="Slide-{{ section.id }}-{{ featured_media.id }}"
-          class="product__media-item grid__item slider__slide is-active{% if single_media_visible %} product__media-item--single{% endif %}{% if featured_media.media_type != 'image' %} product__media-item--full{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+          class="swiper-slide product__media-item grid__item slider__slide is-active{% if single_media_visible %} product__media-item--single{% endif %}{% if featured_media.media_type != 'image' %} product__media-item--full{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
           data-media-id="{{ section.id }}-{{ featured_media.id }}"
           data-variant-grouping="{{ variant_grouping_name }}"
         >
@@ -184,7 +185,7 @@
           {% endif %}
           <li
             id="Slide-{{ section.id }}-{{ media.id }}"
-            class="{% if hide_image %}hide-image {% endif %}product__media-item grid__item slider__slide{% if single_media_visible %} product__media-item--single{% endif %}{% if product.selected_or_first_available_variant.featured_media == nil and forloop.index == 1 %} is-active{% endif %}{% if media.media_type != 'image' %} product__media-item--full{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+            class="swiper-slide {% if hide_image %}hide-image {% endif %}product__media-item grid__item slider__slide{% if single_media_visible %} product__media-item--single{% endif %}{% if product.selected_or_first_available_variant.featured_media == nil and forloop.index == 1 %} is-active{% endif %}{% if media.media_type != 'image' %} product__media-item--full{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
             data-media-id="{{ section.id }}-{{ media.id }}"
             data-variant-grouping="{{ variant_grouping_name }}"
           >
@@ -213,6 +214,8 @@
         {%- endunless -%}
       {%- endfor -%}
     </ul>
+<div class="slide-button-prev">&lt;</div>
+<div class="slide-button-next">&gt;</div>
     <div class="slider-buttons quick-add-hidden{% if hide_mobile_slider %} small-hide{% endif %}">
       <button
         type="button"
@@ -492,3 +495,99 @@
     </slider-component>
   {%- endif -%}
 </media-gallery>
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+  const slides = document.querySelectorAll('.swiper-container li');
+  const updateActiveSlide = (newIndex) => {
+    const currentActive = document.querySelector('.swiper-container .is-active');
+    currentActive.classList.remove('is-active');
+    
+    slides[newIndex].classList.add('is-active');
+  };
+
+
+  const nextButton = document.querySelector('.slide-button-next');
+  nextButton.addEventListener('click', () => {
+    
+    const currentActive = document.querySelector('.swiper-container .is-active');
+    const currentIndex = Array.from(slides).indexOf(currentActive);
+
+    
+    let nextIndex = currentIndex + 1;
+    if (nextIndex >= slides.length) {
+      nextIndex = 0; // Volver al primer slide si estamos al final
+    }
+    updateActiveSlide(nextIndex);
+  });
+
+  const prevButton = document.querySelector('.slide-button-prev');
+  prevButton.addEventListener('click', () => {
+    const currentActive = document.querySelector('.swiper-container .is-active');
+    const currentIndex = Array.from(slides).indexOf(currentActive);
+
+    let prevIndex = currentIndex - 1;
+    if (prevIndex < 0) {
+      prevIndex = slides.length - 1; // Volver al último slide si estamos al principio
+    }
+    updateActiveSlide(prevIndex);
+  });
+});
+
+
+</script>
+
+<style>
+
+fieldset.js.product-form__input.product-form__input--pill {
+    width: 101px;
+    min-width: 200px;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.slider-counter.caption{
+  display:none;
+}
+
+.price .price-item, div.product__title h1, .form__label span, .product-form__submit, .product-form__buttons span {
+    font-family: var(--font-ibm-plex);
+}
+
+.price .price-item{
+  font-weight:700;
+}
+
+.slide-button-next, .slide-button-prev {
+  display:none;
+}
+
+.product-form__input .form__label{
+  font-weight:500;  
+}
+
+@media (min-width: 768px){
+  
+  .slide-button-next, .slide-button-prev {
+      position: absolute;
+      top:  50%;
+      width: 15px;
+      height: 15px;
+      z-index: 10;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: black;
+  }
+
+  .slide-button-next{
+    right:10px
+  }
+
+  .slide-button-prev{
+    left:10px
+  }
+}
+
+</style>
