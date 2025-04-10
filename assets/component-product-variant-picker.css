@@ -73,6 +73,9 @@ variant-selects {
   transition: border var(--duration-short) ease;
   cursor: pointer;
   position: relative;
+  font-family: var(--font-ibm-plex-condensed);
+  font-weight: 700;
+  color: var(--color-custom-black);
 }
 
 .product-form__input--pill input[type='radio'] + label:before {
@@ -117,6 +120,7 @@ variant-selects {
   border-color: rgba(var(--color-foreground), 0.1);
   color: rgba(var(--color-foreground), 0.6);
   text-decoration: line-through;
+  font-weight: 400;
 }
 
 .product-form__input--pill input[type='radio'].disabled:checked + label,

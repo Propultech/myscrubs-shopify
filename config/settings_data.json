@@ -9,7 +9,7 @@
  */
 {
   "current": {
-    "logo": "shopify://shop_images/Logo_2x_2a6fa293-aa45-4c0a-9fd1-e0f7fb854a1d.png",
+    "logo": "shopify://shop_images/Logo_MYSCRUBS_Color_Full_1.svg",
     "logo_width": 200,
     "type_header_font": "ibm_plex_sans_n5",
     "heading_scale": 100,
@@ -30,7 +30,7 @@
     "buttons_shadow_blur": 5,
     "variant_pills_border_thickness": 1,
     "variant_pills_border_opacity": 55,
-    "variant_pills_radius": 40,
+    "variant_pills_radius": 4,
     "variant_pills_shadow_opacity": 0,
     "variant_pills_shadow_horizontal_offset": 0,
     "variant_pills_shadow_vertical_offset": 4,
@@ -102,13 +102,13 @@
     "drawer_shadow_horizontal_offset": 0,
     "drawer_shadow_vertical_offset": 4,
     "drawer_shadow_blur": 5,
-    "badge_position": "top right",
+    "badge_position": "top left",
     "badge_corner_radius": 40,
-    "sale_badge_color_scheme": "scheme-4",
+    "sale_badge_color_scheme": "scheme-5c860b4a-6162-49e7-8b08-1e05697fb902",
     "sold_out_badge_color_scheme": "scheme-3",
     "brand_headline": "Lorem ipsum",
     "brand_description": "<p>Lorem ipsum</p>",
-    "brand_image": "shopify://shop_images/Logo_2x_2a6fa293-aa45-4c0a-9fd1-e0f7fb854a1d.png",
+    "brand_image": "shopify://shop_images/Logo_MYSCRUBS_Color_Full_1.svg",
     "brand_image_width": 100,
     "social_facebook_link": "",
     "social_instagram_link": "",
@@ -146,7 +146,7 @@
     "color_schemes": {
       "scheme-1": {
         "settings": {
-          "background": "#ffffff",
+          "background": "#f8f8f8",
           "background_gradient": "",
           "text": "#121212",
           "button": "#106b98",
@@ -157,7 +157,7 @@
       },
       "scheme-2": {
         "settings": {
-          "background": "#f8f8f8",
+          "background": "#ffffff",
           "background_gradient": "",
           "text": "#121212",
           "button": "#121212",
@@ -205,6 +205,17 @@
           "background_gradient": "",
           "text": "#ffffff",
           "button": "#106b98",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-5c860b4a-6162-49e7-8b08-1e05697fb902": {
+        "settings": {
+          "background": "#d51b62",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#d51b62",
           "button_label": "#ffffff",
           "secondary_button_label": "#121212",
           "shadow": "#121212"

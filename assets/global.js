@@ -287,7 +287,6 @@ function debounce(fn, wait) {
   };
 }
 
-
 function throttle(fn, delay) {
   let lastCall = 0;
   return function (...args) {
@@ -745,6 +744,22 @@ class SliderComponent extends HTMLElement {
     this.slider.addEventListener('scroll', this.update.bind(this));
     this.prevButton.addEventListener('click', this.onButtonClick.bind(this));
     this.nextButton.addEventListener('click', this.onButtonClick.bind(this));
+
+    this.sliderControlWrapper = this.querySelector('.slider-buttons');
+
+    if (!this.sliderControlWrapper) return;
+
+    this.sliderControlLinksArray = Array.from(this.sliderControlWrapper.querySelectorAll('.slider-counter__link'));
+    this.sliderControlLinksArray.forEach((link) => link.addEventListener('click', this.linkToSlide.bind(this)));
+  }
+
+  linkToSlide(event) {
+    event.preventDefault();
+    const slideIndex = this.sliderControlLinksArray.indexOf(event.currentTarget);
+    const slideScrollPosition = this.sliderItemsToShow[slideIndex].offsetLeft;
+    this.slider.scrollTo({
+      left: slideScrollPosition,
+    });
   }
 
   initPages() {
@@ -799,6 +814,14 @@ class SliderComponent extends HTMLElement {
       this.nextButton.setAttribute('disabled', 'disabled');
     } else {
       this.nextButton.removeAttribute('disabled');
+    }
+
+    // Actualizar el estado de los dots
+    if (this.sliderControlLinksArray && this.sliderControlLinksArray.length) {
+      this.sliderControlLinksArray.forEach((link, index) => {
+        link.classList.toggle('slider-counter__link--active', index === this.currentPage - 1);
+        link.setAttribute('aria-current', index === this.currentPage - 1);
+      });
     }
   }
 
@@ -1282,51 +1305,39 @@ if (!customElements.get('bulk-add')) {
 }
 
 class CartPerformance {
-  static #metric_prefix = "cart-performance"
+  static #metric_prefix = 'cart-performance';
 
   static createStartingMarker(benchmarkName) {
-    const metricName = `${CartPerformance.#metric_prefix}:${benchmarkName}`
+    const metricName = `${CartPerformance.#metric_prefix}:${benchmarkName}`;
     return performance.mark(`${metricName}:start`);
   }
 
   static measureFromEvent(benchmarkName, event) {
-    const metricName = `${CartPerformance.#metric_prefix}:${benchmarkName}`
+    const metricName = `${CartPerformance.#metric_prefix}:${benchmarkName}`;
     const startMarker = performance.mark(`${metricName}:start`, {
-      startTime: event.timeStamp
+      startTime: event.timeStamp,
     });
 
     const endMarker = performance.mark(`${metricName}:end`);
 
-    performance.measure(
-      benchmarkName,
-      `${metricName}:start`,
-      `${metricName}:end`
-    );
+    performance.measure(benchmarkName, `${metricName}:start`, `${metricName}:end`);
   }
 
   static measureFromMarker(benchmarkName, startMarker) {
-    const metricName = `${CartPerformance.#metric_prefix}:${benchmarkName}`
+    const metricName = `${CartPerformance.#metric_prefix}:${benchmarkName}`;
     const endMarker = performance.mark(`${metricName}:end`);
 
-    performance.measure(
-      benchmarkName,
-      startMarker.name,
-      `${metricName}:end`
-    );
+    performance.measure(benchmarkName, startMarker.name, `${metricName}:end`);
   }
 
   static measure(benchmarkName, callback) {
-    const metricName = `${CartPerformance.#metric_prefix}:${benchmarkName}`
+    const metricName = `${CartPerformance.#metric_prefix}:${benchmarkName}`;
     const startMarker = performance.mark(`${metricName}:start`);
 
     callback();
 
     const endMarker = performance.mark(`${metricName}:end`);
 
-    performance.measure(
-      benchmarkName,
-      `${metricName}:start`,
-      `${metricName}:end`
-    );
+    performance.measure(benchmarkName, `${metricName}:start`, `${metricName}:end`);
   }
 }

@@ -205,7 +205,6 @@
 
             {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
 
-            {% comment %}Render product color swatches{% endcomment %}
             {% render 'card-product-swatches', card_product: card_product, max_swatches: 12 %}
 
             {%- if card_product.quantity_price_breaks_configured? -%}

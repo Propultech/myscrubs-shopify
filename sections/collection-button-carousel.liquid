@@ -1,0 +1,264 @@
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{{ 'collection-button-carousel.css' | asset_url | stylesheet_tag }}
+
+<script src="{{ 'collection-button-carousel.js' | asset_url }}" defer="defer"></script>
+
+<collection-button-carousel class="collection-button-carousel color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_divider %} section-{{ section.id }}-padding{% endif %}">
+  <div class="page-width{% if section.settings.full_width %} page-width-desktop{% endif %}">
+    {% if section.settings.title != blank %}
+      <div class="title-wrapper-with-link title-wrapper--self-padded-mobile title-wrapper--no-top-margin">
+        <h2 class="title {{ section.settings.heading_size }}">
+          {{ section.settings.title | escape }}
+        </h2>
+      </div>
+    {% endif %}
+
+    <slider-component class="slider-mobile-gutter">
+      <ul
+        class="collection-button-list"
+        id="Slider-{{ section.id }}"
+        role="list"
+      >
+        {%- if section.settings.source == 'manual' -%}
+          {%- for block in section.blocks -%}
+            <li
+              class="collection-button-item {% if forloop.first %}collection-button-item--first{% endif %} {% if forloop.last %}collection-button-item--last{% endif %}"
+              {{ block.shopify_attributes }}
+            >
+              <a
+                href="{{ block.settings.link }}"
+                class="collection-button{% if block.settings.link == request.path %} collection-button--active{% endif %}"
+              >
+                {{ block.settings.title | escape }}
+              </a>
+            </li>
+          {%- endfor -%}
+        {%- elsif section.settings.source == 'metafield' -%}
+          {%- if collection.metafields.theme.categorias_relacionadas != blank -%}
+            {%- for related_collection in collection.metafields.theme.categorias_relacionadas.value -%}
+              <li
+                class="collection-button-item {% if forloop.first %}collection-button-item--first{% endif %} {% if forloop.last %}collection-button-item--last{% endif %}"
+              >
+                <a
+                  href="{{ related_collection.url }}"
+                  class="collection-button{% if related_collection.url == request.path %} collection-button--active{% endif %}"
+                >
+                  {{ related_collection.title | escape }}
+                </a>
+              </li>
+            {%- endfor -%}
+          {%- endif -%}
+        {%- endif -%}
+      </ul>
+
+      {%- if section.settings.show_controls -%}
+        <div class="slider-buttons no-js-hidden">
+          <button
+            type="button"
+            class="slider-button slider-button--prev"
+            name="previous"
+            aria-label="{{ 'general.slider.previous_slide' | t }}"
+          >
+            {% render 'icon-caret' %}
+          </button>
+          <div class="slider-counter caption">
+            <span class="slider-counter--current">1</span>
+            <span aria-hidden="true"> / </span>
+            <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
+            <span class="slider-counter--total">{{ section.blocks.size }}</span>
+          </div>
+          <button
+            type="button"
+            class="slider-button slider-button--next"
+            name="next"
+            aria-label="{{ 'general.slider.next_slide' | t }}"
+          >
+            {% render 'icon-caret' %}
+          </button>
+        </div>
+      {%- endif -%}
+    </slider-component>
+  </div>
+</collection-button-carousel>
+
+{% if section.settings.show_divider %}
+  <div class="section-{{ section.id }}-padding">
+    <div class="horizontal-divider"></div>
+  </div>
+{% endif %}
+
+{% stylesheet %}
+  {%- if section.settings.show_divider -%}
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+  {%- endif -%}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Carousel de botones",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Categorías",
+      "label": "Título"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h0",
+          "label": "H0"
+        }
+      ],
+      "default": "h2",
+      "label": "Tamaño del título"
+    },
+    {
+      "type": "select",
+      "id": "source",
+      "options": [
+        {
+          "value": "manual",
+          "label": "Manual"
+        },
+        {
+          "value": "metafield",
+          "label": "Metafield de colección"
+        }
+      ],
+      "default": "manual",
+      "label": "Fuente de datos",
+      "info": "Si seleccionas 'Metafield de colección', se usará el metafield theme.categorias_relacionadas de la colección actual."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_controls",
+      "default": true,
+      "label": "Mostrar controles de navegación"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "default": true,
+      "label": "Ancho completo en desktop"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "default": false,
+      "label": "Mostrar divisor de sección"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding superior",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding inferior",
+      "default": 36
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "scheme-1",
+          "label": "Scheme 1"
+        },
+        {
+          "value": "scheme-2",
+          "label": "Scheme 2"
+        },
+        {
+          "value": "scheme-3",
+          "label": "Scheme 3"
+        },
+        {
+          "value": "scheme-4",
+          "label": "Scheme 4"
+        },
+        {
+          "value": "scheme-5",
+          "label": "Scheme 5"
+        }
+      ],
+      "default": "scheme-1",
+      "label": "Esquema de color"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "button",
+      "name": "Botón",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Nombre del botón",
+          "label": "Texto del botón"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Enlace"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Carousel de botones",
+      "blocks": [
+        {
+          "type": "button"
+        },
+        {
+          "type": "button"
+        },
+        {
+          "type": "button"
+        },
+        {
+          "type": "button"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

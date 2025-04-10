@@ -1,0 +1,132 @@
+<ul class="custom-bread-crumbs-list" role="navigation" aria-label="breadcrumbs">
+  <li class="custom-bread-crumbs-list-items">
+    <a title="Home" href="{{- shop.url -}}" class="breadcrumbs-url">
+      <span class="custom-bread-crumbs-list-title">Home</span>
+    </a>
+  </li>
+  {% if template contains 'page' %}
+    <!-- PAGE -->
+    <span class="breadcrumbs-arrow" aria-hidden="true">{% render 'breadcrumbs-arrow' %}</span>
+    <li class="custom-bread-crumbs-list-items">
+      <a href="{{ page.url }}" class="breadcrumbs-url">
+        <span class="custom-bread-crumbs-list-title">{{ page.title }}</span>
+      </a>
+    </li>
+  {% elsif template contains 'product' %}
+    <!-- PRODUCT -->
+    <span class="breadcrumbs-arrow" aria-hidden="true">{% render 'breadcrumbs-arrow' %}</span>
+    <li class="custom-bread-crumbs-list">
+      <a href="{{ product.url }}" class="breadcrumbs-url">
+        <span class="custom-bread-crumbs-list-title">{{ product.title }}</span>
+      </a>
+    </li>
+  {% elsif template contains 'collection' and collection.handle %}
+    <!-- COLLECTION -->
+    <span class="breadcrumbs-arrow" aria-hidden="true">{% render 'breadcrumbs-arrow' %}</span>
+    {% if current_tags %}
+      <li class="custom-bread-crumbs-list-items">
+        <a href="{{ collection.url }}" class="breadcrumbs-url">
+          <span class="custom-bread-crumbs-list-title">{{ collection.title }}</span>
+        </a>
+      </li>
+      <span class="breadcrumbs-arrow" aria-hidden="true">{% render 'breadcrumbs-arrow' %}</span>
+      {{ current_tags | join: ' + ' }}
+    {% else %}
+      <li class="custom-bread-crumbs-list-items">
+        <a href="{{ collection.url }}" class="breadcrumbs-url">
+          <span class="custom-bread-crumbs-list-title">{{ collection.title }}</span>
+        </a>
+      </li>
+    {% endif %}
+
+    <!-- BLOG -->
+  {% elsif template == 'blog' %}
+    <span class="breadcrumbs-arrow" aria-hidden="true"> {% render 'breadcrumbs-arrow' %} </span>
+    <li class="custom-bread-crumbs-list-items">
+      <a href="{{ blog.url }}" class="breadcrumbs-url">
+        <span class="custom-bread-crumbs-list-title">{{ blog.title }}</span>
+      </a>
+    </li>
+
+    <!-- ARTICLE -->
+  {% elsif template == 'article' %}
+    <span class="breadcrumbs-arrow" aria-hidden="true"> {% render 'breadcrumbs-arrow' %} </span>
+    <li class="custom-bread-crumbs-list-items">
+      <a href="{{ blog.url }}" class="breadcrumbs-url">
+        <span class="custom-bread-crumbs-list-title">{{ blog.title }}</span>
+      </a>
+    </li>
+    <span class="breadcrumbs-arrow" aria-hidden="true"> {% render 'breadcrumbs-arrow' %} </span>
+    <li class="custom-bread-crumbs-list">
+      <a href="{{ article.url }}" class="breadcrumbs-url">
+        <span class="custom-bread-crumbs-list-title">{{ article.title }}</span>
+      </a>
+    </li>
+  {% elsif template == 'search' %}
+    <span class="breadcrumbs-arrow" aria-hidden="true"> {% render 'breadcrumbs-arrow' %} </span>
+    <li class="custom-bread-crumbs-list-items">
+      <a href="{{ routes.search_url }}" class="breadcrumbs-url">
+        <span class="custom-bread-crumbs-list-title">Search</span>
+      </a>
+    </li>
+  {% else %}
+    <span class="breadcrumbs-arrow" aria-hidden="true"> {% render 'breadcrumbs-arrow' %} </span>
+    <li class="custom-bread-crumbs-list-items">
+      <a href="{{ page.url }}" class="breadcrumbs-url">
+        <span class="custom-bread-crumbs-list-title">{{ page_title }}</span>
+      </a>
+    </li>
+  {% endif %}
+</ul>
+
+<style>
+  .custom-bread-crumbs-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+    text-transform: uppercase;
+  }
+  .custom-bread-crumbs-list .custom-bread-crumbs-list-items a.breadcrumbs-url {
+    color: #000000;
+    font-size: 14px;
+    line-height: 20px;
+    text-decoration: none;
+    font-weight: 400;
+  }
+  .custom-bread-crumbs-list .custom-bread-crumbs-list-title {
+    color: #000000;
+    display: flex;
+    align-items: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: capitalize;
+  }
+  .main-breadcrumbs-container {
+    width: 100%;
+    padding: 10px 0px;
+    background: #f6f6f6;
+    display: block;
+  }
+  .template--product .custom-bread-crumbs-list {
+    padding: 0 0 0 1rem;
+  }
+  .main-breadcrumbs-container a.breadcrumbs-url {
+    text-decoration: none;
+  }
+  @media screen and (max-width: 1024px) {
+    .main-breadcrumbs-container {
+      padding: 8px 0px;
+    }
+    .custom-bread-crumbs-list .custom-bread-crumbs-list-title svg {
+      width: 5px !important;
+    }
+    .custom-bread-crumbs-list .custom-bread-crumbs-list-title {
+      font-size: 11px;
+    }
+  }
+</style>

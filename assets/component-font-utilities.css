@@ -1,0 +1,30 @@
+/* IBM Plex Sans Condensed Utility Classes */
+.ibm-plex-sans-condensed-regular {
+  font-family: var(--font-ibm-plex-condensed);
+  font-weight: 400;
+  font-style: normal;
+}
+
+.ibm-plex-sans-condensed-medium {
+  font-family: var(--font-ibm-plex-condensed);
+  font-weight: 500;
+  font-style: normal;
+}
+
+.ibm-plex-sans-condensed-semibold {
+  font-family: var(--font-ibm-plex-condensed);
+  font-weight: 600;
+  font-style: normal;
+}
+
+.ibm-plex-sans-condensed-bold {
+  font-family: var(--font-ibm-plex-condensed);
+  font-weight: 700;
+  font-style: normal;
+}
+
+.ibm-plex-sans-condensed-regular-italic {
+  font-family: var(--font-ibm-plex-condensed);
+  font-weight: 400;
+  font-style: italic;
+} 

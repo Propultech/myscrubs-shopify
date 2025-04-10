@@ -555,7 +555,7 @@
               "label": "Mostrar fondo secundario"
             },
             "second_image": {
-              "label": "Mostrar segunda imagen al pasar el cursor"
+              "label": "Mostrar segunda imagen al pasar el cursor (incompatible con cambio de imagen en swatch)"
             }
           }
         },
@@ -746,7 +746,7 @@
           }
         },
         "show_secondary_image": {
-          "label": "Mostrar segunda imagen al pasar el cursor"
+          "label": "Mostrar segunda imagen al pasar el cursor (incompatible con cambio de imagen en swatch)"
         },
         "show_vendor": {
           "label": "Proveedor"
@@ -1468,7 +1468,7 @@
           }
         },
         "show_secondary_image": {
-          "label": "Mostrar segunda imagen al pasar el cursor"
+          "label": "Mostrar segunda imagen al pasar el cursor (incompatible con cambio de imagen en swatch)"
         },
         "show_vendor": {
           "label": "Proveedor"
@@ -2103,7 +2103,7 @@
           }
         },
         "show_secondary_image": {
-          "label": "Mostrar segunda imagen al pasar el cursor"
+          "label": "Mostrar segunda imagen al pasar el cursor (incompatible con cambio de imagen en swatch)"
         },
         "show_vendor": {
           "label": "Proveedor"
@@ -3211,7 +3211,7 @@
           }
         },
         "show_secondary_image": {
-          "label": "Mostrar segunda imagen al pasar el cursor"
+          "label": "Mostrar segunda imagen al pasar el cursor (incompatible con cambio de imagen en swatch)"
         },
         "show_vendor": {
           "label": "Proveedor"

@@ -1,0 +1,153 @@
+.collection-button-carousel {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.collection-button-list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  margin: 0;
+  list-style-type: none;
+  padding-left: 0;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+}
+
+.collection-button-item {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+}
+
+.collection-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 8rem;
+  padding: 0.8rem 1.6rem;
+  font-family: var(--font-ibm-plex-condensed);
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  background-color: rgba(var(--color-foreground), 0.06);
+  color: rgb(var(--color-foreground));
+  border: 1px solid #7D7D7D;
+  border-radius: 4px;
+  background-color: white;
+  font-family: var(--font-ibm-plex-condensed);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  white-space: nowrap;
+}
+
+.collection-button:hover {
+  background-color: rgba(var(--color-foreground), 0.1);
+  color: rgb(var(--color-foreground));
+}
+
+.collection-button--active {
+  background-color: rgb(var(--color-foreground));
+  color: rgb(var(--color-background));
+  border-color: rgb(var(--color-foreground));
+}
+
+.collection-button--active:hover {
+  background-color: rgb(var(--color-foreground));
+  color: rgb(var(--color-background));
+}
+
+/* Responsive styles */
+@media screen and (max-width: 749px) {
+  .collection-button-carousel .slider-buttons {
+    display: none;
+  }
+  
+  .collection-button-list {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .collection-button {
+    min-width: 7rem;
+    padding: 0.7rem 1.2rem;
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .collection-button-carousel {
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+  }
+  
+  .collection-button-list {
+    gap: 1.5rem;
+  }
+  
+  .collection-button {
+    min-width: 10rem;
+    padding: 0.9rem 1.8rem;
+    font-size: 1.5rem;
+  }
+  
+  /* Estilos para el slider en desktop */
+  slider-component:not(.slider-component-desktop) {
+    position: relative;
+  }
+  
+  slider-component:not(.slider-component-desktop) .collection-button-list {
+    scroll-padding-left: 0;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+  }
+  
+  slider-component:not(.slider-component-desktop) .collection-button-item {
+    scroll-snap-align: start;
+  }
+}
+
+/* Ajustes para los controles del slider */
+.collection-button-carousel .slider-buttons {
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.collection-button-carousel .slider-counter {
+  margin: 0 2rem;
+}
+
+.collection-button-carousel .slider-button {
+  min-width: 3.6rem;
+  min-height: 3.6rem;
+  box-shadow: 0 0 0 0.1rem rgba(var(--color-foreground), 0.1);
+  background-color: rgb(var(--color-background));
+}
+
+/* Añadir contenedor con posición relativa para el efecto fade */
+slider-component {
+  position: relative;
+}
+
+/* Efecto de desvanecimiento a la derecha */
+slider-component::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 5rem;
+  pointer-events: none;
+  background: linear-gradient(to right, rgba(var(--color-background), 0), rgba(var(--color-background), 1));
+  z-index: 1;
+}
+
+/* Responsive de efecto fade */
+@media screen and (max-width: 749px) {
+  slider-component::after {
+    width: 3rem;
+  }
+} 

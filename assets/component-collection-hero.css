@@ -36,7 +36,10 @@
 }
 
 .collection-hero__title {
-  margin: 2.5rem 0;
+  margin: 0.5rem 0;
+  font-family: var(--font-ibm-plex-condensed);
+  font-weight: 700;
+  font-size: 40px;
 }
 
 .collection-hero__title + .collection-hero__description {
@@ -55,6 +58,7 @@
 
   .collection-hero__description {
     max-width: 66.67%;
+    font-size: 1.5rem;
   }
 
   .collection-hero--with-image .collection-hero__description {
@@ -95,4 +99,29 @@
     margin-left: 3rem;
     min-height: 20rem;
   }
+}
+
+/* IBM Plex Sans Condensed Utility Classes */
+.ibm-plex-sans-condensed-regular {
+  font-family: var(--font-ibm-plex-condensed);
+  font-weight: 400;
+  font-style: normal;
+}
+
+.ibm-plex-sans-condensed-semibold {
+  font-family: var(--font-ibm-plex-condensed);
+  font-weight: 600;
+  font-style: normal;
+}
+
+.ibm-plex-sans-condensed-bold {
+  font-family: var(--font-ibm-plex-condensed);
+  font-weight: 700;
+  font-style: normal;
+}
+
+.ibm-plex-sans-condensed-regular-italic {
+  font-family: var(--font-ibm-plex-condensed);
+  font-weight: 400;
+  font-style: italic;
 }

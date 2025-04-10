@@ -225,10 +225,21 @@
         </span>
       </button>
       <div class="slider-counter caption">
-        <span class="slider-counter--current">1</span>
-        <span aria-hidden="true"> / </span>
-        <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
-        <span class="slider-counter--total">{{ media_count }}</span>
+        <div class="slideshow__control-wrapper">
+          {%- for media in product.media -%}
+            {% unless forloop.index0 > 0
+              and media.id == product.selected_or_first_available_variant.featured_media.id
+            %}
+              <button
+                class="slider-counter__link slider-counter__link--dots link"
+                aria-label="{{ 'sections.slideshow.load_slide' | t }} {{ forloop.index }} {{ 'general.slider.of' | t }} {{ media_count }}"
+                aria-controls="Slider-{{ section.id }}"
+              >
+                <span class="dot"></span>
+              </button>
+            {% endunless %}
+          {%- endfor -%}
+        </div>
       </div>
       <button
         type="button"
