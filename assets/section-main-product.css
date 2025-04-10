@@ -243,6 +243,8 @@ a.product__text {
 
 .product__text.caption-with-letter-spacing {
   text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 400;
 }
 
 .product__title {
@@ -252,6 +254,9 @@ a.product__text {
 
 .product__title > * {
   margin: 0;
+  font-family: var(--font-ibm-plex-condensed);
+  font-size: 4rem;
+  font-weight: 700;
 }
 
 .product__title > a {
@@ -321,11 +326,18 @@ a.product__text {
 .product__tax {
   margin-top: -1.4rem;
 }
-
+legend.form__label {
+  text-transform: uppercase;
+  color: var(--color-custom-black);
+  font-weight: 600;
+  font-size: 1.6rem;
+}
 .product--no-media .share-button {
   max-width: 100%;
 }
-
+.product__tax.caption.rte {
+  display: none;
+}
 .product--no-media .product-form__quantity,
 .product--no-media .share-button,
 .product--no-media .product__view-details,

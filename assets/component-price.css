@@ -3,6 +3,8 @@
   letter-spacing: 0.1rem;
   line-height: calc(1 + 0.5 / var(--font-body-scale));
   color: rgb(var(--color-foreground));
+  font-family: var(--font-ibm-plex-condensed);
+  font-weight: 700;
 }
 
 .price > * {
@@ -26,6 +28,7 @@
 .price__regular .price-item--regular {
   margin-right: 0;
   font-weight: 600;
+  color: #494949;
 }
 
 .price:not(.price--show-badge) .price-item--last:last-of-type {
@@ -39,7 +42,9 @@
     margin-bottom: 0;
   }
 }
-
+.price-item--sale.price-item--last {
+  color: var(--color-custom-pink);
+}
 .price--large {
   font-size: 1.6rem;
   line-height: calc(1 + 0.5 / var(--font-body-scale));
@@ -48,7 +53,7 @@
 
 @media screen and (min-width: 750px) {
   .price--large {
-    font-size: 1.8rem;
+    font-size: 2.4rem;
   }
 }
 
