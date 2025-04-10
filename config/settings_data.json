@@ -106,14 +106,14 @@
     "badge_corner_radius": 40,
     "sale_badge_color_scheme": "scheme-5c860b4a-6162-49e7-8b08-1e05697fb902",
     "sold_out_badge_color_scheme": "scheme-3",
-    "brand_headline": "Lorem ipsum",
-    "brand_description": "<p>Lorem ipsum</p>",
+    "brand_headline": "",
+    "brand_description": "",
     "brand_image": "shopify://shop_images/Logo_MYSCRUBS_Color_Full_1.svg",
     "brand_image_width": 100,
-    "social_facebook_link": "",
-    "social_instagram_link": "",
+    "social_facebook_link": "https://www.facebook.com/myscrubs",
+    "social_instagram_link": "https://www.instagram.com/myscrubschile/",
     "social_youtube_link": "",
-    "social_tiktok_link": "",
+    "social_tiktok_link": "https://www.tiktok.com/@myscrubschile",
     "social_twitter_link": "",
     "social_snapchat_link": "",
     "social_pinterest_link": "",
@@ -216,6 +216,17 @@
           "background_gradient": "",
           "text": "#ffffff",
           "button": "#d51b62",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-842f0bc9-597c-465d-9dcd-7dccb8f63eb4": {
+        "settings": {
+          "background": "#121212",
+          "background_gradient": "",
+          "text": "#fafafa",
+          "button": "#106b98",
           "button_label": "#ffffff",
           "secondary_button_label": "#121212",
           "shadow": "#121212"
