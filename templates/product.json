@@ -45,43 +45,32 @@
             "swatch_shape": "circle"
           }
         },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
-            "show_dynamic_checkout": true,
+            "show_dynamic_checkout": false,
             "show_gift_card_recipient": true
           }
         },
-        "collapsible_tab_bykPtr": {
+        "description_aGYjaB": {
+          "type": "description",
+          "settings": {}
+        },
+        "collapsible_tab_TtM7ig": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Descripción",
-            "icon": "none",
-            "content": "{{ product.description }}",
+            "heading": "Composición",
+            "icon": "price_tag",
+            "content": "",
             "page": ""
           }
         },
-        "complementary_mCnT7h": {
-          "type": "complementary",
+        "collapsible_tab_DwaVqF": {
+          "type": "collapsible_tab",
           "settings": {
-            "block_heading": "Combina bien con",
-            "make_collapsible_row": false,
-            "icon": "price_tag",
-            "product_list_limit": 10,
-            "products_per_page": 3,
-            "pagination_style": "counter",
-            "image_ratio": "square",
-            "enable_quick_add": false
-          }
-        },
-        "popup_jHgFPN": {
-          "type": "popup",
-          "settings": {
-            "text": "Texto del enlace emergente",
+            "heading": "Cuidados de la prenda",
+            "icon": "iron",
+            "content": "<p>Lavar a máquina en frío con colores similares.</p><p>No utilizar blanqueadores.</p><p>Secar en secadora a baja temperatura.</p><p>Planchar a baja temperatura si es necesario.</p>",
             "page": ""
           }
         }
@@ -93,11 +82,10 @@
         "price",
         "popup_size_guide_GCAP7g",
         "variant_picker",
-        "quantity_selector",
         "buy_buttons",
-        "collapsible_tab_bykPtr",
-        "complementary_mCnT7h",
-        "popup_jHgFPN"
+        "description_aGYjaB",
+        "collapsible_tab_TtM7ig",
+        "collapsible_tab_DwaVqF"
       ],
       "settings": {
         "enable_sticky_info": true,
