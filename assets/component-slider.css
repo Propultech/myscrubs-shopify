@@ -6,6 +6,14 @@ slider-component {
   position: relative;
   display: block;
 }
+@media screen and (min-width: 1023px) {
+  .grid__item.product__media-wrapper slider-component.thumbnail-slider {
+    width: 695px;
+  }
+  slider-component.slider-mobile-gutter {
+    width: 465px;
+  }
+}
 
 slider-component.slider-component-full-width {
   --desktop-margin-left-first-item: 1.5rem;

@@ -3635,12 +3635,11 @@ details-disclosure > details {
     position: absolute;
     top: 0;
     transform: rotate(90deg);
-    width: 133%; /* manage width of small image */
+    width: 100%; /* manage width of small image */
     left: 0;
     transform-origin: left top;
     height: 100px;
     overflow: hidden;
-    overflow-x: visible;
   }
   .grid__item.product__media-wrapper {
     position: relative;
