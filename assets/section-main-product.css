@@ -1557,7 +1557,7 @@ legend.form__label {
 }
 
 .product__media-container .slider-counter__link--active.slider-counter__link--dots .dot {
-  background-color: rgba(var(--color-foreground), 1);
+  background-color: #02729F;
   transform: scale(1.2);
 }
 
@@ -1569,4 +1569,17 @@ legend.form__label {
 .product__media-container .slider-buttons {
   padding: 10px 0;
   justify-content: center;
+}
+@media screen and (max-width: 749px) {
+  p.product__text.inline-richtext.subtitle {
+    font-size: 1.4rem;
+    text-align: center;
+    margin-top: -10px;
+  }
+}
+.accordion__title.inline-richtext {
+  color: var(--color-custom-black);
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
 }
