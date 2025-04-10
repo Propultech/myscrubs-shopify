@@ -243,6 +243,8 @@ a.product__text {
 
 .product__text.caption-with-letter-spacing {
   text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 400;
 }
 
 .product__title {
@@ -252,6 +254,9 @@ a.product__text {
 
 .product__title > * {
   margin: 0;
+  font-family: var(--font-ibm-plex-condensed);
+  font-size: 4rem;
+  font-weight: 700;
 }
 
 .product__title > a {
@@ -321,11 +326,34 @@ a.product__text {
 .product__tax {
   margin-top: -1.4rem;
 }
-
+legend.form__label {
+  text-transform: uppercase;
+  color: var(--color-custom-black);
+  font-weight: 600;
+  font-size: 1.6rem;
+}
 .product--no-media .share-button {
   max-width: 100%;
 }
-
+.modal-size-guide {
+  position: absolute;
+  right: 0;
+}
+.modal-size-guide {
+  position: absolute;
+  right: 0;
+  top: 26%;
+}
+.size-guide-icon svg {height: 20px !important;width: 20px !important;}
+.product-popup-modal__button--size-guide {
+  font-family: var(--font-ibm-plex-condensed);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #494949;
+}
+.product__tax.caption.rte {
+  display: none;
+}
 .product--no-media .product-form__quantity,
 .product--no-media .share-button,
 .product--no-media .product__view-details,
@@ -749,6 +777,24 @@ a.product__text {
   height: auto;
   margin: 0;
   width: 2.2rem;
+}
+
+/* Size guide icon styles */
+.product-popup-modal__button--size-guide {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.size-guide-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.size-guide-icon svg {
+  width: 16px;
+  height: 16px;
 }
 
 /* Product popup */
@@ -1491,4 +1537,36 @@ a.product__text {
   .recipient-form > input[type='checkbox']:checked + label .icon-checkmark {
     border: none;
   }
+}
+
+/* Estilos para los dots de navegación */
+.product__media-container .slideshow__control-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.product__media-container .slider-counter__link--dots .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(var(--color-foreground), 0.3);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.product__media-container .slider-counter__link--active.slider-counter__link--dots .dot {
+  background-color: rgba(var(--color-foreground), 1);
+  transform: scale(1.2);
+}
+
+.product__media-container .slider-counter__link--dots:not(.slider-counter__link--active):hover .dot {
+  background-color: rgba(var(--color-foreground), 0.6);
+}
+
+/* Ajuste del contenedor de los botones de navegación */
+.product__media-container .slider-buttons {
+  padding: 10px 0;
+  justify-content: center;
 }

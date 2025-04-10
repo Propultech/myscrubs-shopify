@@ -31,22 +31,18 @@
           "type": "price",
           "settings": {}
         },
+        "popup_size_guide_GCAP7g": {
+          "type": "popup-size-guide",
+          "settings": {
+            "text": "Guia de talles",
+            "page": "{{ product.metafields.custom.guia_de_talles.value }}"
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
             "picker_type": "button",
             "swatch_shape": "circle"
-          }
-        },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "popup_7HjnCe": {
-          "type": "popup",
-          "settings": {
-            "text": "Guia de talles",
-            "page": "{{ product.metafields.custom.guia_de_talles.value }}"
           }
         },
         "buy_buttons": {
@@ -56,26 +52,33 @@
             "show_gift_card_recipient": true
           }
         },
-        "collapsible_tab_bykPtr": {
+        "text_K7JzKH": {
+          "type": "text",
+          "settings": {
+            "text": "ENVÍO GRATUITO PARA PEDIDOS SOBRE $70.000",
+            "text_style": "subtitle"
+          }
+        },
+        "description_aGYjaB": {
+          "type": "description",
+          "settings": {}
+        },
+        "collapsible_tab_TtM7ig": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Descripción",
-            "icon": "none",
-            "content": "{{ product.description }}",
+            "heading": "Composición",
+            "icon": "price_tag",
+            "content": "",
             "page": ""
           }
         },
-        "complementary_mCnT7h": {
-          "type": "complementary",
+        "collapsible_tab_DwaVqF": {
+          "type": "collapsible_tab",
           "settings": {
-            "block_heading": "Combina bien con",
-            "make_collapsible_row": false,
-            "icon": "price_tag",
-            "product_list_limit": 10,
-            "products_per_page": 3,
-            "pagination_style": "counter",
-            "image_ratio": "square",
-            "enable_quick_add": false
+            "heading": "Cuidados de la prenda",
+            "icon": "iron",
+            "content": "<p>Lavar a máquina en frío con colores similares.</p><p>No utilizar blanqueadores.</p><p>Secar en secadora a baja temperatura.</p><p>Planchar a baja temperatura si es necesario.</p>",
+            "page": ""
           }
         }
       },
@@ -84,18 +87,19 @@
         "rating_7TjLPR",
         "title",
         "price",
+        "popup_size_guide_GCAP7g",
         "variant_picker",
-        "quantity_selector",
-        "popup_7HjnCe",
         "buy_buttons",
-        "collapsible_tab_bykPtr",
-        "complementary_mCnT7h"
+        "text_K7JzKH",
+        "description_aGYjaB",
+        "collapsible_tab_TtM7ig",
+        "collapsible_tab_DwaVqF"
       ],
       "settings": {
         "enable_sticky_info": true,
-        "color_scheme": "scheme-2",
+        "color_scheme": "scheme-1",
         "media_size": "medium",
-        "constrain_to_viewport": true,
+        "constrain_to_viewport": false,
         "media_fit": "cover",
         "gallery_layout": "thumbnail_slider",
         "mobile_thumbnails": "hide",
@@ -103,8 +107,8 @@
         "image_zoom": "lightbox",
         "hide_variants": true,
         "enable_video_looping": true,
-        "group_variants_enable": false,
-        "group_variants_source": "metafield",
+        "group_variants_enable": true,
+        "group_variants_source": "alttext",
         "variant_grouping_delimiter": "__",
         "variant_grouping_position": 1,
         "padding_top": 36,

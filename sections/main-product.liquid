@@ -663,6 +663,24 @@
                 </product-recommendations>
               {%- when 'icon-with-text' -%}
                 {% render 'icon-with-text', block: block %}
+              {%- when 'popup-size-guide' -%}
+                <modal-opener
+                  class="product-popup-modal__opener quick-add-hidden modal-size-guide"
+                  data-modal="#PopupSizeGuideModal-{{ block.id }}"
+                  {{ block.shopify_attributes }}
+                >
+                  <button
+                    id="ProductSizeGuide-{{ block.id }}"
+                    class="product-popup-modal__button link product-popup-modal__button--size-guide"
+                    type="button"
+                    aria-haspopup="dialog"
+                  >
+                    <span class="size-guide-icon">
+                      {{ 'icon-size-guide.svg' | inline_asset_content }}
+                    </span>
+                    {{ block.settings.text | default: block.settings.page.title | escape }}
+                  </button>
+                </modal-opener>
             {%- endcase -%}
           {%- endfor -%}
           <a href="{{ product.url }}" class="link product__view-details animate-arrow">
@@ -678,6 +696,32 @@
     {% assign popups = section.blocks | where: 'type', 'popup' %}
     {%- for block in popups -%}
       <modal-dialog id="PopupModal-{{ block.id }}" class="product-popup-modal" {{ block.shopify_attributes }}>
+        <div
+          role="dialog"
+          aria-label="{{ block.settings.text }}"
+          aria-modal="true"
+          class="product-popup-modal__content"
+          tabindex="-1"
+        >
+          <button
+            id="ModalClose-{{ block.id }}"
+            type="button"
+            class="product-popup-modal__toggle"
+            aria-label="{{ 'accessibility.close' | t }}"
+          >
+            {{- 'icon-close.svg' | inline_asset_content -}}
+          </button>
+          <div class="product-popup-modal__content-info">
+            <h1 class="h2">{{ block.settings.page.title | escape }}</h1>
+            {{ block.settings.page.content }}
+          </div>
+        </div>
+      </modal-dialog>
+    {%- endfor -%}
+
+    {% assign popups_size_guide = section.blocks | where: 'type', 'popup-size-guide' %}
+    {%- for block in popups_size_guide -%}
+      <modal-dialog id="PopupSizeGuideModal-{{ block.id }}" class="product-popup-modal" {{ block.shopify_attributes }}>
         <div
           role="dialog"
           aria-label="{{ block.settings.text }}"
@@ -1164,9 +1208,26 @@
           "label": "t:sections.main-product.blocks.popup.settings.link_label.label"
         },
         {
-          "id": "page",
           "type": "page",
+          "id": "page",
           "label": "t:sections.main-product.blocks.popup.settings.page.label"
+        }
+      ]
+    },
+    {
+      "type": "popup-size-guide",
+      "name": "Guía de tallas",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Guía de tallas",
+          "label": "Texto del enlace"
+        },
+        {
+          "type": "page",
+          "id": "page",
+          "label": "Página"
         }
       ]
     },
