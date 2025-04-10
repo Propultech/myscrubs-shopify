@@ -45,8 +45,38 @@
     },
     "header": {
       "type": "header",
+      "blocks": {
+        "menu_block_aYEt37": {
+          "type": "menu_block",
+          "settings": {
+            "parent_link_title": "Mujer",
+            "column_position": 5,
+            "display_mode": "html_only",
+            "heading": "Compra por color",
+            "text": "<div class=\"color-selector-grid\">\n  <a href=\"/collections/azul-marino\" class=\"color-option\">\n    <span class=\"color-dot color-azul-marino\"></span>\n    Azul marino\n  </a>\n  \n  <a href=\"/collections/negro\" class=\"color-option\">\n    <span class=\"color-dot color-negro\"></span>\n    Negro\n  </a>\n  \n  <a href=\"/collections/azul-rey\" class=\"color-option\">\n    <span class=\"color-dot color-azul-rey\"></span>\n    Azul rey\n  </a>\n  \n  <a href=\"/collections/rojo\" class=\"color-option\">\n    <span class=\"color-dot color-rojo\"></span>\n    Rojo\n  </a>\n  \n  <a href=\"/collections/blanco\" class=\"color-option\">\n    <span class=\"color-dot color-blanco\"></span>\n    Blanco\n  </a>\n  \n  <a href=\"/collections/rosado\" class=\"color-option\">\n    <span class=\"color-dot color-rosado\"></span>\n    Rosado\n  </a>\n  \n  <a href=\"/collections/burdeo\" class=\"color-option\">\n    <span class=\"color-dot color-burdeo\"></span>\n    Burdeo\n  </a>\n  \n  <a href=\"/collections/teal-blue\" class=\"color-option\">\n    <span class=\"color-dot color-teal\"></span>\n    Teal Blue\n  </a>\n  \n  <a href=\"/collections/caribbean-blue\" class=\"color-option\">\n    <span class=\"color-dot color-caribbean\"></span>\n    Caribbean Blue\n  </a>\n  \n  <a href=\"/collections/turquesa\" class=\"color-option\">\n    <span class=\"color-dot color-turquesa\"></span>\n    Turquesa\n  </a>\n  \n  <a href=\"/collections/celeste\" class=\"color-option\">\n    <span class=\"color-dot color-celeste\"></span>\n    Celeste\n  </a>\n  \n  <a href=\"/collections/verde\" class=\"color-option\">\n    <span class=\"color-dot color-verde\"></span>\n    Verde\n  </a>\n  \n  <a href=\"/collections/gris\" class=\"color-option\">\n    <span class=\"color-dot color-gris\"></span>\n    Gris\n  </a>\n  \n  <a href=\"/collections/cafe\" class=\"color-option\">\n    <span class=\"color-dot color-cafe\"></span>\n    Café\n  </a>\n  \n  <a href=\"/collections/morado\" class=\"color-option\">\n    <span class=\"color-dot color-morado\"></span>\n    Morado\n  </a>\n</div>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "menu_block_PDirDq": {
+          "type": "menu_block",
+          "settings": {
+            "parent_link_title": "Mujer",
+            "column_position": 2,
+            "display_mode": "html_only",
+            "heading": "",
+            "text": "<ul class=\"menu-links-grid\">\n  <li><a href=\"/collections/lo-mas-vendido\">Lo más vendido</a></li>\n  <li><a href=\"/collections/compra-tu-conjunto\">Compra tu conjunto</a></li>\n  <li><a href=\"/collections/ofertas\">Ofertas</a></li>\n  <li><a href=\"/pages/gift-card\">Gift Card</a></li>\n  <li><a href=\"/collections/desde-9990\">Desde $9.990</a></li>\n</ul>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "menu_block_aYEt37",
+        "menu_block_PDirDq"
+      ],
       "custom_css": [
-        "#HeaderMenu-ofertas {color: #D51B62; text-transform: uppercase;}"
+        "#HeaderMenu-ofertas {color: #d51b62; text-transform: uppercase;}"
       ],
       "settings": {
         "logo_position": "middle-left",

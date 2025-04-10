@@ -1,0 +1,462 @@
+{% comment %}
+  Renders a customized megamenu for the header that supports custom blocks.
+
+  Usage:
+  {% render 'custom-mega-menu' %}
+{% endcomment %}
+
+<nav class="header__inline-menu">
+  <ul class="list-menu list-menu--inline" role="list">
+    {%- for link in section.settings.menu.links -%}
+      <li>
+        {%- if link.links != blank -%}
+          <header-menu>
+            <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
+              <summary
+                id="HeaderMenu-{{ link.handle }}"
+                class="header__menu-item list-menu__item link focus-inset"
+              >
+                <span
+                  {%- if link.child_active %}
+                    class="header__active-menu-item"
+                  {% endif %}
+                >
+                  {{- link.title | escape -}}
+                </span>
+                {{- 'icon-caret.svg' | inline_asset_content -}}
+              </summary>
+              <div
+                id="MegaMenu-Content-{{ forloop.index }}"
+                class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
+                tabindex="-1"
+              >
+                <ul
+                  class="mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
+                  role="list"
+                >
+                  {%- comment -%}Mostrar los elementos del menú original{%- endcomment -%}
+                  {%- for childlink in link.links -%}
+                    <li class="menu-item-standard">
+                      <a
+                        id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                        href="{{ childlink.url }}"
+                        class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
+                        {% if childlink.current %}
+                          aria-current="page"
+                        {% endif %}
+                      >
+                        {{ childlink.title | escape }}
+                      </a>
+                      {%- if childlink.links != blank -%}
+                        <ul class="list-unstyled" role="list">
+                          {%- for grandchildlink in childlink.links -%}
+                            <li>
+                              <a
+                                id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                                href="{{ grandchildlink.url }}"
+                                class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"
+                                {% if grandchildlink.current %}
+                                  aria-current="page"
+                                {% endif %}
+                                {% unless forloop.index <= 5 %}
+                                  data-lazy-load="true"
+                                {% endunless %}
+                              >
+                                {{ grandchildlink.title | escape }}
+                              </a>
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                      {%- endif -%}
+                    </li>
+                  {%- endfor -%}
+
+                  {%- comment -%}Mostrar bloques personalizados en el mega menú{%- endcomment -%}
+                  {%- for block in section.blocks -%}
+                    {%- if block.type == 'menu_block' and block.settings.parent_link_title == link.title -%}
+                      <li
+                        class="custom-mega-menu-block"
+                        data-column-position="{{ block.settings.column_position }}"
+                        {{ block.shopify_attributes }}
+                      >
+                        <div class="custom-block-content">
+                          {%- if block.settings.heading != blank -%}
+                            <h3 class="custom-block-heading">{{ block.settings.heading }}</h3>
+                          {%- endif -%}
+
+                          {%- if block.settings.text != blank -%}
+                            <div class="custom-block-text">{{ block.settings.text }}</div>
+                          {%- endif -%}
+
+                          {%- if block.settings.image != blank -%}
+                            <div class="custom-block-image">
+                              {%- assign img_url = block.settings.image | image_url: width: 300 -%}
+                              <img
+                                src="{{ img_url }}"
+                                alt="{{ block.settings.image.alt | escape }}"
+                                width="{{ block.settings.image.width }}"
+                                height="{{ block.settings.image.height }}"
+                                loading="lazy"
+                              >
+                            </div>
+                          {%- endif -%}
+
+                          {%- if block.settings.button_label != blank and block.settings.button_link != blank -%}
+                            <a
+                              href="{{ block.settings.button_link }}"
+                              class="custom-block-button button button--primary"
+                            >
+                              {{ block.settings.button_label | escape }}
+                            </a>
+                          {%- endif -%}
+                        </div>
+                      </li>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </ul>
+              </div>
+            </details>
+          </header-menu>
+        {%- else -%}
+          <a
+            id="HeaderMenu-{{ link.handle }}"
+            href="{{ link.url }}"
+            class="header__menu-item list-menu__item link link--text focus-inset"
+            {% if link.current %}
+              aria-current="page"
+            {% endif %}
+          >
+            <span
+              {%- if link.current %}
+                class="header__active-menu-item"
+              {% endif %}
+            >
+              {{- link.title | escape -}}
+            </span>
+          </a>
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ul>
+</nav>
+
+<style>
+  .custom-mega-menu-block {
+    display: flex;
+    flex-direction: column;
+    will-change: transform, opacity;
+  }
+
+  .menu-item-standard {
+    grid-row: auto;
+    grid-column-start: auto;
+    grid-column-end: span 1;
+  }
+
+  .custom-block-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 1px;
+    border-radius: 4px;
+    height: 100%;
+    contain: content;
+    transition: background-color 0.3s ease;
+  }
+  .menu-links-grid {
+    list-style: none;
+    padding-left: 0;
+  }
+  .menu-links-grid li {
+    line-height: calc(1 + 0.3 / var(--font-body-scale));
+    padding-bottom: 0.6rem;
+    padding-top: 0.6rem;
+    text-decoration: none;
+    transition: text-decoration var(--duration-short) ease;
+    word-wrap: break-word;
+  }
+
+  .menu-links-grid a {
+    color: #000;
+    font-family: var(--font-ibm-plex-condensed);
+    font-weight: 500;
+    font-size: 1.7rem;
+    text-decoration: none;
+  }
+  .menu-links-grid a:hover {
+    font-weight: 600;
+  }
+
+  .custom-block-heading {
+    font-weight: 500;
+    font-size: 1.8rem;
+    font-family: var(--font-ibm-plex-condensed);
+    margin: 0;
+    line-height: calc(1 + 0.3 / var(--font-body-scale));
+    padding-bottom: 0.6rem;
+    padding-top: 0.6rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    .mobile-menu-custom-block {
+      display: flex;
+      line-height: calc(1 + 0.3 / var(--font-body-scale));
+      font-size: 1.7rem;
+      font-weight: 600;
+      padding: 1.1rem 3rem;
+    }
+  }
+
+  .custom-block-text {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: rgba(var(--color-foreground), 0.8);
+  }
+
+  .custom-block-image {
+    margin-bottom: 10px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .custom-block-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .custom-block-image:hover img {
+    transform: scale(1.05);
+  }
+
+  .custom-block-button {
+    margin-top: auto;
+    display: inline-block;
+    padding: 8px 15px;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 500;
+    border-radius: 4px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .custom-block-button:hover {
+    opacity: 0.85;
+  }
+
+  /* Modificar el layout del mega menú para usar grid explícito */
+  .mega-menu__list {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-flow: dense;
+    grid-column-gap: 4rem;
+    grid-row-gap: 1.8rem;
+    position: relative;
+  }
+
+  /* Posicionar los elementos del menú original primero */
+  .mega-menu__list > li:not(.custom-mega-menu-block) {
+    grid-column: auto;
+  }
+
+  /* Ajustar la posición de los bloques personalizados */
+  .custom-mega-menu-block[data-column-position='1'] {
+    grid-column: 1 !important;
+    grid-row: 1;
+    z-index: 2;
+  }
+
+  .custom-mega-menu-block[data-column-position='2'] {
+    grid-column: 2 !important;
+    grid-row: 1;
+    z-index: 2;
+  }
+
+  .custom-mega-menu-block[data-column-position='3'] {
+    grid-column: 3 !important;
+    grid-row: 1;
+    z-index: 2;
+  }
+
+  .custom-mega-menu-block[data-column-position='4'] {
+    grid-column: 4 !important;
+    grid-row: 1;
+    z-index: 2;
+  }
+
+  .custom-mega-menu-block[data-column-position='5'] {
+    grid-column: 5 !important;
+    grid-row: 1;
+    z-index: 2;
+  }
+
+  .custom-mega-menu-block[data-column-position='6'] {
+    grid-column: 6 !important;
+    grid-row: 1;
+    z-index: 2;
+  }
+
+  /* Ajuste adicional para asegurar que los bloques personalizados tengan prioridad */
+  .mega-menu__list > li:nth-child(1):not(.custom-mega-menu-block) {
+    grid-column-start: auto;
+  }
+  .mega-menu__list > li:nth-child(2):not(.custom-mega-menu-block) {
+    grid-column-start: auto;
+  }
+  .mega-menu__list > li:nth-child(3):not(.custom-mega-menu-block) {
+    grid-column-start: auto;
+  }
+  .mega-menu__list > li:nth-child(4):not(.custom-mega-menu-block) {
+    grid-column-start: auto;
+  }
+  .mega-menu__list > li:nth-child(5):not(.custom-mega-menu-block) {
+    grid-column-start: auto;
+  }
+  .mega-menu__list > li:nth-child(6):not(.custom-mega-menu-block) {
+    grid-column-start: auto;
+  }
+
+  /* Estilos responsive */
+  @media screen and (max-width: 989px) {
+    .mega-menu__list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .custom-mega-menu-block[data-column-position='1'] {
+      grid-column: 1 !important;
+    }
+
+    .custom-mega-menu-block[data-column-position='2'] {
+      grid-column: 2 !important;
+    }
+
+    .custom-mega-menu-block[data-column-position='3'] {
+      grid-column: 3 !important;
+    }
+
+    .custom-mega-menu-block[data-column-position='4'] {
+      grid-column: 1 !important;
+      grid-row: 2;
+    }
+
+    .custom-mega-menu-block[data-column-position='5'] {
+      grid-column: 2 !important;
+      grid-row: 2;
+    }
+
+    .custom-mega-menu-block[data-column-position='6'] {
+      grid-column: 3 !important;
+      grid-row: 2;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .mega-menu__list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .custom-mega-menu-block[data-column-position='1'] {
+      grid-column: 1 !important;
+      grid-row: 1;
+    }
+
+    .custom-mega-menu-block[data-column-position='2'] {
+      grid-column: 2 !important;
+      grid-row: 1;
+    }
+
+    .custom-mega-menu-block[data-column-position='3'] {
+      grid-column: 1 !important;
+      grid-row: 2;
+    }
+
+    .custom-mega-menu-block[data-column-position='4'] {
+      grid-column: 2 !important;
+      grid-row: 2;
+    }
+
+    .custom-mega-menu-block[data-column-position='5'] {
+      grid-column: 1 !important;
+      grid-row: 3;
+    }
+
+    .custom-mega-menu-block[data-column-position='6'] {
+      grid-column: 2 !important;
+      grid-row: 3;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .mega-menu__list {
+      grid-template-columns: 1fr;
+    }
+
+    .custom-mega-menu-block[data-column-position] {
+      grid-column: 1 !important;
+      grid-row: auto;
+    }
+  }
+
+  /* Estilos para optimizar la carga */
+  [data-lazy-load='true'] {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .mega-menu[open] [data-lazy-load='true'] {
+    opacity: 1;
+  }
+
+  /* Añadir soporte para la reducción de movimiento */
+  @media (prefers-reduced-motion: reduce) {
+    .custom-block-image img,
+    .mega-menu__content,
+    .custom-block-button,
+    [data-lazy-load='true'] {
+      transition: none !important;
+    }
+
+    .custom-block-image:hover img {
+      transform: none;
+    }
+
+    .mega-menu__content.animated {
+      animation: none;
+    }
+  }
+
+  /* Optimizaciones de performance para navegadores modernos */
+  @supports (content-visibility: auto) {
+    .mega-menu__list {
+      content-visibility: auto;
+      contain-intrinsic-size: 0 500px;
+    }
+  }
+</style>
+
+<script>
+  // Inicialización rápida cuando el DOM esté listo
+  document.addEventListener('DOMContentLoaded', () => {
+    // Lazy loading para elementos marcados como lazy
+    const lazyElements = document.querySelectorAll('[data-lazy-load="true"]');
+    if (!lazyElements.length) return;
+
+    // Crear un observador de intersección para cargar elementos cuando sean visibles
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: '100px' }
+    );
+
+    // Observar cada elemento
+    lazyElements.forEach((el) => observer.observe(el));
+  });
+</script>
