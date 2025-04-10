@@ -13,8 +13,11 @@
   "sections": {
     "custom_liquid_8YYhrQ": {
       "type": "custom-liquid",
+      "custom_css": [
+        ".footer-social {justify-content: center;}"
+      ],
       "settings": {
-        "custom_liquid": "{% render 'social-icons',\n    class: 'footer-social'\n  %}\n<style>\n.footer-social {\n    justify-content: center;\n}\n</style>",
+        "custom_liquid": "{% render 'social-icons',\n    class: 'footer-social'\n  %}",
         "color_scheme": "scheme-842f0bc9-597c-465d-9dcd-7dccb8f63eb4",
         "padding_top": 12,
         "padding_bottom": 12
