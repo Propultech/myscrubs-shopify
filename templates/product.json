@@ -31,6 +31,13 @@
           "type": "price",
           "settings": {}
         },
+        "popup_size_guide_GCAP7g": {
+          "type": "popup-size-guide",
+          "settings": {
+            "text": "Guia de talles",
+            "page": "{{ product.metafields.custom.guia_de_talles.value }}"
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -41,13 +48,6 @@
         "quantity_selector": {
           "type": "quantity_selector",
           "settings": {}
-        },
-        "popup_size_guide_GCAP7g": {
-          "type": "popup-size-guide",
-          "settings": {
-            "text": "Guia de talles",
-            "page": "{{ product.metafields.custom.guia_de_talles.value }}"
-          }
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -91,9 +91,9 @@
         "rating_7TjLPR",
         "title",
         "price",
+        "popup_size_guide_GCAP7g",
         "variant_picker",
         "quantity_selector",
-        "popup_size_guide_GCAP7g",
         "buy_buttons",
         "collapsible_tab_bykPtr",
         "complementary_mCnT7h",
