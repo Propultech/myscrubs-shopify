@@ -11,6 +11,15 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "custom_liquid_8YYhrQ": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "{% render 'social-icons',\n    class: 'footer-social'\n  %}",
+        "color_scheme": "scheme-842f0bc9-597c-465d-9dcd-7dccb8f63eb4",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "newsletter_nwRefD": {
       "type": "newsletter",
       "blocks": {
@@ -91,6 +100,7 @@
     }
   },
   "order": [
+    "custom_liquid_8YYhrQ",
     "newsletter_nwRefD",
     "footer"
   ]
