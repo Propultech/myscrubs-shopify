@@ -61,18 +61,18 @@
             "menu": "servicio-al-cliente"
           }
         },
-        "link_list_84HK6t": {
-          "type": "link_list",
+        "text_xJijRk": {
+          "type": "text",
           "settings": {
-            "heading": "Enlaces rápidos",
-            "menu": "footer"
+            "heading": "Contacto",
+            "subtext": "<p>Dirección: Av. Providencia 2216, local 36-B</p><p>Ventas web: +56 9 3952 7179</p><p>Cambios: +56 9 3262 4595</p><p>Dudas o consultas:  +56939101109 / +56994887772 +56932523815 [Lun. a Sáb. 9:30 a 18:00 hrs]</p><p>Mail: ventas@myscrubs.cl</p>"
           }
         }
       },
       "block_order": [
         "link_list_eUBH68",
         "link_list_cHin7K",
-        "link_list_84HK6t"
+        "text_xJijRk"
       ],
       "settings": {
         "color_scheme": "scheme-842f0bc9-597c-465d-9dcd-7dccb8f63eb4",
