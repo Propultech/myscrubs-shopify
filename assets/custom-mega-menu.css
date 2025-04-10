@@ -55,7 +55,6 @@
 
 
 .custom-block-text a {
-  display: inline-block;
   text-decoration: none;
   color: rgb(var(--color-link));
   font-size: 1.4rem;
@@ -166,7 +165,7 @@
 .color-selector-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 6px;
   max-width: 100%;
   margin-top: 10px;
   width: 100%;
@@ -178,11 +177,11 @@
   text-decoration: none;
   padding: 8px 12px;
   border-radius: 50px;
-  background-color: #f5f5f5;
+  background-color: #fff;
   color: rgb(var(--color-foreground));
   font-size: 1.3rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  border: 1px solid rgba(var(--color-foreground), 0.08);
+  border: 1px solid #D0D0D0;
   width: auto;
 }
 
@@ -192,14 +191,16 @@
 }
 
 .color-dot {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   margin-right: 8px;
   display: block;
   flex-shrink: 0;
   border: 1px solid rgba(var(--color-foreground), 0.1);
 }
+
+
 
 .custom-mega-menu-block .color-selector-grid {
   width: 100%;
@@ -384,8 +385,8 @@ details.menu-drawer .custom-block-text {
 }
 
 .custom-mega-menu-block .color-dot {
-  min-width: 18px;
-  min-height: 18px;
+  min-width: 16px;
+  min-height: 16px;
 }
 
 .custom-mega-menu-block .color-option:hover {
@@ -441,7 +442,7 @@ details.menu-drawer .custom-block-text {
   height: 16px;
   display: block;
   border-radius: 50%;
-  margin-right: 8px;
+  margin-right: 4px;
   flex-shrink: 0;
   border: 1px solid rgba(var(--color-foreground), 0.1);
 }
