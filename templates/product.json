@@ -52,6 +52,13 @@
             "show_gift_card_recipient": true
           }
         },
+        "text_K7JzKH": {
+          "type": "text",
+          "settings": {
+            "text": "ENVÍO GRATUITO PARA PEDIDOS SOBRE $70.000",
+            "text_style": "subtitle"
+          }
+        },
         "description_aGYjaB": {
           "type": "description",
           "settings": {}
@@ -83,6 +90,7 @@
         "popup_size_guide_GCAP7g",
         "variant_picker",
         "buy_buttons",
+        "text_K7JzKH",
         "description_aGYjaB",
         "collapsible_tab_TtM7ig",
         "collapsible_tab_DwaVqF"
@@ -91,7 +99,7 @@
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
         "media_size": "medium",
-        "constrain_to_viewport": true,
+        "constrain_to_viewport": false,
         "media_fit": "cover",
         "gallery_layout": "thumbnail_slider",
         "mobile_thumbnails": "hide",
@@ -99,8 +107,8 @@
         "image_zoom": "lightbox",
         "hide_variants": true,
         "enable_video_looping": true,
-        "group_variants_enable": false,
-        "group_variants_source": "metafield",
+        "group_variants_enable": true,
+        "group_variants_source": "alttext",
         "variant_grouping_delimiter": "__",
         "variant_grouping_position": 1,
         "padding_top": 36,
