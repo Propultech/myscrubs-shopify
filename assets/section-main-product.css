@@ -335,6 +335,13 @@ legend.form__label {
 .product--no-media .share-button {
   max-width: 100%;
 }
+.size-guide-icon svg {height: 20px !important;width: 20px !important;}
+.product-popup-modal__button--size-guide {
+  font-family: var(--font-ibm-plex-condensed);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #494949;
+}
 .product__tax.caption.rte {
   display: none;
 }
