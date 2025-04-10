@@ -45,10 +45,6 @@
             "swatch_shape": "circle"
           }
         },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -56,12 +52,25 @@
             "show_gift_card_recipient": true
           }
         },
-        "collapsible_tab_bykPtr": {
+        "description_BK4QYg": {
+          "type": "description",
+          "settings": {}
+        },
+        "collapsible_tab_AG6kPK": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Descripción",
-            "icon": "none",
-            "content": "{{ product.description }}",
+            "heading": "Composición",
+            "icon": "price_tag",
+            "content": "",
+            "page": ""
+          }
+        },
+        "collapsible_tab_geYVaD": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Cuidados de la prenda",
+            "icon": "iron",
+            "content": "<p>Lavar a máquina en frío con colores similares.</p><p>No utilizar blanqueadores.</p><p>Secar en secadora a baja temperatura.</p><p>Planchar a baja temperatura si es necesario.</p>",
             "page": ""
           }
         },
@@ -86,9 +95,10 @@
         "price",
         "popup_size_guide_WFtC4C",
         "variant_picker",
-        "quantity_selector",
         "buy_buttons",
-        "collapsible_tab_bykPtr",
+        "description_BK4QYg",
+        "collapsible_tab_AG6kPK",
+        "collapsible_tab_geYVaD",
         "complementary_mCnT7h"
       ],
       "settings": {
