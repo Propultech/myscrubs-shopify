@@ -113,7 +113,7 @@
         "image_zoom": "lightbox",
         "hide_variants": true,
         "enable_video_looping": true,
-        "group_variants_enable": false,
+        "group_variants_enable": true,
         "group_variants_source": "alttext",
         "variant_grouping_delimiter": "__",
         "variant_grouping_position": 1,
