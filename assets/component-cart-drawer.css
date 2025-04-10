@@ -298,6 +298,7 @@ cart-drawer-items {
 
 .cart-drawer__footer > * + * {
   margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .cart-drawer .totals {
@@ -402,4 +403,7 @@ cart-drawer-items::-webkit-scrollbar-track-piece {
   .cart-drawer .cart-item__error {
     margin-left: 0;
   }
+}
+small.tax-note.caption-large.rte {
+  display: none;
 }
