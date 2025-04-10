@@ -671,10 +671,13 @@
                 >
                   <button
                     id="ProductSizeGuide-{{ block.id }}"
-                    class="product-popup-modal__button link"
+                    class="product-popup-modal__button link product-popup-modal__button--size-guide"
                     type="button"
                     aria-haspopup="dialog"
                   >
+                    <span class="size-guide-icon">
+                      {{ 'icon-size-guide.svg' | inline_asset_content }}
+                    </span>
                     {{ block.settings.text | default: block.settings.page.title | escape }}
                   </button>
                 </modal-opener>
