@@ -506,3 +506,32 @@
     }
   }
 }
+.shopify-section-group-footer-group {
+  font-family: 'IBM Plex Sans Condensed';
+}
+.list-menu__item--active {
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 1.4rem;
+  letter-spacing: 0.28px;
+}
+.footer-block__heading {
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: 0.28px;
+}
+.newsletter-form__field-wrapper .field__input {
+  padding-right: 5rem;
+  border: 1px solid #fff;
+}
+.newsletter__subheading {
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: 0.28px;
+}
+.newsletter__wrapper .h2 {
+  font-size: 2.4rem;
+  font-family: var(--font-ibm-plex-condensed);
+  font-weight: 700;
+}
