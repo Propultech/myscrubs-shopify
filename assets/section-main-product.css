@@ -1538,3 +1538,35 @@ legend.form__label {
     border: none;
   }
 }
+
+/* Estilos para los dots de navegación */
+.product__media-container .slideshow__control-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.product__media-container .slider-counter__link--dots .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(var(--color-foreground), 0.3);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.product__media-container .slider-counter__link--active.slider-counter__link--dots .dot {
+  background-color: rgba(var(--color-foreground), 1);
+  transform: scale(1.2);
+}
+
+.product__media-container .slider-counter__link--dots:not(.slider-counter__link--active):hover .dot {
+  background-color: rgba(var(--color-foreground), 0.6);
+}
+
+/* Ajuste del contenedor de los botones de navegación */
+.product__media-container .slider-buttons {
+  padding: 10px 0;
+  justify-content: center;
+}
