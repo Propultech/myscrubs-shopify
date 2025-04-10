@@ -1577,3 +1577,9 @@ legend.form__label {
     margin-top: -10px;
   }
 }
+.accordion__title.inline-richtext {
+  color: var(--color-custom-black);
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
