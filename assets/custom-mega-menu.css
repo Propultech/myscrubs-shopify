@@ -54,6 +54,7 @@
 }
 
 
+
 .custom-block-text a {
   text-decoration: none;
   color: rgb(var(--color-link));
@@ -68,6 +69,16 @@
   color: rgb(var(--color-link));
   opacity: 0.85;
   transform: none;
+}
+@media screen and (min-width: 750px) {
+  .custom-block-text a {
+    font-size: 1rem;
+  }
+  .custom-mega-menu-block .color-dot {
+    width: 12px;
+    height: 12px;
+  }
+  .color-dot {margin-left: 4px;margin-right: 4px;}
 }
 
 .custom-block-text .menu-links-grid a {
