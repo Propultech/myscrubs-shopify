@@ -16,62 +16,42 @@
         "padding_bottom": 28
       }
     },
-    "multicolumn_XCiywC": {
-      "type": "multicolumn",
+    "tiendas_propultech_kXDQR6": {
+      "type": "tiendas-propultech",
       "blocks": {
-        "column_RVzkDe": {
-          "type": "column",
+        "stores_dxYihG": {
+          "type": "stores",
           "settings": {
-            "title": "Columna",
-            "text": "<p>Vincula un texto con una imagen para atraer la atención hacia tu producto, colección o artículo de blog seleccionados. Agrega detalles sobre disponibilidad y estilo, o incluso ofrece una reseña.</p>",
-            "link_label": "",
-            "link": ""
+            "name": "Dos Caracoles",
+            "address": "Av. Providencia 2216",
+            "google": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26640.570226898162!2d-70.609684!3d-33.421386!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf689dde3593%3A0xbcb9319b9198f8d7!2sAv.%20Providencia%202216%2C%20Providencia%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e0!3m2!1ses!2sus!4v1744377972123!5m2!1ses!2sus",
+            "working_hours": "<p><strong>Providencia</strong></p><p>Región Metropolitana</p><p><strong>Número de tienda</strong>: Local 36-B</p><p><strong>Horarios de operación</strong>: Lun a Vie : 10:00 a 19:00 hrs / Sáb: 11:00 a 16:00 hrs</p><p><strong>Teléfono de tienda</strong>: 2 4367 0870 / +56 9 5008 6100</p>",
+            "phone": ""
           }
         },
-        "column_iVEYKh": {
-          "type": "column",
+        "stores_wd3Yma": {
+          "type": "stores",
           "settings": {
-            "title": "Columna",
-            "text": "<p>Vincula un texto con una imagen para atraer la atención hacia tu producto, colección o artículo de blog seleccionados. Agrega detalles sobre disponibilidad y estilo, o incluso ofrece una reseña.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_bUKKXb": {
-          "type": "column",
-          "settings": {
-            "title": "Columna",
-            "text": "<p>Vincula un texto con una imagen para atraer la atención hacia tu producto, colección o artículo de blog seleccionados. Agrega detalles sobre disponibilidad y estilo, o incluso ofrece una reseña.</p>",
-            "link_label": "",
-            "link": ""
+            "name": "",
+            "address": "",
+            "google": "",
+            "working_hours": "",
+            "phone": ""
           }
         }
       },
       "block_order": [
-        "column_RVzkDe",
-        "column_iVEYKh",
-        "column_bUKKXb"
+        "stores_dxYihG",
+        "stores_wd3Yma"
       ],
       "settings": {
-        "title": "Varias columnas",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "button_label": "Etiqueta de botón",
-        "button_link": "",
-        "columns_desktop": 3,
-        "column_alignment": "left",
-        "background_style": "primary",
-        "color_scheme": "",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "title": "Tiendas y horarios",
+        "accent_color": "#106b98"
       }
     }
   },
   "order": [
     "main",
-    "multicolumn_XCiywC"
+    "tiendas_propultech_kXDQR6"
   ]
 }
