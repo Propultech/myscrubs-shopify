@@ -294,6 +294,50 @@
         "accent_color": "#106b98"
       }
     },
+    "rich_text_AgChLE": {
+      "type": "rich-text",
+      "blocks": {
+        "text_KwV47h": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Valparaíso</h2>"
+          }
+        }
+      },
+      "block_order": [
+        "text_KwV47h"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 20
+      }
+    },
+    "tiendas_propultech_xwP9RH": {
+      "type": "tiendas-propultech",
+      "blocks": {
+        "stores_WyDccp": {
+          "type": "stores",
+          "settings": {
+            "name": "Galería Florida",
+            "address": "Av. Valparaíso 651",
+            "google": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26761.721433574!2d-71.553183!3d-33.024461!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9689de0a0ac4b719%3A0xa9164c0791cf0c0c!2sAv.%20Valpara%C3%ADso%20651%2C%20Vi%C3%B1a%20del%20Mar%2C%20Valpara%C3%ADso%2C%20Chile!5e0!3m2!1ses!2sus!4v1744379934352!5m2!1ses!2sus",
+            "working_hours": "<p><strong>Viña del Mar</strong></p><p>Valparaíso</p><p><strong>Número de tienda</strong>: Local 17</p><p><strong>Teléfono de tienda</strong>: +56 9 6207 9471</p><p><strong>Horarios de operación</strong>: Lun a Vie: 10:00 a 19:00 hrs / Colación: 13:00 a 14:00 hrs | Sáb: 11:00 a 15:00 hrs</p>",
+            "phone": ""
+          }
+        }
+      },
+      "block_order": [
+        "stores_WyDccp"
+      ],
+      "settings": {
+        "title": "",
+        "accent_color": "#106b98"
+      }
+    },
     "custom_liquid_cxUYkG": {
       "type": "custom-liquid",
       "settings": {
@@ -317,6 +361,8 @@
     "tiendas_propultech_hVN9rp",
     "rich_text_X7gGY4",
     "tiendas_propultech_Q6Ekwa",
+    "rich_text_AgChLE",
+    "tiendas_propultech_xwP9RH",
     "custom_liquid_cxUYkG"
   ]
 }
