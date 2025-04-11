@@ -16,6 +16,51 @@
         "padding_bottom": 28
       }
     },
+    "rich_text_EakGwM": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_Uj9Xpr": {
+          "type": "heading",
+          "settings": {
+            "heading": "Tiendas y horarios",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Uj9Xpr"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "rich_text_tXnPpz": {
+      "type": "rich-text",
+      "blocks": {
+        "text_tQDt7R": {
+          "type": "text",
+          "settings": {
+            "text": "<h3>Región Metropolitana</h3>"
+          }
+        }
+      },
+      "block_order": [
+        "text_tQDt7R"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 20
+      }
+    },
     "tiendas_propultech_kXDQR6": {
       "type": "tiendas-propultech",
       "blocks": {
@@ -32,10 +77,10 @@
         "stores_AG9eJK": {
           "type": "stores",
           "settings": {
-            "name": "Dos Caracoles",
-            "address": "Av. Providencia 2216",
-            "google": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26640.570226898162!2d-70.609684!3d-33.421386!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf689dde3593%3A0xbcb9319b9198f8d7!2sAv.%20Providencia%202216%2C%20Providencia%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e0!3m2!1ses!2sus!4v1744377972123!5m2!1ses!2sus",
-            "working_hours": "<p><strong>Providencia</strong></p><p>Región Metropolitana</p><p><strong>Número de tienda</strong>: Local 36-B</p><p><strong>Horarios de operación</strong>: Lun a Vie : 10:00 a 19:00 hrs / Sáb: 11:00 a 16:00 hrs</p><p><strong>Teléfono de tienda</strong>: 2 4367 0870 / +56 9 5008 6100</p>",
+            "name": "Pueblo del Inglés",
+            "address": "Av. Vitacura 6195",
+            "google": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26650.001027739607!2d-70.571226!3d-33.390638!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ced527c0c6e1%3A0xbda174ac3832919!2sAv%20Vitacura%206195%2C%20Vitacura%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e0!3m2!1ses!2sus!4v1744379161812!5m2!1ses!2sus",
+            "working_hours": "<p><strong>Vitacura</strong></p><p>Región Metropolitana</p><p><strong>Número de tienda</strong>: Local 36-B</p><p><strong>Horarios de operación</strong>: Lun a Vie : 10:00 a 19:00 hrs / Sáb: 11:00 a 16:00 hrs</p><p><strong>Teléfono de tienda</strong>: 2 4367 0870 / +56 9 5008 6100</p>",
             "phone": ""
           }
         },
@@ -78,6 +123,16 @@
             "working_hours": "",
             "phone": ""
           }
+        },
+        "stores_4xpyRw": {
+          "type": "stores",
+          "settings": {
+            "name": "",
+            "address": "",
+            "google": "",
+            "working_hours": "",
+            "phone": ""
+          }
         }
       },
       "block_order": [
@@ -86,11 +141,12 @@
         "stores_XL7Ejz",
         "stores_f4YtWC",
         "stores_QgmzaU",
-        "stores_wd3Yma"
+        "stores_wd3Yma",
+        "stores_4xpyRw"
       ],
       "custom_css": [],
       "settings": {
-        "title": "Tiendas y horarios",
+        "title": "",
         "accent_color": "#106b98"
       }
     },
@@ -106,6 +162,8 @@
   },
   "order": [
     "main",
+    "rich_text_EakGwM",
+    "rich_text_tXnPpz",
     "tiendas_propultech_kXDQR6",
     "custom_liquid_cxUYkG"
   ]
