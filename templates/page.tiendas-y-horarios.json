@@ -117,6 +117,51 @@
         "accent_color": "#106b98"
       }
     },
+    "rich_text_fQHtfX": {
+      "type": "rich-text",
+      "blocks": {
+        "text_AQgT7t": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Antofagasta</h2>"
+          }
+        }
+      },
+      "block_order": [
+        "text_AQgT7t"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 20
+      }
+    },
+    "tiendas_propultech_fYnx8b": {
+      "type": "tiendas-propultech",
+      "blocks": {
+        "stores_8LM3LV": {
+          "type": "stores",
+          "settings": {
+            "name": "Parque Arauco Express Norte",
+            "address": "Av. Edmundo Perez Zujovic 5470",
+            "google": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d29244.60700846313!2d-70.392005!3d-23.619539!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96ae2ad307ad5e21%3A0xa0cd7ccdfd291a88!2sAv.%20Edmundo%20P%C3%A9rez%20Zujovic%205470%2C%201267094%20Antofagasta%2C%20Chile!5e0!3m2!1ses!2sus!4v1744379530203!5m2!1ses!2sus",
+            "working_hours": "<p><strong>Antofagasta</strong></p><p>Antofagasta</p><p>Número de tienda: Local 14</p><p><strong>Teléfono de tienda</strong>: 55 2897883 / +56 9 6207 9900</p><p><strong>Horarios de operación</strong>: Lun a Vie: 09:30 a 18:30 hrs / Sáb: 10:00 a 16:00 hrs Colación: 13:30 a 14:30</p>",
+            "phone": ""
+          }
+        }
+      },
+      "block_order": [
+        "stores_8LM3LV"
+      ],
+      "custom_css": [],
+      "settings": {
+        "title": "",
+        "accent_color": "#106b98"
+      }
+    },
     "custom_liquid_cxUYkG": {
       "type": "custom-liquid",
       "settings": {
@@ -132,6 +177,8 @@
     "rich_text_EakGwM",
     "rich_text_tXnPpz",
     "tiendas_propultech_kXDQR6",
+    "rich_text_fQHtfX",
+    "tiendas_propultech_fYnx8b",
     "custom_liquid_cxUYkG"
   ]
 }
