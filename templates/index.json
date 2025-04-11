@@ -55,13 +55,69 @@
       ],
       "settings": {
         "layout": "full_bleed",
-        "slide_height": "medium",
+        "slide_height": "small",
         "slider_visual": "dots",
         "auto_rotate": true,
         "change_slides_speed": 5,
         "image_behavior": "none",
         "show_text_below": true,
         "accessibility_info": "Uniformes medicos"
+      }
+    },
+    "multicolumn_wjYUFn": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_6Dqyfp": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/INFINITY_LOGO_WHT_2024_1.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_ApQq9C": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_30.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_XJd9F6": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_31.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_6Dqyfp",
+        "column_ApQq9C",
+        "column_XJd9F6"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-3",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 16,
+        "padding_bottom": 16
       }
     },
     "featured_collection": {
@@ -92,61 +148,22 @@
         "padding_bottom": 36
       }
     },
-    "multicolumn_wjYUFn": {
+    "multicolumn_CdQk6p": {
       "type": "multicolumn",
       "blocks": {
-        "column_6Dqyfp": {
+        "column_LBLiVg": {
           "type": "column",
           "settings": {
-            "title": "infinity",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_ApQq9C": {
-          "type": "column",
-          "settings": {
-            "title": "mecdocture",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_XJd9F6": {
-          "type": "column",
-          "settings": {
-            "title": "cherokee",
-            "text": "",
+            "title": "Columna",
+            "text": "<p>Vincula un texto con una imagen para atraer la atención hacia tu producto, colección o artículo de blog seleccionados. Agrega detalles sobre disponibilidad y estilo, o incluso ofrece una reseña.</p>",
             "link_label": "",
             "link": ""
           }
         }
       },
       "block_order": [
-        "column_6Dqyfp",
-        "column_ApQq9C",
-        "column_XJd9F6"
+        "column_LBLiVg"
       ],
-      "settings": {
-        "title": "banners marcas carusel",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "button_label": "",
-        "button_link": "",
-        "columns_desktop": 3,
-        "column_alignment": "left",
-        "background_style": "primary",
-        "color_scheme": "scheme-3",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "multicolumn_CdQk6p": {
-      "type": "multicolumn",
       "settings": {
         "title": "Comprar por color",
         "heading_size": "h1",
@@ -167,8 +184,8 @@
   },
   "order": [
     "slideshow_YF4Daz",
-    "featured_collection",
     "multicolumn_wjYUFn",
+    "featured_collection",
     "multicolumn_CdQk6p"
   ]
 }
