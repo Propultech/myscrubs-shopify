@@ -15,9 +15,63 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "multicolumn_XCiywC": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_RVzkDe": {
+          "type": "column",
+          "settings": {
+            "title": "Columna",
+            "text": "<p>Vincula un texto con una imagen para atraer la atención hacia tu producto, colección o artículo de blog seleccionados. Agrega detalles sobre disponibilidad y estilo, o incluso ofrece una reseña.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_iVEYKh": {
+          "type": "column",
+          "settings": {
+            "title": "Columna",
+            "text": "<p>Vincula un texto con una imagen para atraer la atención hacia tu producto, colección o artículo de blog seleccionados. Agrega detalles sobre disponibilidad y estilo, o incluso ofrece una reseña.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_bUKKXb": {
+          "type": "column",
+          "settings": {
+            "title": "Columna",
+            "text": "<p>Vincula un texto con una imagen para atraer la atención hacia tu producto, colección o artículo de blog seleccionados. Agrega detalles sobre disponibilidad y estilo, o incluso ofrece una reseña.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_RVzkDe",
+        "column_iVEYKh",
+        "column_bUKKXb"
+      ],
+      "settings": {
+        "title": "Varias columnas",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "Etiqueta de botón",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "multicolumn_XCiywC"
   ]
 }
