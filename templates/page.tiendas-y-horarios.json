@@ -44,6 +44,10 @@
         "stores_dxYihG",
         "stores_wd3Yma"
       ],
+      "custom_css": [
+        ".tabs-tiendas-items .nav-item.active .nav-link {color: white; font-family: 'IBM Plex Sans Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}",
+        ".tabs-tiendas-items .nav-item .nav-link .nav-link-store-name {font-weight: bold; color: white; font-family: 'IBM Plex Sans Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif}"
+      ],
       "settings": {
         "title": "Tiendas y horarios",
         "accent_color": "#106b98"
