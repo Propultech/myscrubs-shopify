@@ -206,6 +206,50 @@
         "accent_color": "#106b98"
       }
     },
+    "rich_text_8rHJRb": {
+      "type": "rich-text",
+      "blocks": {
+        "text_LtiJm9": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Bío Bío</h2>"
+          }
+        }
+      },
+      "block_order": [
+        "text_LtiJm9"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 20
+      }
+    },
+    "tiendas_propultech_hVN9rp": {
+      "type": "tiendas-propultech",
+      "blocks": {
+        "stores_NXgynW": {
+          "type": "stores",
+          "settings": {
+            "name": "Galería San Nicolás",
+            "address": "Libertador Gral. Bernardo O'Higgins 882",
+            "google": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d25549.282171442737!2d-73.047079!3d-36.82666!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9669b5d1786c0b8b%3A0x3f0ad452e250e0fe!2sLibertador%20Gral.%20Bernardo%20O&#39;Higgins%20882%2C%20Concepci%C3%B3n%2C%20B%C3%ADo%20B%C3%ADo%2C%20Chile!5e0!3m2!1ses!2sus!4v1744379768633!5m2!1ses!2sus",
+            "working_hours": "<p><strong>Concepción</strong></p><p>Bío Bío</p><p>Número de tienda: Local 20</p><p><strong>Teléfono de tienda</strong>: 41 2300376 / +56 9 6207 9268</p><p><strong>Horarios de operación</strong>: Lun a Vie: 09:30 a 18:30 hrs .Colación: 15:00 a |16:00 / Sáb: 10:30 a 14:30 hrs.</p>",
+            "phone": ""
+          }
+        }
+      },
+      "block_order": [
+        "stores_NXgynW"
+      ],
+      "settings": {
+        "title": "",
+        "accent_color": "#106b98"
+      }
+    },
     "custom_liquid_cxUYkG": {
       "type": "custom-liquid",
       "settings": {
@@ -225,6 +269,8 @@
     "tiendas_propultech_fYnx8b",
     "rich_text_FfMKWQ",
     "tiendas_propultech_cTnTCY",
+    "rich_text_8rHJRb",
+    "tiendas_propultech_hVN9rp",
     "custom_liquid_cxUYkG"
   ]
 }
