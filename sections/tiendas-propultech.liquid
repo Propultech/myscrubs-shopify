@@ -1,0 +1,342 @@
+{% assign mobile_map_height = '320' %}
+{% assign desktop_map_height = '480' %}
+
+<header class="stores__title page-width">
+  <h2 class="stores__title-text">{{ section.settings.title }}</h2>
+</header>
+<div class="stores page-width">
+  <div class="stores__map">
+    <div class="stores_map--container">
+      <div class="mapouter">
+        <div class="gmap_canvas">
+          {%- assign default_map_url = 'https://www.google.com/maps/embed' -%}
+          {%- assign google_url = section.blocks[0].settings.google | default: '' -%}
+          {%- assign store_name = section.blocks[0].settings.name | default: '' -%}
+
+          <iframe
+            class="gmap_iframe"
+            id="map_iframe"
+            width="100%"
+            frameborder="0"
+            scrolling="no"
+            marginheight="0"
+            marginwidth="0"
+
+            {%- if google_url != blank and google_url contains default_map_url -%}
+              src="{{ google_url }}"
+            {% elsif store_name != blank %}
+              src="{{ store_name }}"
+            {% else %}
+              src="#"
+            {% endif %}
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="stores__list section-width">
+    <div class="stores__list--container">
+      <ul class="nav list-unstyled tabs-tiendas-items">
+        {%- for block in section.blocks -%}
+          <li
+            class="nav-item stores__list--item"
+            id="{{ block.id }}"
+            onclick="
+              onSelectedIframe(
+                '{{ block.settings.google }}',
+                '{{ block.id }}',
+                '{{ block.settings.name }}'
+              )
+            "
+          >
+            <article class="nav-link">
+              <h3 class="nav-link-store-name">{{ block.settings.name }}</h3>
+              <p class="nav-link-store-address">{{ block.settings.address }}</p>
+              {% if block.settings.working_hours != blank %}
+                <span class="nav-link--section-title">Horario de atención:</span>
+                <div class="nav-link--working-hours">
+                  {{ block.settings.working_hours }}
+                </div>
+              {% endif %}
+              {% if block.settings.phone != blank %}
+                <p class="nav-link-phone">
+                  <span class="nav-link--section-title">Teléfono:</span>
+                  {{ block.settings.phone }}
+                </p>
+              {% endif %}
+            </article>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+
+  function onSelectedIframe(urlData, id, name) {
+    const iframeContent = document.getElementById('map_iframe');
+    const itemSelected = document.getElementById(id);
+    
+    if (urlData && urlData.trim() !== '') {
+      iframeContent.src = urlData;
+    } else {
+      iframeContent.src = `https://maps.google.com/maps?width=600&height=320&hl=en&q=${encodeURIComponent(name)}&t=&z=14&ie=UTF8&iwloc=B&output=embed`;
+    }
+    
+    const boxes = document.querySelectorAll('.stores__list--item');
+    boxes.forEach(function (box) {
+      box.classList.remove('active');
+    });
+    
+    itemSelected.classList.add('active');
+  }
+
+  
+  function setMapHeight() {
+    const isMobile = window.innerWidth < 768;
+    const mapHeight = isMobile ? {{ mobile_map_height }} : {{ desktop_map_height }};
+      
+    // Update the height of the Google Maps iframe
+    const mapIframes = document.querySelectorAll('.gmap_iframe, #map_iframe');
+    mapIframes.forEach(iframe => {
+      iframe.style.height = `${mapHeight}px`;
+    });
+      
+    // Update the height of the map container
+    const mapOuter = document.querySelector('.mapouter');
+    if (mapOuter) {
+      mapOuter.style.height = `${mapHeight}px`;
+    }
+  }
+
+  setMapHeight();
+  onSelectedIframe(
+    '{{ section.blocks[0].settings.google }}',
+    '{{ section.blocks[0].id }}',
+    '{{ section.blocks[0].settings.name }}'
+  );
+
+  window.addEventListener('resize', setMapHeight);
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const firstItem = document.querySelector('.stores__list--item');
+    if (firstItem) {
+      firstItem.classList.add('active');
+    }
+  });
+</script>
+
+<style>
+  .stores__title-text {
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .main-page-title{
+    display: none;
+  }
+
+  .stores {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .stores__map {
+    order: 1;
+    height: 300px;
+    width: 100%;
+  }
+  .stores__list {
+    order: 2;
+    height: 100%;
+  }
+  .stores__list--container {
+    height: 320px;
+    overflow-x: hidden !important;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+  .stores__list--item {
+    padding: 0.1rem 1.2rem;
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: -.025em;
+    transition: all ease .2s;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+  }
+  .stores__list--item:hover {
+    background-color: {{ section.settings.accent_color | color_modify: 'alpha', 0.4 }};
+  }
+  .stores__list--item.active {
+    background-color: {{ section.settings.accent_color }};
+  }
+  .stores__list--item.active .nav-link {
+    color: rgb(var(--color-foreground));
+  }
+  .stores__list.section-width {
+    margin-top: 16px;
+  }
+
+  .tabs-tiendas-items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .tabs-tiendas-items .nav-item .nav-link {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.5;
+    text-decoration: none;
+  }
+
+  .tabs-tiendas-items .nav-item .nav-link .nav-link-store-name {
+    font-weight: bold;
+  }
+
+  .tabs-tiendas-items .nav-item .nav-link .nav-link--section-title {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-style: italic;
+    display: none;
+  }
+
+  .tabs-tiendas-items .nav-item .nav-link .no-margin {
+    margin: 0;
+  }
+
+  .tabs-tiendas-items .nav-item:hover .nav-link {
+    color: rgb(var(--color-link));
+  }
+
+  .tabs-tiendas-items .nav-item.active {
+    background-color: {{ section.settings.accent_color }};
+  }
+
+  .tabs-tiendas-items .nav-item.active .nav-link {
+    color: rgb(var(--color-foreground));
+  }
+
+  /* Map */
+  .mapouter {
+    position: relative;
+    text-align: right;
+    width: 100%;
+    height: {{ mobile_map_height }}px;
+  }
+  .gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    width: 100%;
+    height: 100%;
+  }
+  .gmap_iframe {
+    height: {{ mobile_map_height }}px;
+    border-radius: 4px;
+  }
+
+  .map-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 150px;
+    background-color: #f5f5f5;
+    border: 1px dashed #ccc;
+  }
+
+  .map-placeholder p {
+    color: #666;
+    font-size: 14px;
+    text-align: center;
+  }
+
+
+  @media screen and (min-width: 768px) {
+    .stores {
+      display: flex;
+      flex-direction: row;
+    }
+    .stores__map {
+      order: 2;
+      height: 480px;
+    }
+    .stores__list {
+      order: 1;
+      width: 35%;
+      max-width: 300px;
+      min-width: 200px;
+    }
+    .stores__list--container {
+      height: 480px;
+    }
+    .mapouter {
+      height: {{ desktop_map_height }}px;
+    }
+    .stores__list.section-width {
+      margin-top: 0;
+    }
+
+  }
+</style>
+
+{% schema %}
+{
+  "name": "🚀 Listado de Tiendas",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título de la página",
+      "default": "Información de horarios de tiendas"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Color destacado",
+      "default": "#c7af8c"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stores",
+      "name": "Tiendas",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Nombre"
+        },
+        {
+          "type": "text",
+          "id": "address",
+          "label": "Dirección"
+        },
+        {
+          "type": "textarea",
+          "id": "google",
+          "label": "Embed Google Maps"
+        },
+        {
+          "type": "richtext",
+          "id": "working_hours",
+          "label": "Horario (shift+enter para nueva línea)"
+        },
+        {
+          "type": "text",
+          "id": "phone",
+          "label": "Teléfono"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "🚀 Listado de Tiendas",
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}
