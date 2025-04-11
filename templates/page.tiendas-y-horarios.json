@@ -29,6 +29,46 @@
             "phone": ""
           }
         },
+        "stores_AG9eJK": {
+          "type": "stores",
+          "settings": {
+            "name": "Dos Caracoles",
+            "address": "Av. Providencia 2216",
+            "google": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26640.570226898162!2d-70.609684!3d-33.421386!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf689dde3593%3A0xbcb9319b9198f8d7!2sAv.%20Providencia%202216%2C%20Providencia%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e0!3m2!1ses!2sus!4v1744377972123!5m2!1ses!2sus",
+            "working_hours": "<p><strong>Providencia</strong></p><p>Región Metropolitana</p><p><strong>Número de tienda</strong>: Local 36-B</p><p><strong>Horarios de operación</strong>: Lun a Vie : 10:00 a 19:00 hrs / Sáb: 11:00 a 16:00 hrs</p><p><strong>Teléfono de tienda</strong>: 2 4367 0870 / +56 9 5008 6100</p>",
+            "phone": ""
+          }
+        },
+        "stores_XL7Ejz": {
+          "type": "stores",
+          "settings": {
+            "name": "Dos Caracoles",
+            "address": "Av. Providencia 2216",
+            "google": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26640.570226898162!2d-70.609684!3d-33.421386!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf689dde3593%3A0xbcb9319b9198f8d7!2sAv.%20Providencia%202216%2C%20Providencia%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e0!3m2!1ses!2sus!4v1744377972123!5m2!1ses!2sus",
+            "working_hours": "<p><strong>Providencia</strong></p><p>Región Metropolitana</p><p><strong>Número de tienda</strong>: Local 36-B</p><p><strong>Horarios de operación</strong>: Lun a Vie : 10:00 a 19:00 hrs / Sáb: 11:00 a 16:00 hrs</p><p><strong>Teléfono de tienda</strong>: 2 4367 0870 / +56 9 5008 6100</p>",
+            "phone": ""
+          }
+        },
+        "stores_f4YtWC": {
+          "type": "stores",
+          "settings": {
+            "name": "Dos Caracoles",
+            "address": "Av. Providencia 2216",
+            "google": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26640.570226898162!2d-70.609684!3d-33.421386!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf689dde3593%3A0xbcb9319b9198f8d7!2sAv.%20Providencia%202216%2C%20Providencia%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e0!3m2!1ses!2sus!4v1744377972123!5m2!1ses!2sus",
+            "working_hours": "<p><strong>Providencia</strong></p><p>Región Metropolitana</p><p><strong>Número de tienda</strong>: Local 36-B</p><p><strong>Horarios de operación</strong>: Lun a Vie : 10:00 a 19:00 hrs / Sáb: 11:00 a 16:00 hrs</p><p><strong>Teléfono de tienda</strong>: 2 4367 0870 / +56 9 5008 6100</p>",
+            "phone": ""
+          }
+        },
+        "stores_QgmzaU": {
+          "type": "stores",
+          "settings": {
+            "name": "Dos Caracoles",
+            "address": "Av. Providencia 2216",
+            "google": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26640.570226898162!2d-70.609684!3d-33.421386!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf689dde3593%3A0xbcb9319b9198f8d7!2sAv.%20Providencia%202216%2C%20Providencia%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e0!3m2!1ses!2sus!4v1744377972123!5m2!1ses!2sus",
+            "working_hours": "<p><strong>Providencia</strong></p><p>Región Metropolitana</p><p><strong>Número de tienda</strong>: Local 36-B</p><p><strong>Horarios de operación</strong>: Lun a Vie : 10:00 a 19:00 hrs / Sáb: 11:00 a 16:00 hrs</p><p><strong>Teléfono de tienda</strong>: 2 4367 0870 / +56 9 5008 6100</p>",
+            "phone": ""
+          }
+        },
         "stores_wd3Yma": {
           "type": "stores",
           "settings": {
@@ -42,6 +82,10 @@
       },
       "block_order": [
         "stores_dxYihG",
+        "stores_AG9eJK",
+        "stores_XL7Ejz",
+        "stores_f4YtWC",
+        "stores_QgmzaU",
         "stores_wd3Yma"
       ],
       "custom_css": [
@@ -52,10 +96,20 @@
         "title": "Tiendas y horarios",
         "accent_color": "#106b98"
       }
+    },
+    "custom_liquid_cxUYkG": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
     "main",
-    "tiendas_propultech_kXDQR6"
+    "tiendas_propultech_kXDQR6",
+    "custom_liquid_cxUYkG"
   ]
 }
