@@ -162,6 +162,50 @@
         "accent_color": "#106b98"
       }
     },
+    "rich_text_FfMKWQ": {
+      "type": "rich-text",
+      "blocks": {
+        "text_fenUVW": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Araucanía</h2>"
+          }
+        }
+      },
+      "block_order": [
+        "text_fenUVW"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 20
+      }
+    },
+    "tiendas_propultech_cTnTCY": {
+      "type": "tiendas-propultech",
+      "blocks": {
+        "stores_X4HGG7": {
+          "type": "stores",
+          "settings": {
+            "name": "Mall Mirage",
+            "address": "Av. Edmundo Perez Zujovic 5470",
+            "google": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d24899.0376800741!2d-72.614971!3d-38.732048!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9614d3f5870e52bb%3A0xf562e8fdb439ba2c!2sTorremolinos%20410%2C%20Temuco%2C%20Araucan%C3%ADa%2C%20Chile!5e0!3m2!1ses!2sus!4v1744379622833!5m2!1ses!2sus",
+            "working_hours": "<p>Av. Torremolinos 410</p><p><strong>Temuco</strong></p><p>Araucanía</p><p>Número de tienda: Local 231</p><p><strong>Teléfono de tienda</strong>: 45 2747109 / +56 9 6207 9207</p><p><strong>Horarios de operación</strong>: Lun a Sáb: 10:30 a 19:30 hrs.</p>",
+            "phone": ""
+          }
+        }
+      },
+      "block_order": [
+        "stores_X4HGG7"
+      ],
+      "settings": {
+        "title": "",
+        "accent_color": "#106b98"
+      }
+    },
     "custom_liquid_cxUYkG": {
       "type": "custom-liquid",
       "settings": {
@@ -179,6 +223,8 @@
     "tiendas_propultech_kXDQR6",
     "rich_text_fQHtfX",
     "tiendas_propultech_fYnx8b",
+    "rich_text_FfMKWQ",
+    "tiendas_propultech_cTnTCY",
     "custom_liquid_cxUYkG"
   ]
 }
