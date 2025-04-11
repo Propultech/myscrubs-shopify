@@ -250,6 +250,50 @@
         "accent_color": "#106b98"
       }
     },
+    "rich_text_X7gGY4": {
+      "type": "rich-text",
+      "blocks": {
+        "text_Wi9GK7": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Coquimbo</h2>"
+          }
+        }
+      },
+      "block_order": [
+        "text_Wi9GK7"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 20
+      }
+    },
+    "tiendas_propultech_Q6Ekwa": {
+      "type": "tiendas-propultech",
+      "blocks": {
+        "stores_pdcTdz": {
+          "type": "stores",
+          "settings": {
+            "name": "Edificio Terra Office",
+            "address": "Huanhuali 850",
+            "google": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d27665.77027995635!2d-71.247324!3d-29.915531000000005!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9691ca676853cf23%3A0x399217b49d614ee6!2sHuanhuali%20850%2C%201720381%20La%20Serena%2C%20Coquimbo%2C%20Chile!5e0!3m2!1ses!2sus!4v1744379863112!5m2!1ses!2sus",
+            "working_hours": "<p><strong>La Serena</strong></p><p>Coquimbo</p><p><strong>Número de tienda</strong>: Local 102</p><p><strong>Teléfono de tienda</strong>: 51 2406069 / +56 9 6207 9958</p><p><strong>Horarios de operación</strong>: Lun a Vie: 10:00 a 18:00 hrs / Sáb: 10:30 a 16:30 hrs | Colación: 13:00 a 14:00 hrs</p>",
+            "phone": ""
+          }
+        }
+      },
+      "block_order": [
+        "stores_pdcTdz"
+      ],
+      "settings": {
+        "title": "",
+        "accent_color": "#106b98"
+      }
+    },
     "custom_liquid_cxUYkG": {
       "type": "custom-liquid",
       "settings": {
@@ -271,6 +315,8 @@
     "tiendas_propultech_cTnTCY",
     "rich_text_8rHJRb",
     "tiendas_propultech_hVN9rp",
+    "rich_text_X7gGY4",
+    "tiendas_propultech_Q6Ekwa",
     "custom_liquid_cxUYkG"
   ]
 }
