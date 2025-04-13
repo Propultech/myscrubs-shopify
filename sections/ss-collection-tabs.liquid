@@ -18,6 +18,17 @@
     padding-top: var(--pt);
     padding-bottom: var(--pb);
   }
+  .ab-slider-tab{
+    border-radius: 50px;
+    font-family: var(--font-ibm-plex-condensed), sans-serif;
+  }
+  .ab-slider-tab-wrapper-inner {
+    border: 1px solid black;
+    padding: 11px;
+    border-radius: 50px;
+    display: flex;
+    gap: 10px;
+  }
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding: 0 5rem;
@@ -40,6 +51,7 @@
     justify-content: center;
     background: transparent;
     border-bottom: none;
+
   }
   .ab-slider-tab-wrapper.ab-slider-tab-wrapper--center {
     justify-content: center;
@@ -78,26 +90,17 @@
     background-color: #fff;
     transform: translateY(0);
     cursor: pointer;
-    border: 1px solid #333;
     white-space: nowrap;
     flex-shrink: 0;
     outline: inherit;
-    border-bottom: 1px solid #333;
     margin: 0px;
     font-weight: 600;
     letter-spacing: 1px;
-    border-radius: 0;
     color: #333;
     transition: all 250ms ease;
   }
-  .ab-slider-tab:first-child {
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
-  }
-  .ab-slider-tab:last-child {
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
-  }
+
+
   .ab-slider-tab.ab-slider-tab--active {
     opacity: 1;
     transition: all 250ms ease;
@@ -161,7 +164,6 @@
      color: {{section.settings.button-text-color-hover}}
   }
   .ab-slider-slide {
-    box-shadow: {{section.settings.card-shadow-color}} 0px 6px 24px 0px;
     background: white;
     height: auto;
     display: flex;
@@ -202,11 +204,10 @@
   }
   @media screen and (min-width: 750px) {
     .ab-slider-slide-content {
-      padding: 18px 30px;
+      padding: 16px 8px;
     }
   }
   .ab-slider-slide-title {
-    border-bottom: 1px solid rgb(211, 212, 213);
     padding-bottom: 9px;
     margin-bottom: 9px;
     font-weight: 700;
@@ -354,17 +355,19 @@
         color: {{ section.settings.tab_color }};
       "
     >
-      <div
-        class="ab-slider-tab ab-slider-tab--active"
-        data-tab="tab_1"
-      >
-        {{ section.settings.tab_1_text }}
-      </div>
-      <div
-        class="ab-slider-tab"
-        data-tab="tab_2"
-      >
-        {{ section.settings.tab_2_text }}
+      <div class="ab-slider-tab-wrapper-inner">
+        <div
+          class="ab-slider-tab ab-slider-tab--active"
+          data-tab="tab_1"
+        >
+          {{ section.settings.tab_1_text }}
+        </div>
+        <div
+          class="ab-slider-tab"
+          data-tab="tab_2"
+        >
+          {{ section.settings.tab_2_text }}
+        </div>
       </div>
       <div class="ab-slider-tab-indicator-bg"></div>
       <div class="ab-slider-tab-indicator"></div>
