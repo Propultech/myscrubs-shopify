@@ -239,8 +239,8 @@
    }
    .ab-slider-desktop-grid {
         display: grid;
-     grid-template-columns: repeat(3, minmax(0px, 1fr));
-     gap: 24px;
+     grid-template-columns: repeat(4, minmax(0px, 1fr));
+     gap: 20px;
    }
   }
   div.swiper-button-next-{{ section.id }},
@@ -545,9 +545,9 @@
   (function () {
     function loadSection() {
       let abSlider = new Swiper('.swiper-{{ section.id }}', {
-        slidesPerView: 1.1,
-        spaceBetween: 12,
-        centeredSlides: true,
+        slidesPerView: 2,
+        spaceBetween: 10,
+        centeredSlides: false,
         breakpoints: {
           750: {
             slidesPerView: 2,
@@ -555,8 +555,8 @@
             centeredSlides: false,
           },
           1024: {
-            slidesPerView: 3,
-            spaceBetween: 24,
+            slidesPerView: 4,
+            spaceBetween: 20,
             centeredSlides: false,
           },
         },
