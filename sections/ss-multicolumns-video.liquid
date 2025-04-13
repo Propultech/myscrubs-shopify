@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+<link rel="stylesheet" href="{{ 'swiper-bundle.min.css' | asset_url }}">
 
 {%- liquid
   assign padding_horizontal = section.settings.padding_horizontal
@@ -11,7 +11,7 @@
   assign background_color = section.settings.background_color
   assign background_gradient = section.settings.background_gradient
   assign content_width = section.settings.content_width
-  
+
   assign heading = section.settings.heading
   assign heading_size = section.settings.heading_size
   assign heading_color = section.settings.heading_color
@@ -21,7 +21,7 @@
   assign heading_mt = section.settings.heading_mt
   assign heading_mb = section.settings.heading_mb
   assign heading_align = section.settings.heading_align
-  
+
   assign text = section.settings.text
   assign text_size = section.settings.text_size
   assign text_color = section.settings.text_color
@@ -29,7 +29,7 @@
   assign text_height = section.settings.text_height
   assign text_letter = section.settings.text_letter
   assign text_align = section.settings.text_align
-  
+
   assign numbers = section.settings.numbers
   assign column_mt = section.settings.column_mt
   assign column_direction = section.settings.column_direction
@@ -42,21 +42,21 @@
   assign column_padding_bottom = section.settings.column_padding_bottom
   assign column_row = section.settings.column_row
   assign column_row_mobile = section.settings.column_row_mobile
-  
+
   assign column_heading_size = section.settings.column_heading_size
   assign column_heading_color = section.settings.column_heading_color
   assign column_heading_font = section.settings.column_heading_font
   assign column_heading_height = section.settings.column_heading_height
   assign column_heading_letter = section.settings.column_heading_letter
   assign column_heading_mt = section.settings.column_heading_mt
-  
+
   assign column_text_size = section.settings.column_text_size
   assign column_text_color = section.settings.column_text_color
   assign column_text_font = section.settings.column_text_font
   assign column_text_height = section.settings.column_text_height
   assign column_text_letter = section.settings.column_text_letter
   assign column_text_mt = section.settings.column_text_mt
-  
+
   assign column_link_size = section.settings.column_link_size
   assign column_link_color = section.settings.column_link_color
   assign column_link_hover_color = section.settings.column_link_hover_color
@@ -98,7 +98,7 @@
   assign nav_hover_icon = section.settings.nav_hover_icon
   assign nav_size = section.settings.nav_size
   assign nav_size_mobile = section.settings.nav_size_mobile
-  
+
   assign hide_nav = section.settings.hide_nav
 
   if column_direction == 'center'
@@ -126,7 +126,6 @@
   elsif column_row_mobile == '4'
     assign column_maxwidth_mobile = 21
   endif
-  
 -%}
 
 {%- style -%}
@@ -136,14 +135,14 @@
   {{ column_text_font | font_face: font_display: 'swap' }}
   {{ column_link_font | font_face: font_display: 'swap' }}
   {{ column_number_font | font_face: font_display: 'swap' }}
-  
+
   .section-{{ section.id }} {
     border-top: solid {{ border_color }} {{ border_thickness }}px;
     border-bottom: solid {{ border_color }} {{ border_thickness }}px;
     margin-top: {{ margin_top | times: 0.75 | round: 0 }}px;
     margin-bottom: {{ margin_bottom | times: 0.75 | round: 0 }}px;
   }
-  
+
   .section-{{ section.id }}-settings {
     max-width: {{ content_width }}rem;
     margin: 0 auto;
@@ -164,7 +163,7 @@
     text-transform: unset;
     text-align: {{ heading_align }};
   }
-  
+
   .multicolumns-text-{{ section.id }} {
     margin: 0;
     font-size: {{ text_size | times: 0.85 }}px;
@@ -174,7 +173,7 @@
     text-transform: unset;
     text-align: {{ text_align }};
   }
-  
+
   .multicolumns-items-{{ section.id }} {
     margin-top: {{ column_mt | times: 0.75 | round: 0  }}px;
     display: flex;
@@ -183,7 +182,7 @@
     align-items: stratch;
     gap: {{ column_gap_mobile }}px;
   }
-  
+
   .multicolumns-item-{{ section.id }} {
     flex: 0 1 {{ column_maxwidth_mobile }}%;
     border-radius: {{ column_radius | times: 0.75 | round: 0}}px;
@@ -194,7 +193,7 @@
     padding-right: {{ column_padding_horizontal | times: 0.75 | round: 0 }}px;
     box-sizing: border-box;
   }
-  
+
   .multicolumns-item-number-{{ section.id }} {
     display: flex;
     align-items: center;
@@ -204,18 +203,18 @@
     border-radius: 50%;
     background-color: {{ column_number_bg_color }};
   }
-  
+
   .multicolumns-item-number-{{ section.id }} p {
     font-size: {{ column_number_size | times: 0.85 }}px;
     color: {{ column_number_color }};
   }
-  
+
   .multicolumns-item-image-{{ section.id }} {
     max-width: {{ column_image_max_mobile }}px;
     margin: 0 auto;
     border-radius: {{ column_image_radius | times: 0.75 | round: 0 }}px;
   }
-  
+
   .multicolumns-item-image-{{ section.id }} img {
     display: block;
     width: 100%;
@@ -233,7 +232,7 @@
     border-radius: {{ column_video_radius | times: 0.75 | round: 0 }}px;
     background-color: #CABBB6;
   }
-  
+
   .multicolumns-item-video-{{ section.id }} {
     margin: 0 auto;
     border-radius: {{ column_video_radius }}px;
@@ -258,7 +257,7 @@
     border-radius: {{ column_video_radius | times: 0.75 | round: 0 }}px;
     background-color: #CABBB6;
   }
-  
+
   .multicolumns-item-title-{{ section.id }} {
     margin: 0px;
     margin-top: {{ column_heading_mt | times: 0.75 | round: 0 }}px;
@@ -268,7 +267,7 @@
     letter-spacing: {{ column_heading_letter }}px;
     text-align: {{ column_direction }};
   }
-  
+
   .multicolumns-item-text-{{ section.id }} {
     margin: 0px;
     margin-top: {{ column_text_mt }}px;
@@ -278,7 +277,7 @@
     letter-spacing: {{ column_text_letter }}px;
     text-align: {{ column_direction }};
   }
-  
+
   .multicolumns-item-link-{{ section.id }} {
     display: block;
     margin: 0px;
@@ -291,7 +290,7 @@
     transition: all 0.1s ease-in 0s;
     text-decoration: none;
   }
-  
+
   .multicolumns-item-link-{{ section.id }}:hover {
     transition: all 0.1s ease-in 0s;
     color: {{ column_link_hover_color }};
@@ -331,7 +330,7 @@
   .multicolumns-btn-next-{{ section.id }}::after {
     margin-left: 2px;
   }
-  
+
   .multicolumns-btn-prev-{{ section.id }}::after {
     margin-left: -1px;
   }
@@ -346,7 +345,7 @@
   .multicolumns-btn-prev-{{ section.id }}:hover::after {
     color: {{ nav_hover_icon }} !important;
   }
-  
+
   @media(min-width: 768px) {
 
   .multicolumns-item-video-{{ section.id }} .placeholder {
@@ -360,12 +359,12 @@
   .multicolumns-item-image-{{ section.id }} img {
     border-radius: {{ column_image_radius }}px;
   }
-    
+
     .section-{{ section.id }} {
       margin-top: {{ margin_top }}px;
       margin-bottom: {{ margin_bottom }}px;
     }
-    
+
     .section-{{ section.id }}-settings {
       padding: 0 5rem;
       padding-top: {{ padding_top }}px;
@@ -373,22 +372,22 @@
       padding-left: {{ padding_horizontal }}px;
       padding-right: {{ padding_horizontal }}px;
     }
-    
+
     .multicolumns-title-{{ section.id }} {
       font-size: {{ heading_size }}px;
       margin-top: {{ heading_mt }}px;
       margin-bottom: {{ heading_mb }}px;
     }
-    
+
     .multicolumns-text-{{ section.id }} {
       font-size: {{ text_size }}px;
     }
-    
+
     .multicolumns-items-{{ section.id }} {
       margin-top: {{ column_mt }}px;
       gap: {{ column_gap }}px;
     }
-    
+
     .multicolumns-item-{{ section.id }} {
       border-radius: {{ column_radius }}px;
       flex: 0 1 {{ column_maxwidth }}%;
@@ -397,27 +396,27 @@
       padding-left: {{ column_padding_horizontal }}px;
       padding-right: {{ column_padding_horizontal }}px;
     }
-    
+
     .multicolumns-item-image-{{ section.id }} {
       height: {{section.settings.column_image_height}}px;
       max-width: {{ column_image_max }}px;
     }
-    
+
     .multicolumns-item-title-{{ section.id }} {
       margin-top: {{ column_heading_mt }}px;
       font-size: {{ column_heading_size }}px;
     }
-    
+
     .multicolumns-item-text-{{ section.id }} {
       margin-top: {{ column_text_mt }}px;
       font-size: {{ column_text_size }}px;
     }
-    
+
     .multicolumns-item-link-{{ section.id }} {
       margin-top: {{ column_link_mt }}px;
       font-size: {{ column_link_size }}px;
     }
-    
+
     .multicolumns-item-number-{{ section.id }} p {
       font-size: {{ column_number_size }}px;
     }
@@ -527,19 +526,19 @@
   </style>
 {% endif %}
 
-{% if column_link_style == "button" %}
+{% if column_link_style == 'button' %}
   <style>
     .multicolumns-item-link-{{ section.id }} {
       background-color: {{ column_link_bg_color }};
       padding: {{ column_link_padding_vertical | times: 0.75 | round: 0 }}px {{ column_link_padding_horizontal | times: 0.75 | round: 0 }}px;
       border-radius: {{ column_link_radius | times: 0.75 | round: 0 }}px;
     }
-    
+
     .multicolumns-item-link-{{ section.id }}:hover {
       color: {{ column_link_color }};
       background-color: {{ column_link_bg_hover_color }};
     }
-    
+
     @media(min-width:768px) {
       .multicolumns-item-link-{{ section.id }} {
         padding: {{ column_link_padding_vertical }}px {{ column_link_padding_horizontal }}px;
@@ -549,7 +548,7 @@
   </style>
 {% endif %}
 
-{% if column_link_width == "regular" %}
+{% if column_link_width == 'regular' %}
   <style>
     .multicolumns-item-link-{{ section.id }} {
       max-width: {{ column_link_max }}px;
@@ -580,7 +579,7 @@
   </style>
 {% endif %}
 
-{% if column_style == "slider" or column_style_mobile == "slider" %}
+{% if column_style == 'slider' or column_style_mobile == 'slider' %}
   <style>
     {% if column_style_mobile == "slider" %}
       .multicolumns-slider-wrapper-{{ section.id }} {
@@ -634,23 +633,24 @@
   </style>
 {% endif %}
 
-<div class="section-{{ section.id }}" style="background-color:{{ background_color }}; background-image: {{ background_gradient }};">
+<div
+  class="section-{{ section.id }}"
+  style="background-color:{{ background_color }}; background-image: {{ background_gradient }};"
+>
   <div class="page-width section-{{ section.id }}-settings">
-    
-        {% if heading != blank %}
-          <h2 class="multicolumns-title-{{ section.id }}">{{ heading }}</h2>
-        {% endif %}
-        
-        {% if text != blank %}
-          <p class="multicolumns-text-{{ section.id }}">{{ text }}</p>
-        {% endif %}
-        
-        <div class="multicolumns-items-{{ section.id }}">
-          {% for block in section.blocks %}
-            {% case block.type %}
-            {% when "image" %}
-            <div class="multicolumns-item-{{ section.id }}">
+    {% if heading != blank %}
+      <h2 class="multicolumns-title-{{ section.id }}">{{ heading }}</h2>
+    {% endif %}
 
+    {% if text != blank %}
+      <p class="multicolumns-text-{{ section.id }}">{{ text }}</p>
+    {% endif %}
+
+    <div class="multicolumns-items-{{ section.id }}">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'image' %}
+            <div class="multicolumns-item-{{ section.id }}">
               {% if numbers %}
                 <div class="multicolumns-item-number-{{ section.id }}">
                   <p>{{ forloop.index }}</p>
@@ -658,10 +658,13 @@
               {% elsif block.settings.image == blank %}
                 <div class="multicolumns-item-image-{{ section.id }}">
                   {{ 'image' | placeholder_svg_tag: 'placeholder' }}
-                 </div>
+                </div>
               {% elsif block.settings.image != blank %}
                 <div class="multicolumns-item-image-{{ section.id }}">
-                  <img src="{{ block.settings.image | image_url: width: 800 }}" alt="multicolumns-item-image-{{ forloop.index }}">
+                  <img
+                    src="{{ block.settings.image | image_url: width: 800 }}"
+                    alt="multicolumns-item-image-{{ forloop.index }}"
+                  >
                 </div>
               {% endif %}
 
@@ -672,32 +675,34 @@
               {% if block.settings.text != blank %}
                 <p class="multicolumns-item-text-{{ section.id }}">{{ block.settings.text }}</p>
               {% endif %}
-            
-              {% if block.settings.link != blank %}
-                <a href="{{ block.settings.link_url }}" class="multicolumns-item-link-{{ section.id }}">{{ block.settings.link }}</a>
-              {% endif %}
-            
-            </div>
-            {% when "video" %}
-            <div class="multicolumns-item-{{ section.id }}">
 
-            {% if numbers %}
+              {% if block.settings.link != blank %}
+                <a href="{{ block.settings.link_url }}" class="multicolumns-item-link-{{ section.id }}">
+                  {{- block.settings.link -}}
+                </a>
+              {% endif %}
+            </div>
+          {% when 'video' %}
+            <div class="multicolumns-item-{{ section.id }}">
+              {% if numbers %}
                 <div class="multicolumns-item-number-{{ section.id }}">
                   <p>{{ forloop.index }}</p>
                 </div>
               {% elsif block.settings.video == blank %}
                 <div id="multicolumns-item-video" class="multicolumns-item-video-{{ section.id }}">
                   {{ 'image' | placeholder_svg_tag: 'placeholder' }}
-                 </div>
+                </div>
               {% elsif block.settings.video != blank %}
                 <div id="multicolumns-item-video" class="multicolumns-item-video-{{ section.id }}">
-                  {{ block.settings.video | video_tag:
-                        image_size: '1100x',
-                        autoplay: block.settings.autoplay,
-                        loop: block.settings.loop,
-                        controls: block.settings.controls,
-                        muted: true
-                    }}
+                  {{
+                    block.settings.video
+                    | video_tag:
+                      image_size: '1100x',
+                      autoplay: block.settings.autoplay,
+                      loop: block.settings.loop,
+                      controls: block.settings.controls,
+                      muted: true
+                  }}
                 </div>
               {% endif %}
 
@@ -708,24 +713,24 @@
               {% if block.settings.text != blank %}
                 <p class="multicolumns-item-text-{{ section.id }}">{{ block.settings.text }}</p>
               {% endif %}
-            
-              {% if block.settings.link != blank %}
-                <a href="{{ block.settings.link_url }}" class="multicolumns-item-link-{{ section.id }}">{{ block.settings.link }}</a>
-              {% endif %}
-            
-            </div>
-            {% endcase %}
-          {% endfor %}
-        </div>
 
-        <div class="multicolumns-slider-wrapper-{{ section.id }}">
-          <div class="multicolumns-slider-{{ section.id }} swiper">
-            <div class="multicolumns-wrapper-{{ section.id }} swiper-wrapper">
-              {% for block in section.blocks %}
-                {% case block.type %}
-                {% when "image" %}
+              {% if block.settings.link != blank %}
+                <a href="{{ block.settings.link_url }}" class="multicolumns-item-link-{{ section.id }}">
+                  {{- block.settings.link -}}
+                </a>
+              {% endif %}
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+
+    <div class="multicolumns-slider-wrapper-{{ section.id }}">
+      <div class="multicolumns-slider-{{ section.id }} swiper">
+        <div class="multicolumns-wrapper-{{ section.id }} swiper-wrapper">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'image' %}
                 <div class="multicolumns-item-{{ section.id }} swiper-slide">
-    
                   {% if numbers %}
                     <div class="multicolumns-item-number-{{ section.id }}">
                       <p>{{ forloop.index }}</p>
@@ -733,73 +738,79 @@
                   {% elsif block.settings.image == blank %}
                     <div class="multicolumns-item-image-{{ section.id }}">
                       {{ 'image' | placeholder_svg_tag: 'placeholder' }}
-                     </div>
+                    </div>
                   {% elsif block.settings.image != blank %}
                     <div class="multicolumns-item-image-{{ section.id }}">
-                      <img src="{{ block.settings.image | image_url: width: 800 }}" alt="multicolumns-item-image-{{ forloop.index }}">
+                      <img
+                        src="{{ block.settings.image | image_url: width: 800 }}"
+                        alt="multicolumns-item-image-{{ forloop.index }}"
+                      >
                     </div>
                   {% endif %}
-    
+
                   {% if block.settings.heading != blank %}
                     <h3 class="multicolumns-item-title-{{ section.id }}">{{ block.settings.heading }}</h3>
                   {% endif %}
-    
+
                   {% if block.settings.text != blank %}
                     <p class="multicolumns-item-text-{{ section.id }}">{{ block.settings.text }}</p>
                   {% endif %}
-                
+
                   {% if block.settings.link != blank %}
-                    <a href="{{ block.settings.link_url }}" class="multicolumns-item-link-{{ section.id }}">{{ block.settings.link }}</a>
+                    <a href="{{ block.settings.link_url }}" class="multicolumns-item-link-{{ section.id }}">
+                      {{- block.settings.link -}}
+                    </a>
                   {% endif %}
-                
                 </div>
-                {% when "video" %}
+              {% when 'video' %}
                 <div class="multicolumns-item-{{ section.id }} swiper-slide">
-    
-                {% if numbers %}
+                  {% if numbers %}
                     <div class="multicolumns-item-number-{{ section.id }}">
                       <p>{{ forloop.index }}</p>
                     </div>
                   {% elsif block.settings.video == blank %}
                     <div id="multicolumns-item-video" class="multicolumns-item-video-{{ section.id }}">
                       {{ 'image' | placeholder_svg_tag: 'placeholder' }}
-                     </div>
+                    </div>
                   {% elsif block.settings.video != blank %}
                     <div id="multicolumns-item-video" class="multicolumns-item-video-{{ section.id }}">
-                      {{ block.settings.video | video_tag:
-                            image_size: '1100x',
-                            autoplay: block.settings.autoplay,
-                            loop: block.settings.loop,
-                            controls: block.settings.controls,
-                            muted: true
-                        }}
+                      {{
+                        block.settings.video
+                        | video_tag:
+                          image_size: '1100x',
+                          autoplay: block.settings.autoplay,
+                          loop: block.settings.loop,
+                          controls: block.settings.controls,
+                          muted: true
+                      }}
                     </div>
                   {% endif %}
-    
+
                   {% if block.settings.heading != blank %}
                     <h3 class="multicolumns-item-title-{{ section.id }}">{{ block.settings.heading }}</h3>
                   {% endif %}
-    
+
                   {% if block.settings.text != blank %}
                     <p class="multicolumns-item-text-{{ section.id }}">{{ block.settings.text }}</p>
                   {% endif %}
-                
+
                   {% if block.settings.link != blank %}
-                    <a href="{{ block.settings.link_url }}" class="multicolumns-item-link-{{ section.id }}">{{ block.settings.link }}</a>
+                    <a href="{{ block.settings.link_url }}" class="multicolumns-item-link-{{ section.id }}">
+                      {{- block.settings.link -}}
+                    </a>
                   {% endif %}
-                
                 </div>
-                {% endcase %}
-              {% endfor %}
-            </div>
+            {% endcase %}
+          {% endfor %}
         </div>
-        <div class="multicolumns-btn-next-{{ section.id }} swiper-button-next"></div>
-        <div class="multicolumns-btn-prev-{{ section.id }} swiper-button-prev"></div>
+      </div>
+      <div class="multicolumns-btn-next-{{ section.id }} swiper-button-next"></div>
+      <div class="multicolumns-btn-prev-{{ section.id }} swiper-button-prev"></div>
     </div>
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@6.8.4/swiper-bundle.min.js"></script>
+<script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
 
 {% assign column_row = column_row | plus: 0 %}
 {% assign column_row_tablet = column_row | times: 0.5 %}
@@ -859,935 +870,935 @@
 </script>
 
 {% schema %}
- {
-   "name": "SS - Multi Columns Video",
-   "class": "section",
-   "tag": "section",
-   "settings": [
-      {
-        "type": "header",
-        "content": "Heading"
-      },
-      {
-        "type": "text",
-        "id": "heading",
-        "label": "Heading",
-        "default": "Heading"
-      },
-      {
-        "type": "checkbox",
-        "id": "heading_custom",
-        "label": "Use Custom Font",
-        "default": false
-      },
-      {
-        "type": "font_picker",
-        "id": "heading_font",
-        "label": "Heading Font Family",
-        "default": "josefin_sans_n4"
-      },
-      {
-        "type": "range",
-        "id": "heading_size",
-        "min": 0,
-        "max": 72,
-        "step": 2,
-        "unit": "px",
-        "label": "Heading Size",
-        "default": 50
-      },
-      {
-        "type": "range",
-        "id": "heading_letter",
-        "min": 0,
-        "max": 5,
-        "step": 0.1,
-        "unit": "px",
-        "label": "Heading Letter Spacing",
-        "default": 0
-      },
-      {
-        "type": "range",
-        "id": "heading_height",
-        "min": 50,
-        "max": 200,
-        "step": 10,
-        "unit": "%",
-        "label": "Heading Line Height",
-        "default": 100
-      },
-      {
-        "type": "range",
-        "id": "heading_mb",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "Heading Margin bottom",
-        "default": 4
-      },
-      {
-        "type": "select",
-        "id": "heading_align",
-        "label": "Heading Text Align",
-        "default": "center",
-        "options": [
-         {
-            "label": "Center",
-            "value": "center"
-          },
-          {
-            "label": "Left",
-            "value": "left"
-          },
-          {
-            "label": "Right",
-            "value": "right"
-          }
-        ]
-      },
-      {
-        "type": "header",
-        "content": "Text"
-      },
-      {
-        "type": "text",
-        "id": "text",
-        "label": "Text",
-        "default": "Text"
-      },
-      {
-        "type": "checkbox",
-        "id": "text_custom",
-        "label": "Use Custom Font",
-        "default": false
-      },
-      {
-        "type": "font_picker",
-        "id": "text_font",
-        "label": "Text Font Family",
-        "default": "josefin_sans_n4"
-      },
-      {
-        "type": "range",
-        "id": "text_size",
-        "min": 0,
-        "max": 72,
-        "step": 2,
-        "unit": "px",
-        "label": "Text Size",
-        "default": 26
-      },
-      {
-        "type": "range",
-        "id": "text_letter",
-        "min": 0,
-        "max": 5,
-        "step": 0.1,
-        "unit": "px",
-        "label": "Text Letter Spacing",
-        "default": 0
-      },
-      {
-        "type": "range",
-        "id": "text_height",
-        "min": 50,
-        "max": 200,
-        "step": 10,
-        "unit": "%",
-        "label": "Text Line Height",
-        "default": 100
-      },
-      {
-        "type": "select",
-        "id": "text_align",
-        "label": "Text Align",
-        "default": "center",
-        "options": [
-         {
-            "label": "Center",
-            "value": "center"
-          },
-          {
-            "label": "Left",
-            "value": "left"
-          },
-          {
-            "label": "Right",
-            "value": "right"
-          }
-        ]
-      },
-      {
-        "type": "header",
-        "content": "Column Settings"
-      },
-      {
-        "type": "range",
-        "id": "column_mt",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "Columns Margin top",
-        "default": 20
-      },
-      {
-        "type": "select",
-        "id": "column_direction",
-        "label": "Columns Direction",
-        "default": "center",
-        "options": [
-         {
-            "label": "Center",
-            "value": "center"
-          },
-          {
-            "label": "Left",
-            "value": "left"
-          },
-          {
-            "label": "Right",
-            "value": "right"
-          }
-        ]
-      },
-      {
-        "type": "range",
-        "id": "column_gap",
-        "min": 0,
-        "max": 100,
-        "step": 2,
-        "unit": "px",
-        "label": "Columns Gap",
-        "default": 20
-      },
-      {
-        "type": "range",
-        "id": "column_gap_mobile",
-        "min": 0,
-        "max": 50,
-        "step": 2,
-        "unit": "px",
-        "label": "Columns Gap - Mobile",
-        "default": 20
-      },
-      {
-        "type": "select",
-        "id": "column_style",
-        "label": "Columns Style",
-        "default": "columns",
-        "options": [
-          {
-            "label": "Columns",
-            "value": "columns"
-          },
-          {
-            "label": "Slider",
-            "value": "slider"
-          }
-        ]
-      },
-      {
-        "type": "select",
-        "id": "column_style_mobile",
-        "label": "Columns Style - Mobile",
-        "default": "columns",
-        "options": [
-          {
-            "label": "Columns",
-            "value": "columns"
-          },
-          {
-            "label": "Slider",
-            "value": "slider"
-          }
-        ]
-      },
-      {
-        "type": "select",
-        "id": "column_row",
-        "label": "Columns Per Row",
-        "info": "Slider use this value for slide",
-        "default": "3",
-        "options": [
-          {
-            "label": "2",
-            "value": "2"
-          },
-          {
-            "label": "3",
-            "value": "3"
-          },
-          {
-            "label": "4",
-            "value": "4"
-          }
-        ]
-      },
-      {
-        "type": "select",
-        "id": "column_row_mobile",
-        "label": "Columns Per Row (Mobile)",
-        "info": "Slider Mobile use this value for slide",
-        "default": "1",
-        "options": [
-          {
-            "label": "1",
-            "value": "1"
-          },
-          {
-            "label": "2",
-            "value": "2"
-          },
-          {
-            "label": "3",
-            "value": "3"
-          },
-          {
-            "label": "4",
-            "value": "4"
-          }
-        ]
-      },
-      {
-        "type": "range",
-        "id": "column_radius",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "Column Border Radius",
-        "default": 28
-      },
-      {
-        "type": "range",
-        "id": "column_padding_horizontal",
-        "min": 0,
-        "max": 40,
-        "step": 4,
-        "unit": "px",
-        "label": "Column Padding horizontal",
-        "default": 16
-      },
-      {
-        "type": "range",
-        "id": "column_padding_top",
-        "min": 0,
-        "max": 40,
-        "step": 4,
-        "unit": "px",
-        "label": "Column Padding top",
-        "default": 16
-      },
-      {
-         "type": "range",
-         "id": "column_padding_bottom",
-         "min": 0,
-         "max": 40,
-         "step": 4,
-         "unit": "px",
-         "label": "Column Padding bottom",
-         "default": 16
-      },
-      {
-        "type": "checkbox",
-        "id": "numbers",
-        "label": "Use numbers instead of images or video",
-        "default": false
-      },
-     {
-        "type": "header",
-        "content": "Slider Settings"
-      },
-      {
-        "type": "checkbox",
-        "id": "autoplay",
-        "label": "Use autoplay",
-        "default": false
-      },
-      {
-         "type": "range",
-         "id": "autoplay_speed",
-         "min": 0,
-         "max": 10,
-         "step": 1,
-         "unit": "s",
-         "label": "Autoplay Speed",
-         "default": 3
-      },
-      {
-         "type": "range",
-         "id": "nav_size",
-         "min": 10,
-         "max": 100,
-         "step": 5,
-         "unit": "px",
-         "label": "Navigation Buttons Size",
-         "default": 40
-      },
-      {
-         "type": "range",
-         "id": "nav_size_mobile",
-         "min": 10,
-         "max": 100,
-         "step": 5,
-         "unit": "px",
-         "label": "Navigation Buttons Size - Mobile",
-         "default": 30
-      },
-      {
-        "type": "checkbox",
-        "id": "hide_nav",
-        "label": "Hide Navigation Button - Mobile",
-        "default": false
-      },
-      {
-        "type": "header",
-        "content": "Column Number Styles"
-      },
-      {
-        "type": "checkbox",
-        "id": "column_number_custom",
-        "label": "Use Custom Font",
-        "default": false
-      },
-      {
-        "type": "font_picker",
-        "id": "column_number_font",
-        "label": "Column Number Font Family",
-        "default": "josefin_sans_n4"
-      },
-      {
-        "type": "range",
-        "id": "column_number_size",
-        "min": 0,
-        "max": 72,
-        "step": 2,
-        "unit": "px",
-        "label": "Column Number Size",
-        "default": 36
-      },
-      {
-        "type": "header",
-        "content": "Column Heading Styles"
-      },
-      {
-        "type": "checkbox",
-        "id": "column_heading_custom",
-        "label": "Use Custom Font",
-        "default": false
-      },
-      {
-        "type": "font_picker",
-        "id": "column_heading_font",
-        "label": "Column Heading Font Family",
-        "default": "josefin_sans_n4"
-      },
-      {
-        "type": "range",
-        "id": "column_heading_size",
-        "min": 0,
-        "max": 72,
-        "step": 2,
-        "unit": "px",
-        "label": "Column Heading Size",
-        "default": 32
-      },
-      {
-        "type": "range",
-        "id": "column_heading_letter",
-        "min": 0,
-        "max": 5,
-        "step": 0.1,
-        "unit": "px",
-        "label": "Column Heading Letter Spacing",
-        "default": 0
-      },
-      {
-        "type": "range",
-        "id": "column_heading_height",
-        "min": 50,
-        "max": 200,
-        "step": 10,
-        "unit": "%",
-        "label": "Column Heading Line Height",
-        "default": 100
-      },
-      {
-        "type": "range",
-        "id": "column_heading_mt",
-        "min": 0,
-        "max": 52,
-        "step": 4,
-        "unit": "px",
-        "label": "Column Heading Margin top",
-        "default": 12
-      },
-      {
-        "type": "header",
-        "content": "Column Text Styles"
-      },
-      {
-        "type": "checkbox",
-        "id": "column_text_custom",
-        "label": "Use Custom Font",
-        "default": false
-      },
-      {
-        "type": "font_picker",
-        "id": "column_text_font",
-        "label": "Column Text Font Family",
-        "default": "josefin_sans_n4"
-      },
-      {
-        "type": "range",
-        "id": "column_text_size",
-        "min": 0,
-        "max": 72,
-        "step": 2,
-        "unit": "px",
-        "label": "Column Text Size",
-        "default": 22
-      },
-      {
-        "type": "range",
-        "id": "column_text_letter",
-        "min": 0,
-        "max": 5,
-        "step": 0.1,
-        "unit": "px",
-        "label": "Column Text Letter Spacing",
-        "default": 0
-      },
-      {
-        "type": "range",
-        "id": "column_text_height",
-        "min": 50,
-        "max": 200,
-        "step": 10,
-        "unit": "%",
-        "label": "Column Text Line Height",
-        "default": 100
-      },
-      {
-        "type": "range",
-        "id": "column_text_mt",
-        "min": 0,
-        "max": 52,
-        "step": 4,
-        "unit": "px",
-        "label": "Column Text Margin top",
-        "default": 12
-      },
-      {
-        "type": "header",
-        "content": "Column Link Styles"
-      },
-      {
-        "type": "select",
-        "id": "column_link_width",
-        "label": "Column Link Width",
-        "default": "regular",
-        "options": [
-         {
-            "label": "Regular",
-            "value": "regular"
-          },
-          {
-            "label": "Full Width",
-            "value": "full"
-          }
-        ]
-      },
-      {
-        "type": "range",
-        "id": "column_link_max",
-        "min": 100,
-        "max": 400,
-        "step": 10,
-        "unit": "px",
-        "label": "Column Link Max Width",
-        "default": 170
-      },
-      {
-        "type": "range",
-        "id": "column_link_padding_horizontal",
-        "min": 0,
-        "max": 40,
-        "step": 4,
-        "unit": "px",
-        "label": "Column Link Padding Horizontal",
-        "default": 8
-      },
-      {
-        "type": "range",
-        "id": "column_link_padding_vertical",
-        "min": 0,
-        "max": 40,
-        "step": 4,
-        "unit": "px",
-        "label": "Column Link Padding Vertical",
-        "default": 8
-      },
-      {
-        "type": "range",
-        "id": "column_link_radius",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "Column Link Border Radius",
-        "default": 16
-      },
-      {
-        "type": "checkbox",
-        "id": "column_link_custom",
-        "label": "Use Custom Font",
-        "default": false
-      },
-      {
-        "type": "font_picker",
-        "id": "column_link_font",
-        "label": "Column Link Font Family",
-        "default": "josefin_sans_n4"
-      },
-      {
-        "type": "range",
-        "id": "column_link_size",
-        "min": 0,
-        "max": 72,
-        "step": 2,
-        "unit": "px",
-        "label": "Column Link Size",
-        "default": 22
-      },
-      {
-        "type": "range",
-        "id": "column_link_letter",
-        "min": 0,
-        "max": 5,
-        "step": 0.1,
-        "unit": "px",
-        "label": "Column Link Letter Spacing",
-        "default": 0
-      },
-      {
-        "type": "range",
-        "id": "column_link_height",
-        "min": 50,
-        "max": 200,
-        "step": 10,
-        "unit": "%",
-        "label": "Column Link Line Height",
-        "default": 100
-      },
-      {
-        "type": "range",
-        "id": "column_link_mt",
-        "min": 0,
-        "max": 52,
-        "step": 4,
-        "unit": "px",
-        "label": "Column Link Margin top",
-        "default": 12
-      },
-      {
-        "type": "select",
-        "id": "column_link_style",
-        "label": "Column Link Style",
-        "default": "button",
-        "options": [
-         {
-            "label": "Button",
-            "value": "button"
-          },
-          {
-            "label": "Text",
-            "value": "text"
-          }
-        ]
-      },
-      {
-        "type": "header",
-        "content": "Column Image Styles"
-      },
-      {
-        "type": "range",
-        "id": "column_image_height",
-        "min": 0,
-        "max": 700,
-        "step": 10,
-        "unit": "px",
-        "label": "Column Image Height",
-        "default": 290
-      },
-      {
-        "type": "range",
-        "id": "column_image_max",
-        "min": 40,
-        "max": 500,
-        "step": 10,
-        "unit": "px",
-        "label": "Column Image Max-Width",
-        "default": 290
-      },
-      {
-        "type": "range",
-        "id": "column_image_max_mobile",
-        "min": 40,
-        "max": 500,
-        "step": 10,
-        "unit": "px",
-        "label": "Column Image Max-Width (Mobile)",
-        "default": 250
-      },
-      {
-        "type": "range",
-        "id": "column_image_radius",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "Column Image Border Radius",
-        "default": 16
-      },
-      {
-        "type": "header",
-        "content": "Column Video Styles"
-      },
-      {
-        "type": "range",
-        "id": "column_video_height",
-        "min": 0,
-        "max": 700,
-        "step": 10,
-        "unit": "px",
-        "label": "Column Video Height",
-        "default": 290
-      },
-      {
-        "type": "range",
-        "id": "column_video_radius",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "Column Video Border Radius",
-        "default": 16
-      },
-      {
-        "type": "checkbox",
-        "id": "animate",
-        "label": "Use Animation on Video",
-        "default": false
-      },
-      {
-        "type": "header",
-        "content": "Section Settings"
-      },
-      {
-        "type": "range",
-        "id": "content_width",
-        "min": 50,
-        "max": 200,
-        "step": 5,
-        "unit": "rem",
-        "label": "Content Max Width",
-        "default": 120
-      },
-      {
-        "type": "range",
-        "id": "border_thickness",
-        "min": 0,
-        "max": 50,
-        "step": 1,
-        "unit": "px",
-        "label": "Border thickness",
-        "default": 0
-      },
-      {
-        "type": "header",
-        "content": "Colors",
-        "info":"Gradient replaces solid colors when set."
-      },
-      {
-        "type": "color",
-        "label": "Heading Color",
-        "id": "heading_color",
-        "default": "#2D281D"
-      },
-      {
-        "type": "color",
-        "label": "Column Heading Color",
-        "id": "column_heading_color",
-        "default": "#2D281D"
-      },
-      {
-        "type": "color",
-        "label": "Text Color",
-        "id": "text_color",
-        "default": "#2D281D"
-      },
-      {
-        "type": "color",
-        "label": "Column Text Color",
-        "id": "column_text_color",
-        "default": "#2D281D"
-      },
-      {
-        "type": "color",
-        "label": "Column Link Color",
-        "id": "column_link_color",
-        "default": "#FFFFFF"
-      },
-      {
-        "type": "color",
-        "label": "Column Link Hover Color",
-        "id": "column_link_hover_color",
-        "default": "#FFFFFF"
-      },
-      {
-        "type": "color",
-        "label": "Column Link Background Color",
-        "id": "column_link_bg_color",
-        "default": "#E86940"
-      },
-      {
-        "type": "color",
-        "label": "Column Link Hover Background Color",
-        "id": "column_link_bg_hover_color",
-        "default": "#A04E33"
-      },
-      {
-        "type": "color",
-        "label": "Column Number Color",
-        "id": "column_number_color",
-        "default": "#FFFFFF"
-      },
-      {
-        "type": "color",
-        "label": "Column Number Background Color",
-        "id": "column_number_bg_color",
-        "default": "#E86940"
-      },
-      {
-        "type": "color",
-        "label": "Column Background Color",
-        "id": "column_bg_color",
-        "default": "#CAABA1"
-      },
-      {
-        "type": "color",
-        "label": "Navigation Button Background",
-        "id": "nav_btn_bg",
-        "default": "#FFFFFF"
-      },
-      {
-        "type": "color",
-        "label": "Navigation Button Hover Background",
-        "id": "nav_btn_hover_bg",
-        "default": "#CAABA1"
-      },
-      {
-        "type": "color",
-        "label": "Navigation Button Border",
-        "id": "nav_border",
-        "default": "#CAABA1"
-      },
-      {
-        "type": "color",
-        "label": "Navigation Button Hover Border",
-        "id": "nav_border_hover",
-        "default": "#CAABA1"
-      },
-      {
-        "type": "color",
-        "label": "Navigation Button Icon",
-        "id": "nav_icon",
-        "default": "#CAABA1"
-      },
-      {
-        "type": "color",
-        "label": "Navigation Button Hover Icon",
-        "id": "nav_hover_icon",
-        "default": "#FFFFFF"
-      },
-      {
-        "type": "color",
-        "label": "Section background",
-        "id": "background_color",
-        "default": "#FFFFFF"
-      },
-      {
-        "type": "color_background",
-        "id": "background_gradient",
-        "label": "Section background gradient"
-      },
-      {
-        "type": "color",
-        "label": "Border",
-        "id": "border_color",
-        "default": "#000000"
-      },
-      {
-        "type": "header",
-        "content": "Section padding"
-      },
-      {
-        "type": "range",
-        "id": "padding_horizontal",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "Padding horizontal",
-        "default": 4
-      },
-      {
-        "type": "range",
-        "id": "padding_top",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "Padding top",
-        "default": 4
-      },
-      {
-         "type": "range",
-         "id": "padding_bottom",
-         "min": 0,
-         "max": 100,
-         "step": 4,
-         "unit": "px",
-         "label": "Padding bottom",
-         "default": 4
-      },
-      {
-        "type": "header",
-        "content": "Section margin"
-      },
-      {
-        "type": "range",
-        "id": "margin_top",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "Section Margin top",
-        "default": 4
-      },
-      {
-        "type": "range",
-        "id": "margin_bottom",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "Section Margin bottom",
-        "default": 4
-      }
+{
+  "name": "SS - Multi Columns Video",
+  "class": "section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "heading_custom",
+      "label": "Use Custom Font",
+      "default": false
+    },
+    {
+      "type": "font_picker",
+      "id": "heading_font",
+      "label": "Heading Font Family",
+      "default": "josefin_sans_n4"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 0,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "label": "Heading Size",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "heading_letter",
+      "min": 0,
+      "max": 5,
+      "step": 0.1,
+      "unit": "px",
+      "label": "Heading Letter Spacing",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "heading_height",
+      "min": 50,
+      "max": 200,
+      "step": 10,
+      "unit": "%",
+      "label": "Heading Line Height",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "heading_mb",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Heading Margin bottom",
+      "default": 4
+    },
+    {
+      "type": "select",
+      "id": "heading_align",
+      "label": "Heading Text Align",
+      "default": "center",
+      "options": [
+        {
+          "label": "Center",
+          "value": "center"
+        },
+        {
+          "label": "Left",
+          "value": "left"
+        },
+        {
+          "label": "Right",
+          "value": "right"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "Text"
+    },
+    {
+      "type": "checkbox",
+      "id": "text_custom",
+      "label": "Use Custom Font",
+      "default": false
+    },
+    {
+      "type": "font_picker",
+      "id": "text_font",
+      "label": "Text Font Family",
+      "default": "josefin_sans_n4"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 0,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "label": "Text Size",
+      "default": 26
+    },
+    {
+      "type": "range",
+      "id": "text_letter",
+      "min": 0,
+      "max": 5,
+      "step": 0.1,
+      "unit": "px",
+      "label": "Text Letter Spacing",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "text_height",
+      "min": 50,
+      "max": 200,
+      "step": 10,
+      "unit": "%",
+      "label": "Text Line Height",
+      "default": 100
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text Align",
+      "default": "center",
+      "options": [
+        {
+          "label": "Center",
+          "value": "center"
+        },
+        {
+          "label": "Left",
+          "value": "left"
+        },
+        {
+          "label": "Right",
+          "value": "right"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Column Settings"
+    },
+    {
+      "type": "range",
+      "id": "column_mt",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Columns Margin top",
+      "default": 20
+    },
+    {
+      "type": "select",
+      "id": "column_direction",
+      "label": "Columns Direction",
+      "default": "center",
+      "options": [
+        {
+          "label": "Center",
+          "value": "center"
+        },
+        {
+          "label": "Left",
+          "value": "left"
+        },
+        {
+          "label": "Right",
+          "value": "right"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Columns Gap",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "column_gap_mobile",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Columns Gap - Mobile",
+      "default": 20
+    },
+    {
+      "type": "select",
+      "id": "column_style",
+      "label": "Columns Style",
+      "default": "columns",
+      "options": [
+        {
+          "label": "Columns",
+          "value": "columns"
+        },
+        {
+          "label": "Slider",
+          "value": "slider"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "column_style_mobile",
+      "label": "Columns Style - Mobile",
+      "default": "columns",
+      "options": [
+        {
+          "label": "Columns",
+          "value": "columns"
+        },
+        {
+          "label": "Slider",
+          "value": "slider"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "column_row",
+      "label": "Columns Per Row",
+      "info": "Slider use this value for slide",
+      "default": "3",
+      "options": [
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "column_row_mobile",
+      "label": "Columns Per Row (Mobile)",
+      "info": "Slider Mobile use this value for slide",
+      "default": "1",
+      "options": [
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "column_radius",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Column Border Radius",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "column_padding_horizontal",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Column Padding horizontal",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "column_padding_top",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Column Padding top",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "column_padding_bottom",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Column Padding bottom",
+      "default": 16
+    },
+    {
+      "type": "checkbox",
+      "id": "numbers",
+      "label": "Use numbers instead of images or video",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Slider Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Use autoplay",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "Autoplay Speed",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "nav_size",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Navigation Buttons Size",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "nav_size_mobile",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Navigation Buttons Size - Mobile",
+      "default": 30
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_nav",
+      "label": "Hide Navigation Button - Mobile",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Column Number Styles"
+    },
+    {
+      "type": "checkbox",
+      "id": "column_number_custom",
+      "label": "Use Custom Font",
+      "default": false
+    },
+    {
+      "type": "font_picker",
+      "id": "column_number_font",
+      "label": "Column Number Font Family",
+      "default": "josefin_sans_n4"
+    },
+    {
+      "type": "range",
+      "id": "column_number_size",
+      "min": 0,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "label": "Column Number Size",
+      "default": 36
+    },
+    {
+      "type": "header",
+      "content": "Column Heading Styles"
+    },
+    {
+      "type": "checkbox",
+      "id": "column_heading_custom",
+      "label": "Use Custom Font",
+      "default": false
+    },
+    {
+      "type": "font_picker",
+      "id": "column_heading_font",
+      "label": "Column Heading Font Family",
+      "default": "josefin_sans_n4"
+    },
+    {
+      "type": "range",
+      "id": "column_heading_size",
+      "min": 0,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "label": "Column Heading Size",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "column_heading_letter",
+      "min": 0,
+      "max": 5,
+      "step": 0.1,
+      "unit": "px",
+      "label": "Column Heading Letter Spacing",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "column_heading_height",
+      "min": 50,
+      "max": 200,
+      "step": 10,
+      "unit": "%",
+      "label": "Column Heading Line Height",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "column_heading_mt",
+      "min": 0,
+      "max": 52,
+      "step": 4,
+      "unit": "px",
+      "label": "Column Heading Margin top",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Column Text Styles"
+    },
+    {
+      "type": "checkbox",
+      "id": "column_text_custom",
+      "label": "Use Custom Font",
+      "default": false
+    },
+    {
+      "type": "font_picker",
+      "id": "column_text_font",
+      "label": "Column Text Font Family",
+      "default": "josefin_sans_n4"
+    },
+    {
+      "type": "range",
+      "id": "column_text_size",
+      "min": 0,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "label": "Column Text Size",
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "column_text_letter",
+      "min": 0,
+      "max": 5,
+      "step": 0.1,
+      "unit": "px",
+      "label": "Column Text Letter Spacing",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "column_text_height",
+      "min": 50,
+      "max": 200,
+      "step": 10,
+      "unit": "%",
+      "label": "Column Text Line Height",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "column_text_mt",
+      "min": 0,
+      "max": 52,
+      "step": 4,
+      "unit": "px",
+      "label": "Column Text Margin top",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Column Link Styles"
+    },
+    {
+      "type": "select",
+      "id": "column_link_width",
+      "label": "Column Link Width",
+      "default": "regular",
+      "options": [
+        {
+          "label": "Regular",
+          "value": "regular"
+        },
+        {
+          "label": "Full Width",
+          "value": "full"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "column_link_max",
+      "min": 100,
+      "max": 400,
+      "step": 10,
+      "unit": "px",
+      "label": "Column Link Max Width",
+      "default": 170
+    },
+    {
+      "type": "range",
+      "id": "column_link_padding_horizontal",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Column Link Padding Horizontal",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "column_link_padding_vertical",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Column Link Padding Vertical",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "column_link_radius",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Column Link Border Radius",
+      "default": 16
+    },
+    {
+      "type": "checkbox",
+      "id": "column_link_custom",
+      "label": "Use Custom Font",
+      "default": false
+    },
+    {
+      "type": "font_picker",
+      "id": "column_link_font",
+      "label": "Column Link Font Family",
+      "default": "josefin_sans_n4"
+    },
+    {
+      "type": "range",
+      "id": "column_link_size",
+      "min": 0,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "label": "Column Link Size",
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "column_link_letter",
+      "min": 0,
+      "max": 5,
+      "step": 0.1,
+      "unit": "px",
+      "label": "Column Link Letter Spacing",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "column_link_height",
+      "min": 50,
+      "max": 200,
+      "step": 10,
+      "unit": "%",
+      "label": "Column Link Line Height",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "column_link_mt",
+      "min": 0,
+      "max": 52,
+      "step": 4,
+      "unit": "px",
+      "label": "Column Link Margin top",
+      "default": 12
+    },
+    {
+      "type": "select",
+      "id": "column_link_style",
+      "label": "Column Link Style",
+      "default": "button",
+      "options": [
+        {
+          "label": "Button",
+          "value": "button"
+        },
+        {
+          "label": "Text",
+          "value": "text"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Column Image Styles"
+    },
+    {
+      "type": "range",
+      "id": "column_image_height",
+      "min": 0,
+      "max": 700,
+      "step": 10,
+      "unit": "px",
+      "label": "Column Image Height",
+      "default": 290
+    },
+    {
+      "type": "range",
+      "id": "column_image_max",
+      "min": 40,
+      "max": 500,
+      "step": 10,
+      "unit": "px",
+      "label": "Column Image Max-Width",
+      "default": 290
+    },
+    {
+      "type": "range",
+      "id": "column_image_max_mobile",
+      "min": 40,
+      "max": 500,
+      "step": 10,
+      "unit": "px",
+      "label": "Column Image Max-Width (Mobile)",
+      "default": 250
+    },
+    {
+      "type": "range",
+      "id": "column_image_radius",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Column Image Border Radius",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Column Video Styles"
+    },
+    {
+      "type": "range",
+      "id": "column_video_height",
+      "min": 0,
+      "max": 700,
+      "step": 10,
+      "unit": "px",
+      "label": "Column Video Height",
+      "default": 290
+    },
+    {
+      "type": "range",
+      "id": "column_video_radius",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Column Video Border Radius",
+      "default": 16
+    },
+    {
+      "type": "checkbox",
+      "id": "animate",
+      "label": "Use Animation on Video",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "min": 50,
+      "max": 200,
+      "step": 5,
+      "unit": "rem",
+      "label": "Content Max Width",
+      "default": 120
+    },
+    {
+      "type": "range",
+      "id": "border_thickness",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Border thickness",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Colors",
+      "info": "Gradient replaces solid colors when set."
+    },
+    {
+      "type": "color",
+      "label": "Heading Color",
+      "id": "heading_color",
+      "default": "#2D281D"
+    },
+    {
+      "type": "color",
+      "label": "Column Heading Color",
+      "id": "column_heading_color",
+      "default": "#2D281D"
+    },
+    {
+      "type": "color",
+      "label": "Text Color",
+      "id": "text_color",
+      "default": "#2D281D"
+    },
+    {
+      "type": "color",
+      "label": "Column Text Color",
+      "id": "column_text_color",
+      "default": "#2D281D"
+    },
+    {
+      "type": "color",
+      "label": "Column Link Color",
+      "id": "column_link_color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "label": "Column Link Hover Color",
+      "id": "column_link_hover_color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "label": "Column Link Background Color",
+      "id": "column_link_bg_color",
+      "default": "#E86940"
+    },
+    {
+      "type": "color",
+      "label": "Column Link Hover Background Color",
+      "id": "column_link_bg_hover_color",
+      "default": "#A04E33"
+    },
+    {
+      "type": "color",
+      "label": "Column Number Color",
+      "id": "column_number_color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "label": "Column Number Background Color",
+      "id": "column_number_bg_color",
+      "default": "#E86940"
+    },
+    {
+      "type": "color",
+      "label": "Column Background Color",
+      "id": "column_bg_color",
+      "default": "#CAABA1"
+    },
+    {
+      "type": "color",
+      "label": "Navigation Button Background",
+      "id": "nav_btn_bg",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "label": "Navigation Button Hover Background",
+      "id": "nav_btn_hover_bg",
+      "default": "#CAABA1"
+    },
+    {
+      "type": "color",
+      "label": "Navigation Button Border",
+      "id": "nav_border",
+      "default": "#CAABA1"
+    },
+    {
+      "type": "color",
+      "label": "Navigation Button Hover Border",
+      "id": "nav_border_hover",
+      "default": "#CAABA1"
+    },
+    {
+      "type": "color",
+      "label": "Navigation Button Icon",
+      "id": "nav_icon",
+      "default": "#CAABA1"
+    },
+    {
+      "type": "color",
+      "label": "Navigation Button Hover Icon",
+      "id": "nav_hover_icon",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "label": "Section background",
+      "id": "background_color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Section background gradient"
+    },
+    {
+      "type": "color",
+      "label": "Border",
+      "id": "border_color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding horizontal",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Section margin"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Section Margin top",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Section Margin bottom",
+      "default": 4
+    }
   ],
   "blocks": [
     {
@@ -1833,7 +1844,7 @@
           "label": "Column Link Style",
           "default": "button",
           "options": [
-           {
+            {
               "label": "Button",
               "value": "button"
             },
@@ -1903,8 +1914,8 @@
     }
   ],
   "presets": [
-   {
-     "name": "SS - Multi Columns Video",
+    {
+      "name": "SS - Multi Columns Video",
       "blocks": [
         {
           "type": "video"
