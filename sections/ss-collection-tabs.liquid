@@ -1,13 +1,12 @@
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+  href="{{ 'swiper-bundle.min.css' | asset_url }}"
 >
 <script
-  src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"
+  src="{{ 'swiper-bundle.min.js' | asset_url }}"
   defer
 ></script>
 <style>
-  
   .ab-slider-overflow-hidden {
     padding:0;
   }
@@ -574,24 +573,12 @@
       });
 
       // ************** tab system **************
-      const tabWrapper = document.querySelector(
-        '.ab-slider-{{ section.id }} .ab-slider-tab-wrapper'
-      );
-      const tabButtons = document.querySelectorAll(
-        '.ab-slider-{{ section.id }} .ab-slider-tab'
-      );
-      const swiperSlides = document.querySelectorAll(
-        `.swiper-{{ section.id }} .swiper-slide`
-      );
-      const desktopTabSlide = document.querySelectorAll(
-        `.ab-slider-{{ section.id }} [data-ab-desktop-slide]`
-      );
-      const indicator = document.querySelector(
-        '.ab-slider-{{ section.id }} .ab-slider-tab-indicator'
-      );
-      const indicatorBg = document.querySelector(
-        '.ab-slider-{{ section.id }} .ab-slider-tab-indicator-bg'
-      );
+      const tabWrapper = document.querySelector('.ab-slider-{{ section.id }} .ab-slider-tab-wrapper');
+      const tabButtons = document.querySelectorAll('.ab-slider-{{ section.id }} .ab-slider-tab');
+      const swiperSlides = document.querySelectorAll(`.swiper-{{ section.id }} .swiper-slide`);
+      const desktopTabSlide = document.querySelectorAll(`.ab-slider-{{ section.id }} [data-ab-desktop-slide]`);
+      const indicator = document.querySelector('.ab-slider-{{ section.id }} .ab-slider-tab-indicator');
+      const indicatorBg = document.querySelector('.ab-slider-{{ section.id }} .ab-slider-tab-indicator-bg');
       tabButtons.forEach((button) => {
         button.addEventListener('click', () => {
           // scroll to the button inside .ab-slider-tab-wrapper:
@@ -601,9 +588,8 @@
               block: 'nearest',
             });
           abSlider.slideTo(
-            document.querySelector(
-              `.swiper-{{ section.id }} .swiper-slide[data-tab="${button.dataset.tab}"]`
-            ).dataset.swiperSlideIndex
+            document.querySelector(`.swiper-{{ section.id }} .swiper-slide[data-tab="${button.dataset.tab}"]`).dataset
+              .swiperSlideIndex
           );
           // Desktop tab system: use [data-ab-desktop-slide]
           desktopTabSlide.forEach((slide) => {
@@ -642,8 +628,7 @@
         indicatorBg.style.width = `${tabWrapper.offsetWidth - 30 - 30}px`;
         if (window.innerWidth < 500)
           indicatorBg.style.width = `calc(${tabWrapper.offsetWidth}px + 1.5rem + 1.5rem + 30px + 30px)`; // plus negative margin and inner padding
-        else if (window.innerWidth < 750)
-          indicatorBg.style.width = `${tabWrapper.offsetWidth - 30 - 30}px`;
+        else if (window.innerWidth < 750) indicatorBg.style.width = `${tabWrapper.offsetWidth - 30 - 30}px`;
         else indicatorBg.style.width = `${tabWrapper.offsetWidth}px`;
       }
 
@@ -653,28 +638,20 @@
           tabWrapper.scrollLeft = 0;
         }
         // update the indicator width and move under the active tab:
-        const activeTab = document.querySelector(
-          '.ab-slider-{{ section.id }} .ab-slider-tab--active'
-        );
+        const activeTab = document.querySelector('.ab-slider-{{ section.id }} .ab-slider-tab--active');
         indicator.style.width = `${activeTab.offsetWidth}px`;
         indicator.style.transform = `translateX(${activeTab.offsetLeft}px)`;
         updateIndicatorBg();
 
         // check if .ab-slider-tab-wrapper is scrollable:
         // if true, remove justify-content: center, else add it back:
-        const tabsTotallyWidth = Array.from(tabButtons).reduce(
-          (acc, tab) => acc + tab.offsetWidth,
-          0
-        );
-        if (tabsTotallyWidth > tabWrapper.offsetWidth)
-          tabWrapper.classList.remove('ab-slider-tab-wrapper--center');
+        const tabsTotallyWidth = Array.from(tabButtons).reduce((acc, tab) => acc + tab.offsetWidth, 0);
+        if (tabsTotallyWidth > tabWrapper.offsetWidth) tabWrapper.classList.remove('ab-slider-tab-wrapper--center');
         else tabWrapper.classList.add('ab-slider-tab-wrapper--center');
       });
 
       // ******************* init ********************:
-      const activeTab = document.querySelector(
-        '.ab-slider-{{ section.id }} .ab-slider-tab--active'
-      );
+      const activeTab = document.querySelector('.ab-slider-{{ section.id }} .ab-slider-tab--active');
       //indicator.style.width = `${activeTab.offsetWidth}px`;
       //indicator.style.transform = `translateX(${activeTab.offsetLeft}px)`;
       setTimeout(() => {
@@ -684,12 +661,8 @@
       }, 500);
       updateIndicatorBg();
 
-      const tabsTotallyWidth = Array.from(tabButtons).reduce(
-        (acc, tab) => acc + tab.offsetWidth,
-        0
-      );
-      if (tabsTotallyWidth > tabWrapper.offsetWidth)
-        tabWrapper.classList.remove('ab-slider-tab-wrapper--center');
+      const tabsTotallyWidth = Array.from(tabButtons).reduce((acc, tab) => acc + tab.offsetWidth, 0);
+      if (tabsTotallyWidth > tabWrapper.offsetWidth) tabWrapper.classList.remove('ab-slider-tab-wrapper--center');
       else tabWrapper.classList.add('ab-slider-tab-wrapper--center');
     }
 
@@ -844,13 +817,13 @@
       "id": "button-text-color",
       "default": "#212A2F"
     },
-     {
+    {
       "type": "color",
       "label": "Button text hover color",
       "id": "button-text-color-hover",
       "default": "#ffffff"
     },
-     {
+    {
       "type": "color",
       "label": "Shadow color",
       "id": "card-shadow-color",
