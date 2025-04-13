@@ -168,6 +168,22 @@
     height: auto;
     display: flex;
     flex-direction: column;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  .ab-slider-slide:hover {
+    transform: translateY(-5px);
+  }
+  .ab-slider-slide-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    text-decoration: none;
+    cursor: pointer;
   }
   @media screen and (min-width: 1024px) {
     .ab-slider-desktop-grid .ab-slider-slide {
@@ -196,6 +212,8 @@
   }
 
   .ab-slider-slide-content {
+    position: relative;
+    z-index: 6;
     padding: 18px;
     display: flex;
     flex-grow: 1;
@@ -387,6 +405,9 @@
             {{ block.shopify_attributes }}
             data-tab="{{ block.settings.tab }}"
             data-swiper-slide-index="{{ forloop.index0 }}"
+            {% if block.settings.slide_link != blank %}
+              onclick="if (!event.target.closest('a')) window.location.href='{{ block.settings.slide_link }}';"
+            {% endif %}
           >
             {% assign image = block.settings.image %}
             {% if image == blank %}
@@ -474,7 +495,17 @@
           {{ block.shopify_attributes }}
           data-tab="{{ block.settings.tab }}"
           data-ab-desktop-slide
+          {% if block.settings.slide_link != blank %}
+            onclick="if (!event.target.closest('a')) window.location.href='{{ block.settings.slide_link }}';"
+          {% endif %}
         >
+          {% if block.settings.slide_link != blank %}
+            <a
+              href="{{ block.settings.slide_link }}"
+              class="ab-slider-slide-link"
+              aria-label="{{ block.settings.title }}"
+            ></a>
+          {% endif %}
           <div class="ab-slider-image-desktop-wrapper">
             {% assign image = block.settings.image %}
             {% if image == blank %}
@@ -929,6 +960,12 @@
           "type": "url",
           "id": "link_2",
           "label": "Button link 2"
+        },
+        {
+          "type": "url",
+          "id": "slide_link",
+          "label": "Slide Global Link",
+          "info": "Si se establece, todo el slide se volverá clickeable"
         }
       ]
     }
