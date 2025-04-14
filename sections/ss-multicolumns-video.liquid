@@ -682,27 +682,22 @@
                 </a>
               {% endif %}
             </div>
-          {% when 'video' %}
+          {% when 'image2' %}
             <div class="multicolumns-item-{{ section.id }}">
               {% if numbers %}
                 <div class="multicolumns-item-number-{{ section.id }}">
                   <p>{{ forloop.index }}</p>
                 </div>
-              {% elsif block.settings.video == blank %}
-                <div id="multicolumns-item-video" class="multicolumns-item-video-{{ section.id }}">
+              {% elsif block.settings.image == blank %}
+                <div class="multicolumns-item-image-{{ section.id }}">
                   {{ 'image' | placeholder_svg_tag: 'placeholder' }}
                 </div>
-              {% elsif block.settings.video != blank %}
-                <div id="multicolumns-item-video" class="multicolumns-item-video-{{ section.id }}">
-                  {{
-                    block.settings.video
-                    | video_tag:
-                      image_size: '1100x',
-                      autoplay: block.settings.autoplay,
-                      loop: block.settings.loop,
-                      controls: block.settings.controls,
-                      muted: true
-                  }}
+              {% elsif block.settings.image != blank %}
+                <div class="multicolumns-item-image-{{ section.id }}">
+                  <img
+                    src="{{ block.settings.image | image_url: width: 800 }}"
+                    alt="multicolumns-item-image-{{ forloop.index }}"
+                  >
                 </div>
               {% endif %}
 
@@ -762,27 +757,22 @@
                     </a>
                   {% endif %}
                 </div>
-              {% when 'video' %}
+              {% when 'image2' %}
                 <div class="multicolumns-item-{{ section.id }} swiper-slide">
                   {% if numbers %}
                     <div class="multicolumns-item-number-{{ section.id }}">
                       <p>{{ forloop.index }}</p>
                     </div>
-                  {% elsif block.settings.video == blank %}
-                    <div id="multicolumns-item-video" class="multicolumns-item-video-{{ section.id }}">
+                  {% elsif block.settings.image == blank %}
+                    <div class="multicolumns-item-image-{{ section.id }}">
                       {{ 'image' | placeholder_svg_tag: 'placeholder' }}
                     </div>
-                  {% elsif block.settings.video != blank %}
-                    <div id="multicolumns-item-video" class="multicolumns-item-video-{{ section.id }}">
-                      {{
-                        block.settings.video
-                        | video_tag:
-                          image_size: '1100x',
-                          autoplay: block.settings.autoplay,
-                          loop: block.settings.loop,
-                          controls: block.settings.controls,
-                          muted: true
-                      }}
+                  {% elsif block.settings.image != blank %}
+                    <div class="multicolumns-item-image-{{ section.id }}">
+                      <img
+                        src="{{ block.settings.image | image_url: width: 800 }}"
+                        alt="multicolumns-item-image-{{ forloop.index }}"
+                      >
                     </div>
                   {% endif %}
 
@@ -1857,58 +1847,40 @@
       ]
     },
     {
-      "type": "video",
-      "name": "Column with Video",
+      "type": "image2",
+      "name": "Columna de imagen",
       "settings": [
         {
           "type": "header",
-          "content": "Column Content"
+          "content": "Contenido de Columna"
         },
         {
-          "type": "video",
-          "id": "video",
-          "label": "Column Video"
-        },
-        {
-          "type": "checkbox",
-          "id": "controls",
-          "label": "Show Controls on Video",
-          "default": true
-        },
-        {
-          "type": "checkbox",
-          "id": "autoplay",
-          "label": "Autoplay Video",
-          "default": false
-        },
-        {
-          "type": "checkbox",
-          "id": "loop",
-          "label": "Loop Video",
-          "default": false
+          "type": "image_picker",
+          "id": "image",
+          "label": "Imagen de Columna"
         },
         {
           "type": "text",
           "id": "heading",
-          "label": "Column Heading",
-          "default": "Column Heading"
+          "label": "Título de Columna",
+          "default": "Título de Columna"
         },
         {
           "type": "text",
           "id": "text",
-          "label": "Column Text",
-          "default": "Column Text"
+          "label": "Texto de Columna",
+          "default": "Texto de Columna"
         },
         {
           "type": "text",
           "id": "link",
-          "label": "Column Link Text",
-          "default": "Button"
+          "label": "Texto del Enlace",
+          "default": "Botón"
         },
         {
           "type": "url",
           "id": "link_url",
-          "label": "Column Link URL"
+          "label": "URL del Enlace"
         }
       ]
     }
@@ -1918,13 +1890,13 @@
       "name": "SS - Multi Columns Video",
       "blocks": [
         {
-          "type": "video"
+          "type": "image2"
         },
         {
-          "type": "video"
+          "type": "image2"
         },
         {
-          "type": "video"
+          "type": "image2"
         }
       ]
     }
