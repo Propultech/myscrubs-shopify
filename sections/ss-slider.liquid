@@ -350,7 +350,6 @@
   }
 
   @media(min-width: 1024px) {
-
     .section-{{ section.id }} {
       margin-top: {{ margin_top }}px;
       margin-bottom: {{ margin_bottom }}px;
@@ -409,6 +408,7 @@
 
     .slider-slide-{{ section.id }} {
       padding: {{ card_padding_vertical }}px {{ card_padding_horizontal }}px;
+      min-width: calc((100% - (7 * {{ slider_gap }}px)) / 8);
     }
 
     .slider-content-{{ section.id }} {
@@ -429,10 +429,21 @@
 
     .slider-slider-{{ section.id }} {
       max-width: 100%;
+      width: 100%;
     }
 
     .slider-scrollbar-{{ section.id }} {
       margin-top: {{ scrollbar_mt }}px !important;
+    }
+  }
+
+  @media(min-width: 1440px) {
+    .slider-items-{{ section.id }} {
+      grid-template-columns: calc(100% - 85%) 85%;
+    }
+
+    .slider-slider-{{ section.id }} {
+      width: 100%;
     }
   }
 {%- endstyle -%}
@@ -645,6 +656,8 @@
                     <img
                       src="{{ block.settings.image | image_url }}"
                       alt="{{ block.settings.alt }}"
+                      width="100%"
+                      height="100%"
                       {% if lazy %}
                         lazy="loading"
                       {% endif %}
@@ -654,6 +667,8 @@
                       <img
                         src="{{ block.settings.product.featured_image | image_url }}"
                         alt="{{ block.settings.product.featured_image.alt }}"
+                        width="100%"
+                        height="100%"
                         {% if lazy %}
                           lazy="loading"
                         {% endif %}
@@ -662,6 +677,8 @@
                       <img
                         src="{{ block.settings.collection.image | image_url }}"
                         alt="{{ block.settings.collection.image.alt }}"
+                        width="100%"
+                        height="100%"
                         {% if lazy %}
                           lazy="loading"
                         {% endif %}
@@ -670,6 +687,8 @@
                       <img
                         src="{{ block.settings.article.image | image_url }}"
                         alt="{{ block.settings.article.image.alt }}"
+                        width="100%"
+                        height="100%"
                         {% if lazy %}
                           lazy="loading"
                         {% endif %}
@@ -776,7 +795,11 @@
           },
           1024: {
             spaceBetween: {{ slider_gap }},
-            slidesPerView: {{ slider_view }}
+            slidesPerView: 6
+          },
+          1440: {
+            spaceBetween: {{ slider_gap }},
+            slidesPerView: 8
           }
         }
       })
@@ -1104,10 +1127,10 @@
       "type": "range",
       "id": "slider_view",
       "min": 1,
-      "max": 5,
+      "max": 8,
       "step": 1,
       "label": "Slider Per View",
-      "default": 3
+      "default": 8
     },
     {
       "type": "range",
