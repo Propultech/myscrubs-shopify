@@ -126,9 +126,10 @@
         "custom_Xr7PNz": {
           "type": "custom",
           "settings": {
-            "title": "Title",
-            "sub_title": "Sub Title",
-            "url": ""
+            "image": "shopify://shop_images/Item.jpg",
+            "title": "Azul Marino",
+            "sub_title": "",
+            "url": "shopify://collections"
           }
         },
         "custom_dk8kxe": {
@@ -180,14 +181,14 @@
         "body_border_thickness": 0,
         "layout_gap": 20,
         "layout_gap_mobile": 20,
-        "show_heading_section": true,
+        "show_heading_section": false,
         "heading": "",
         "heading_custom": false,
         "heading_font": "josefin_sans_n4",
         "heading_size": 40,
         "heading_size_mobile": 30,
         "heading_height": 130,
-        "heading_align": "left",
+        "heading_align": "center",
         "heading_align_mobile": "center",
         "sub_heading": "Democratic design dispatches straight from the heart of Älmhult.",
         "sub_heading_custom": false,
@@ -223,8 +224,8 @@
         "card_border_thickness": 0,
         "image_radius": 8,
         "image_border_thickness": 0,
-        "image_ratio": "portrait",
-        "radius_top": false,
+        "image_ratio": "original",
+        "radius_top": true,
         "content_padding_vertical": 16,
         "content_padding_vertical_mobile": 16,
         "content_padding_horizontal": 16,
