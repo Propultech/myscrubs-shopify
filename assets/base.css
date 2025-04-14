@@ -907,6 +907,11 @@ summary::-webkit-details-marker {
 
 .title-wrapper--no-top-margin > .title {
   margin-top: 0;
+    margin-top: 0;
+    font-size: 40px;
+    font-weight: 700;
+    font-family: var(--font-ibm-plex-condensed);
+    color: black;
 }
 
 .subtitle {
