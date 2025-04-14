@@ -427,13 +427,73 @@
             "link_2": "",
             "slide_link": ""
           }
+        },
+        "slide_z6EkiK": {
+          "type": "slide",
+          "settings": {
+            "tab": "tab_2",
+            "image": "shopify://shop_images/GRSP526-23_SERENA_pant_PDP_3197_1.jpg",
+            "title": "Top Lisos",
+            "subtitle": "",
+            "button_text": "",
+            "link": "",
+            "button_text_2": "",
+            "link_2": "",
+            "slide_link": "shopify://collections/top-lisos-mujer"
+          }
+        },
+        "slide_R3kUFE": {
+          "type": "slide",
+          "settings": {
+            "tab": "tab_2",
+            "image": "shopify://shop_images/CK609_THCM_IN011A_NAVY_CATALOG_1_1.jpg",
+            "title": "Top Estampados",
+            "subtitle": "",
+            "button_text": "",
+            "link": "",
+            "button_text_2": "",
+            "link_2": "",
+            "slide_link": ""
+          }
+        },
+        "slide_qz7VC4": {
+          "type": "slide",
+          "settings": {
+            "tab": "tab_2",
+            "image": "shopify://shop_images/Image.jpg",
+            "title": "Pantalones",
+            "subtitle": "",
+            "button_text": "",
+            "link": "",
+            "button_text_2": "",
+            "link_2": "",
+            "slide_link": ""
+          }
+        },
+        "slide_AtMiNW": {
+          "type": "slide",
+          "settings": {
+            "tab": "tab_2",
+            "image": "shopify://shop_images/Image-1.jpg",
+            "title": "Batas Médicas",
+            "subtitle": "",
+            "button_text": "",
+            "link": "",
+            "button_text_2": "",
+            "link_2": "",
+            "slide_link": ""
+          }
         }
       },
       "block_order": [
         "slide_aHGJMU",
         "slide_UAyjWR",
         "slide_DC7q4m",
-        "slide_3NLrBz"
+        "slide_3NLrBz",
+        "slide_z6EkiK",
+        "slide_R3kUFE",
+        "slide_qz7VC4",
+        "slide_AtMiNW"
       ],
       "settings": {
         "title": "",
