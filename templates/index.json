@@ -132,6 +132,87 @@
             "url": "shopify://collections"
           }
         },
+        "custom_aTPMdm": {
+          "type": "custom",
+          "settings": {
+            "image": "shopify://shop_images/Item.jpg",
+            "title": "Azul Marino",
+            "sub_title": "",
+            "url": "shopify://collections"
+          }
+        },
+        "custom_KnbYAY": {
+          "type": "custom",
+          "settings": {
+            "image": "shopify://shop_images/Item.jpg",
+            "title": "Azul Marino",
+            "sub_title": "",
+            "url": "shopify://collections"
+          }
+        },
+        "custom_RbbViU": {
+          "type": "custom",
+          "settings": {
+            "image": "shopify://shop_images/Item.jpg",
+            "title": "Azul Marino",
+            "sub_title": "",
+            "url": "shopify://collections"
+          }
+        },
+        "custom_E4bymz": {
+          "type": "custom",
+          "settings": {
+            "image": "shopify://shop_images/Item.jpg",
+            "title": "Azul Marino",
+            "sub_title": "",
+            "url": "shopify://collections"
+          }
+        },
+        "custom_xDDGnx": {
+          "type": "custom",
+          "settings": {
+            "image": "shopify://shop_images/Item.jpg",
+            "title": "Azul Marino",
+            "sub_title": "",
+            "url": "shopify://collections"
+          }
+        },
+        "custom_96HKJt": {
+          "type": "custom",
+          "settings": {
+            "image": "shopify://shop_images/Item.jpg",
+            "title": "Azul Marino",
+            "sub_title": "",
+            "url": "shopify://collections"
+          }
+        },
+        "custom_7f6dUL": {
+          "type": "custom",
+          "settings": {
+            "image": "shopify://shop_images/Item.jpg",
+            "title": "Azul Marino",
+            "sub_title": "",
+            "url": "shopify://collections"
+          }
+        },
+        "custom_frnGFy": {
+          "type": "custom",
+          "settings": {
+            "image": "shopify://shop_images/Item.jpg",
+            "title": "Azul Marino",
+            "sub_title": "",
+            "url": "shopify://collections"
+          }
+        },
+        "custom_gAX6jF": {
+          "type": "custom",
+          "settings": {
+            "image": "shopify://shop_images/Item.jpg",
+            "title": "Azul Marino",
+            "sub_title": "",
+            "url": "shopify://collections"
+          }
+        },
         "custom_dk8kxe": {
           "type": "custom",
           "settings": {
@@ -167,16 +248,25 @@
       },
       "block_order": [
         "custom_Xr7PNz",
+        "custom_aTPMdm",
+        "custom_KnbYAY",
+        "custom_RbbViU",
+        "custom_E4bymz",
+        "custom_xDDGnx",
+        "custom_96HKJt",
+        "custom_7f6dUL",
+        "custom_frnGFy",
+        "custom_gAX6jF",
         "custom_dk8kxe",
         "custom_9pzp6E",
         "custom_ayRn6W",
         "custom_DBapnN"
       ],
       "settings": {
-        "body_padding_vertical": 70,
-        "body_padding_vertical_mobile": 30,
-        "body_padding_horizontal": 70,
-        "body_padding_horizontal_mobile": 30,
+        "body_padding_vertical": 46,
+        "body_padding_vertical_mobile": 28,
+        "body_padding_horizontal": 30,
+        "body_padding_horizontal_mobile": 12,
         "body_radius": 8,
         "body_border_thickness": 0,
         "layout_gap": 20,
@@ -199,14 +289,14 @@
         "sub_heading_align": "left",
         "sub_heading_align_mobile": "center",
         "sub_heading_mt": 16,
-        "slider_width": 66,
+        "slider_width": 68,
         "slider_width_mobile": 100,
-        "slider_view": 3,
-        "slider_view_mobile": 1.3,
+        "slider_view": 8,
+        "slider_view_mobile": 2.5,
         "slider_gap": 16,
         "slider_gap_mobile": 16,
         "arrow_size": 50,
-        "arrow_size_mobile": 50,
+        "arrow_size_mobile": 30,
         "arrow_icon_size": 16,
         "arrow_icon_size_mobile": 16,
         "arrow_border_thickness": 0,
@@ -214,8 +304,8 @@
         "arrow_show_mobile": true,
         "scrollbar_height": 2,
         "scrollbar_mt": 20,
-        "scrollbar_show_desktop": true,
-        "scrollbar_show_mobile": true,
+        "scrollbar_show_desktop": false,
+        "scrollbar_show_mobile": false,
         "card_padding_vertical": 0,
         "card_padding_vertical_mobile": 0,
         "card_padding_horizontal": 0,
@@ -228,7 +318,7 @@
         "radius_top": true,
         "content_padding_vertical": 16,
         "content_padding_vertical_mobile": 16,
-        "content_padding_horizontal": 16,
+        "content_padding_horizontal": 14,
         "content_padding_horizontal_mobile": 16,
         "content_radius": 8,
         "content_border_thickness": 0,
@@ -254,8 +344,8 @@
         "slide_sub_title_color": "#000000",
         "arrow_color": "#ffffff",
         "arrow_hover_color": "#ffffff",
-        "arrow_bg_color": "#111111",
-        "arrow_bg_hover_color": "#454545",
+        "arrow_bg_color": "#106b98",
+        "arrow_bg_hover_color": "#7dc3de",
         "arrow_border_color": "#111111",
         "arrow_border_hover_color": "#454545",
         "scrollbar_bg_color": "#d2d5d8",
