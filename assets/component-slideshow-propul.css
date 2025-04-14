@@ -12,3 +12,8 @@
         border: none;
     }
 }
+@media screen {
+    .banner--mobile-bottom .banner__box {
+        padding: 0 !important;
+    }
+}
