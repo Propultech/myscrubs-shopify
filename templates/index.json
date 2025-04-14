@@ -368,11 +368,144 @@
         "border_thickness": 0,
         "lazy": true
       }
+    },
+    "ss_collection_tabs_RaNwXz": {
+      "type": "ss-collection-tabs",
+      "blocks": {
+        "slide_aHGJMU": {
+          "type": "slide",
+          "settings": {
+            "tab": "tab_1",
+            "image": "shopify://shop_images/GRSP526-23_SERENA_pant_PDP_3197_1.jpg",
+            "title": "Top Lisos",
+            "subtitle": "",
+            "button_text": "",
+            "link": "",
+            "button_text_2": "",
+            "link_2": "",
+            "slide_link": ""
+          }
+        },
+        "slide_UAyjWR": {
+          "type": "slide",
+          "settings": {
+            "tab": "tab_1",
+            "image": "shopify://shop_images/CK609_THCM_IN011A_NAVY_CATALOG_1_1.jpg",
+            "title": "Top Estampados",
+            "subtitle": "",
+            "button_text": "",
+            "link": "",
+            "button_text_2": "",
+            "link_2": "",
+            "slide_link": ""
+          }
+        },
+        "slide_DC7q4m": {
+          "type": "slide",
+          "settings": {
+            "tab": "tab_1",
+            "image": "shopify://shop_images/Image.jpg",
+            "title": "Pantalones",
+            "subtitle": "",
+            "button_text": "",
+            "link": "",
+            "button_text_2": "",
+            "link_2": "",
+            "slide_link": ""
+          }
+        },
+        "slide_3NLrBz": {
+          "type": "slide",
+          "settings": {
+            "tab": "tab_1",
+            "image": "shopify://shop_images/Image-1.jpg",
+            "title": "Batas Médicas",
+            "subtitle": "",
+            "button_text": "",
+            "link": "",
+            "button_text_2": "",
+            "link_2": "",
+            "slide_link": ""
+          }
+        },
+        "slide_q4b4UB": {
+          "type": "slide",
+          "settings": {
+            "tab": "tab_2",
+            "title": "New arrivals",
+            "subtitle": "Summer collection",
+            "button_text": "Shop Men",
+            "link": "",
+            "button_text_2": "Shop Women",
+            "link_2": "",
+            "slide_link": ""
+          }
+        },
+        "slide_LbDRe4": {
+          "type": "slide",
+          "settings": {
+            "tab": "tab_2",
+            "title": "New arrivals",
+            "subtitle": "Summer collection",
+            "button_text": "Shop Men",
+            "link": "",
+            "button_text_2": "Shop Women",
+            "link_2": "",
+            "slide_link": ""
+          }
+        },
+        "slide_LFXQnL": {
+          "type": "slide",
+          "settings": {
+            "tab": "tab_2",
+            "title": "New arrivals",
+            "subtitle": "Summer collection",
+            "button_text": "Shop Men",
+            "link": "",
+            "button_text_2": "Shop Women",
+            "link_2": "",
+            "slide_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_aHGJMU",
+        "slide_UAyjWR",
+        "slide_DC7q4m",
+        "slide_3NLrBz",
+        "slide_q4b4UB",
+        "slide_LbDRe4",
+        "slide_LFXQnL"
+      ],
+      "settings": {
+        "title": "",
+        "title_font_size": 12,
+        "title_color": "#212a2f",
+        "tab_1_text": "Mujer",
+        "tab_2_text": "Hombre",
+        "tab_font_size": 40,
+        "tab_color": "#212a2f",
+        "slide_title_font_size": 22,
+        "slide_title_color": "#000000",
+        "slide_subtitle_font_size": 15,
+        "slide_subtitle_color": "#212a2f",
+        "background-color": "#ffffff",
+        "button-color": "#ffffff",
+        "button-color-hover": "#212a2f",
+        "button-color-mobile": "#212a2f",
+        "button-text-color": "#212A2F",
+        "button-text-color-hover": "#ffffff",
+        "card-shadow-color": "#d3d4d5",
+        "padding_top": 20,
+        "padding_bottom": 24,
+        "section-width": 120
+      }
     }
   },
   "order": [
     "slideshow_propul_jBNUpE",
     "multicolumn_N7PcXy",
-    "ss_slider_mNgAYk"
+    "ss_slider_mNgAYk",
+    "ss_collection_tabs_RaNwXz"
   ]
 }
