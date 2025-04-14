@@ -126,6 +126,7 @@
   assign slide_sub_title_font = section.settings.slide_sub_title_font
   assign slide_sub_title_height = section.settings.slide_sub_title_height
   assign slide_sub_title_align = section.settings.slide_sub_title_align
+  assign show_heading_section = section.settings.show_heading_section
 -%}
 
 {%- style -%}
@@ -628,6 +629,48 @@
   }
 </style>
 
+{% if show_heading_section == false %}
+  <style>
+    .slider-items-{{ section.id }} {
+      grid-template-columns: 1fr !important;
+    }
+
+    .slider-left-{{ section.id }} {
+      display: none;
+    }
+
+    .slider-slider-{{ section.id }} {
+      max-width: 100%;
+    }
+
+    .slider-right-{{ section.id }} {
+      width: 100%;
+    }
+
+    @media(min-width: 1024px) {
+      .slider-items-{{ section.id }} {
+        grid-template-columns: 1fr !important;
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .slider-btn-prev-{{ section.id }} {
+        left: -10px !important;
+      }
+
+      .slider-btn-next-{{ section.id }} {
+        right: -10px !important;
+      }
+    }
+
+    @media(min-width: 1440px) {
+      .slider-items-{{ section.id }} {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
+{% endif %}
+
 <div
   id="ss-slider"
   class="section-{{ section.id }} slider-{{ section.id }}"
@@ -636,11 +679,13 @@
   <div class="section-{{ section.id }}-settings">
     <div class="slider-items-{{ section.id }}">
       <div class="slider-left-{{ section.id }}">
-        {% if heading != blank %}
-          <div class="slider-heading-{{ section.id }}">{{ heading }}</div>
-        {% endif %}
-        {% if sub_heading != blank %}
-          <div class="slider-subheading-{{ section.id }}">{{ sub_heading }}</div>
+        {% if show_heading_section %}
+          {% if heading != blank %}
+            <div class="slider-heading-{{ section.id }}">{{ heading }}</div>
+          {% endif %}
+          {% if sub_heading != blank %}
+            <div class="slider-subheading-{{ section.id }}">{{ sub_heading }}</div>
+          {% endif %}
         {% endif %}
       </div>
       <div class="slider-right-{{ section.id }}">
@@ -784,6 +829,10 @@
           el: '.slider-scrollbar-{{ section.id }}',
           draggable: true
         },
+        {% if show_heading_section == false %}
+        slidesOffsetBefore: 0,
+        slidesOffsetAfter: 0,
+        {% endif %}
         breakpoints: {
           320: {
             spaceBetween: {{ slider_gap_mobile }},
@@ -908,6 +957,13 @@
     {
       "type": "header",
       "content": "Heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_heading_section",
+      "label": "Mostrar sección de encabezado",
+      "info": "Desactiva esta opción para mostrar solo el slider a ancho completo, sin encabezado ni subtítulo",
+      "default": true
     },
     {
       "type": "richtext",
