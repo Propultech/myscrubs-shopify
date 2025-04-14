@@ -1,11 +1,3 @@
-<link
-  rel="stylesheet"
-  href="{{ 'swiper-bundle.min.css' | asset_url }}"
->
-<script
-  src="{{ 'swiper-bundle.min.js' | asset_url }}"
-  defer
-></script>
 <style>
   .ab-slider-overflow-hidden {
     padding:0;
@@ -199,6 +191,7 @@
   }
   .ab-slider-image {
     width: 100%;
+    height: 100%;
     object-fit: cover;
     aspect-ratio: 1/1;
   }
@@ -254,6 +247,26 @@
      gap: 20px;
    }
   }
+
+  /* Agregar vista de grid para mobile (2x2) en lugar de slider */
+  @media screen and (max-width: 1023px) {
+    .swiper-{{ section.id }} {
+      display: none !important;
+    }
+    .ab-slider-desktop-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+    .ab-slider-slide {
+      margin-bottom: 15px;
+      display: none;
+    }
+    .ab-slider-slide--desktop-active {
+      display: flex;
+    }
+  }
+
   div.swiper-button-next-{{ section.id }},
   div.swiper-button-prev-{{ section.id }} {
     --swiper-navigation-size: 18px;
@@ -312,6 +325,8 @@
   .ab-slider-image-desktop-wrapper {
     position: relative;
     display: flex;
+    aspect-ratio: 1/1;
+    width: 100%;
   }
   .ab-slider-image-desktop-wrapper .ab-slider-link-wrapper {
     position: absolute;
@@ -425,6 +440,8 @@
                   {{ image | img_url: 'master' }} 2400w
                 "
                 alt="{{ image.alt }}"
+                width="500"
+                height="500"
               >
             {% endif %}
 
@@ -453,6 +470,8 @@
                     src="{{ image | img_url: '60x' }}"
                     alt="{{ image.alt }}"
                     style="margin-right: 12px;"
+                    width="30"
+                    height="30"
                   >
                   {{ block.settings.subtitle }}
                 </div>
@@ -499,13 +518,6 @@
             onclick="if (!event.target.closest('a')) window.location.href='{{ block.settings.slide_link }}';"
           {% endif %}
         >
-          {% if block.settings.slide_link != blank %}
-            <a
-              href="{{ block.settings.slide_link }}"
-              class="ab-slider-slide-link"
-              aria-label="{{ block.settings.title }}"
-            ></a>
-          {% endif %}
           <div class="ab-slider-image-desktop-wrapper">
             {% assign image = block.settings.image %}
             {% if image == blank %}
@@ -523,6 +535,8 @@
                   {{ image | img_url: 'master' }} 2400w
                 "
                 alt="{{ image.alt }}"
+                width="500"
+                height="500"
               >
             {% endif %}
 
@@ -570,6 +584,8 @@
                   src="{{ image | img_url: '60x' }}"
                   alt="{{ image.alt }}"
                   style="margin-right: 12px;"
+                  width="30"
+                  height="30"
                 >
                 {{ block.settings.subtitle }}
               </div>
@@ -584,47 +600,26 @@
 <script>
   (function () {
     function loadSection() {
-      let abSlider = new Swiper('.swiper-{{ section.id }}', {
-        slidesPerView: 2,
-        spaceBetween: 10,
-        centeredSlides: false,
-        breakpoints: {
-          750: {
-            slidesPerView: 2,
-            spaceBetween: 12,
-            centeredSlides: false,
-          },
-          1024: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-            centeredSlides: false,
-          },
-        },
-        navigation: {
-          nextEl: '.swiper-button-next-{{ section.id }}',
-          prevEl: '.swiper-button-prev-{{ section.id }}',
-        },
-      });
-
       // ************** tab system **************
       const tabWrapper = document.querySelector('.ab-slider-{{ section.id }} .ab-slider-tab-wrapper');
       const tabButtons = document.querySelectorAll('.ab-slider-{{ section.id }} .ab-slider-tab');
-      const swiperSlides = document.querySelectorAll(`.swiper-{{ section.id }} .swiper-slide`);
       const desktopTabSlide = document.querySelectorAll(`.ab-slider-{{ section.id }} [data-ab-desktop-slide]`);
       const indicator = document.querySelector('.ab-slider-{{ section.id }} .ab-slider-tab-indicator');
       const indicatorBg = document.querySelector('.ab-slider-{{ section.id }} .ab-slider-tab-indicator-bg');
+
       tabButtons.forEach((button) => {
         button.addEventListener('click', () => {
+          // Marcar el tab activo
+          tabButtons.forEach((btn) => btn.classList.remove('ab-slider-tab--active'));
+          button.classList.add('ab-slider-tab--active');
+
           // scroll to the button inside .ab-slider-tab-wrapper:
           if (window.innerWidth < 1024)
             button.scrollIntoView({
               behavior: 'smooth',
               block: 'nearest',
             });
-          abSlider.slideTo(
-            document.querySelector(`.swiper-{{ section.id }} .swiper-slide[data-tab="${button.dataset.tab}"]`).dataset
-              .swiperSlideIndex
-          );
+
           // Desktop tab system: use [data-ab-desktop-slide]
           desktopTabSlide.forEach((slide) => {
             slide.classList.remove('ab-slider-slide--desktop-active');
@@ -632,28 +627,10 @@
               slide.classList.add('ab-slider-slide--desktop-active');
             }
           });
-        });
-      });
-      // update the active tab based on dataset.tab of the slide:
-      abSlider.on('slideChange', function () {
-        const activeSlide = swiperSlides[abSlider.activeIndex];
 
-        const activeTab = activeSlide.dataset.tab;
-        tabButtons.forEach((button) => {
-          button.classList.remove('ab-slider-tab--active');
-          if (button.dataset.tab === activeTab) {
-            button.classList.add('ab-slider-tab--active');
-            // scroll to the button inside .ab-slider-tab-wrapper:
-            if (window.innerWidth < 1024)
-              button.scrollIntoView({
-                behavior: 'smooth',
-                block: 'nearest',
-              });
-
-            // update the indicator width and move under the active tab:
-            indicator.style.width = `${button.offsetWidth}px`;
-            indicator.style.transform = `translateX(${button.offsetLeft}px)`;
-          }
+          // update the indicator width and move under the active tab:
+          indicator.style.width = `${button.offsetWidth}px`;
+          indicator.style.transform = `translateX(${button.offsetLeft}px)`;
         });
       });
 
@@ -686,8 +663,6 @@
 
       // ******************* init ********************:
       const activeTab = document.querySelector('.ab-slider-{{ section.id }} .ab-slider-tab--active');
-      //indicator.style.width = `${activeTab.offsetWidth}px`;
-      //indicator.style.transform = `translateX(${activeTab.offsetLeft}px)`;
       setTimeout(() => {
         // HACK: fix wide screen init offset is not correct:
         indicator.style.width = `${activeTab.offsetWidth}px`;
