@@ -1,0 +1,19 @@
+.slideshow-propul {
+    .slider-button {display: none;}
+    .slider-buttons {
+        display: flex;
+        border-none;
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        border: none;
+    }
+}
+@media screen {
+    .banner--mobile-bottom .banner__box {
+        padding: 0 !important;
+    }
+}
