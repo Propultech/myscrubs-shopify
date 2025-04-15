@@ -74,7 +74,7 @@
             "title": "",
             "text": "",
             "link_label": "",
-            "link": ""
+            "link": "shopify://collections/infinity"
           }
         },
         "column_8w6ixf": {
@@ -84,7 +84,7 @@
             "title": "",
             "text": "",
             "link_label": "",
-            "link": ""
+            "link": "shopify://collections/medcoture"
           }
         },
         "column_jhDCRh": {
@@ -94,7 +94,7 @@
             "title": "",
             "text": "",
             "link_label": "",
-            "link": ""
+            "link": "shopify://collections/cherokee-medical-uniforms"
           }
         }
       },
@@ -511,7 +511,7 @@
         "button-color": "#ffffff",
         "button-color-hover": "#212a2f",
         "button-color-mobile": "#212a2f",
-        "button-text-color": "#212A2F",
+        "button-text-color": "#212a2f",
         "button-text-color-hover": "#ffffff",
         "card-shadow-color": "#d3d4d5",
         "padding_top": 20,
