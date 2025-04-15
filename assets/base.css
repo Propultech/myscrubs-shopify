@@ -3675,3 +3675,6 @@ details-disclosure > details {
     width: calc(16.8% - .8rem); /* decrease percentage and it will increase items */
   }
 }
+.announcement-bar__message {
+  font-family: var(--font-ibm-plex-condensed);
+}
