@@ -415,7 +415,7 @@
             "link": "",
             "button_text_2": "",
             "link_2": "",
-            "slide_link": ""
+            "slide_link": "shopify://collections/pantalones-hombre"
           }
         },
         "slide_3NLrBz": {
@@ -436,35 +436,35 @@
           "type": "slide",
           "settings": {
             "tab": "tab_2",
-            "image": "shopify://shop_images/GRSP526-23_SERENA_pant_PDP_3197_1.jpg",
+            "image": "shopify://shop_images/e359f8fa088db4ff227ca7a8186bcca4_74c507c7-b788-4788-9aca-be5e45b1e0ec.png",
             "title": "Top Lisos",
             "subtitle": "",
             "button_text": "",
             "link": "",
             "button_text_2": "",
             "link_2": "",
-            "slide_link": "shopify://collections/top-lisos-mujer"
+            "slide_link": "shopify://collections/tops-lisos-hombres"
           }
         },
         "slide_R3kUFE": {
           "type": "slide",
           "settings": {
             "tab": "tab_2",
-            "image": "shopify://shop_images/CK609_THCM_IN011A_NAVY_CATALOG_1_1.jpg",
+            "image": "shopify://shop_images/8a922b2977401e6203593e681702bfe2_468a2415-28e1-423d-ba18-ba926cee9cdd.png",
             "title": "Top Estampados",
             "subtitle": "",
             "button_text": "",
             "link": "",
             "button_text_2": "",
             "link_2": "",
-            "slide_link": ""
+            "slide_link": "shopify://collections/tops-estampados-hombres"
           }
         },
         "slide_qz7VC4": {
           "type": "slide",
           "settings": {
             "tab": "tab_2",
-            "image": "shopify://shop_images/Image.jpg",
+            "image": "shopify://shop_images/1476cc0fd2ee83760819bb4f02c305af_6a9ae6d8-aaa2-457d-a54b-952c96cf1c5d.png",
             "title": "Pantalones",
             "subtitle": "",
             "button_text": "",
@@ -478,14 +478,14 @@
           "type": "slide",
           "settings": {
             "tab": "tab_2",
-            "image": "shopify://shop_images/Image-1.jpg",
-            "title": "Batas Médicas",
+            "image": "shopify://shop_images/708a30169cb918372e5658304d81e83b_44075004-a2a7-40a7-b553-88339e335e58.jpg",
+            "title": "Delantales Blancos",
             "subtitle": "",
             "button_text": "",
             "link": "",
             "button_text_2": "",
             "link_2": "",
-            "slide_link": ""
+            "slide_link": "shopify://collections/delantales-blancos-hombre"
           }
         }
       },
@@ -505,7 +505,7 @@
         "title_color": "#212a2f",
         "tab_1_text": "Mujer",
         "tab_2_text": "Hombre",
-        "tab_font_size": 40,
+        "tab_font_size": 20,
         "tab_color": "#212a2f",
         "slide_title_font_size": 22,
         "slide_title_color": "#000000",
