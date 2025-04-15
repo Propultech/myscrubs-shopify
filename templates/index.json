@@ -501,7 +501,8 @@
       ],
       "custom_css": [
         ".ab-slider-slide-title {margin: 0; padding: 0;}",
-        ".ab-slider-tab {background-color: transparent}"
+        ".ab-slider-tab {background-color: transparent;}",
+        ".ab-slider-tab.ab-slider-tab--active {background-color: #242424}"
       ],
       "settings": {
         "title": "",
