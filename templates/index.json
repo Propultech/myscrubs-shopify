@@ -499,6 +499,9 @@
         "slide_qz7VC4",
         "slide_AtMiNW"
       ],
+      "custom_css": [
+        ".ab-slider-slide-title {margin: 0; padding: 0;}"
+      ],
       "settings": {
         "title": "",
         "title_font_size": 12,
@@ -519,7 +522,7 @@
         "button-text-color-hover": "#ffffff",
         "card-shadow-color": "#d3d4d5",
         "padding_top": 20,
-        "padding_bottom": 24,
+        "padding_bottom": 16,
         "section-width": 120
       }
     },
