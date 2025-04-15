@@ -110,7 +110,8 @@
         "complementary_mCnT7h"
       ],
       "custom_css": [
-        "p.product__text.inline-richtext.subtitle {font-size: 1.4rem; font-family: \"IBM Plex Sans Condensed\"; padding: 0 0 0 60px; margin-top: 0;}"
+        "p.product__text.inline-richtext.subtitle {font-size: 1.4rem; font-family: \"IBM Plex Sans Condensed\"; padding: 0 0 0 60px; margin-top: 0;}",
+        ".product__info-container>*+* {margin: 1.5rem 0 0.5rem;}"
       ],
       "settings": {
         "enable_sticky_info": true,
