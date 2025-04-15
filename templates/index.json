@@ -512,7 +512,7 @@
         "slide_subtitle_font_size": 15,
         "slide_subtitle_color": "#212a2f",
         "background-color": "rgba(0,0,0,0)",
-        "button-color": "#ffffff",
+        "button-color": "rgba(0,0,0,0)",
         "button-color-hover": "#212a2f",
         "button-color-mobile": "#212a2f",
         "button-text-color": "#212a2f",
