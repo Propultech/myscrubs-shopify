@@ -52,6 +52,13 @@
             "show_gift_card_recipient": true
           }
         },
+        "text_rdiqnP": {
+          "type": "text",
+          "settings": {
+            "text": "ENVÍO GRATUITO PARA PEDIDOS SOBRE $70.000",
+            "text_style": "subtitle"
+          }
+        },
         "description_BK4QYg": {
           "type": "description",
           "settings": {}
@@ -96,6 +103,7 @@
         "popup_size_guide_WFtC4C",
         "variant_picker",
         "buy_buttons",
+        "text_rdiqnP",
         "description_BK4QYg",
         "collapsible_tab_AG6kPK",
         "collapsible_tab_geYVaD",
