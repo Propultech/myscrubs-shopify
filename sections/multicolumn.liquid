@@ -13,6 +13,48 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  @media screen and (max-width: 749px) {
+    .grid--3-col-tablet-down .grid__item {
+      width: calc(33.33% - var(--grid-desktop-horizontal-spacing) * 2 / 3);
+      max-width: calc(33.33% - var(--grid-desktop-horizontal-spacing) * 2 / 3);
+    }
+
+    .grid--3-col-tablet-down .multicolumn-card__info {
+      padding: 0.5rem;
+    }
+
+    .grid--3-col-tablet-down .multicolumn-card__info h3 {
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .grid--3-col-tablet-down .multicolumn-card__info .rte {
+      font-size: 0.8rem;
+      line-height: 1.2;
+      margin-bottom: 0.3rem;
+    }
+
+    .grid--3-col-tablet-down .multicolumn-card__info .link {
+      font-size: 0.8rem;
+    }
+
+    .grid--3-col-tablet-down .multicolumn-card__image-wrapper {
+      margin-bottom: 0.5rem;
+    }
+
+    .grid--3-col-tablet-down .multicolumn-card {
+      gap: 0.5rem;
+    }
+
+    .grid--3-col-tablet-down .animate-arrow {
+      font-size: 0.8rem;
+    }
+
+    .grid--3-col-tablet-down .icon-wrap {
+      height: 0.8rem;
+    }
+  }
 {%- endstyle -%}
 
 {%- liquid
@@ -236,7 +278,7 @@
     {
       "type": "header",
       "content": "t:sections.multicolumn.settings.header_image.content"
-    },    
+    },
     {
       "type": "select",
       "id": "image_width",
@@ -284,23 +326,23 @@
     {
       "type": "header",
       "content": "t:sections.multicolumn.settings.header_button.content"
-    },    
+    },
     {
       "type": "text",
       "id": "button_label",
       "default": "t:sections.multicolumn.settings.button_label.default",
-      "label": "t:sections.multicolumn.settings.button_label.label", 
+      "label": "t:sections.multicolumn.settings.button_label.label",
       "info": "t:sections.multicolumn.settings.button_label.info"
     },
     {
       "type": "url",
       "id": "button_link",
       "label": "t:sections.multicolumn.settings.button_link.label"
-    },    
+    },
     {
       "type": "header",
       "content": "t:sections.multicolumn.settings.header_layout.content"
-    },     
+    },
     {
       "type": "range",
       "id": "columns_desktop",
@@ -347,7 +389,7 @@
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-1"
-    },    
+    },
     {
       "type": "header",
       "content": "t:sections.multicolumn.settings.header_mobile.content"
@@ -363,6 +405,10 @@
         {
           "value": "2",
           "label": "t:sections.multicolumn.settings.columns_mobile.options__2.label"
+        },
+        {
+          "value": "3",
+          "label": "3"
         }
       ],
       "default": "1",
