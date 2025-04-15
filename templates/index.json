@@ -500,7 +500,8 @@
         "slide_AtMiNW"
       ],
       "custom_css": [
-        ".ab-slider-slide-title {margin: 0; padding: 0;}"
+        ".ab-slider-slide-title {margin: 0; padding: 0;}",
+        ".ab-slider-tab {background-color: transparent}"
       ],
       "settings": {
         "title": "",
