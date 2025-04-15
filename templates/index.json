@@ -401,21 +401,21 @@
             "link": "",
             "button_text_2": "",
             "link_2": "",
-            "slide_link": ""
+            "slide_link": "shopify://collections/estampados"
           }
         },
         "slide_DC7q4m": {
           "type": "slide",
           "settings": {
             "tab": "tab_1",
-            "image": "shopify://shop_images/Image.jpg",
+            "image": "shopify://shop_images/80dd819b47a7d5fb5774f869ec4c952b_c4eaee0b-039b-4ce5-ab52-700c146318f1.jpg",
             "title": "Pantalones",
             "subtitle": "",
             "button_text": "",
             "link": "",
             "button_text_2": "",
             "link_2": "",
-            "slide_link": "shopify://collections/pantalones-hombre"
+            "slide_link": "shopify://collections/pantalones-mujer"
           }
         },
         "slide_3NLrBz": {
@@ -429,7 +429,7 @@
             "link": "",
             "button_text_2": "",
             "link_2": "",
-            "slide_link": ""
+            "slide_link": "shopify://collections/primera-capa"
           }
         },
         "slide_z6EkiK": {
@@ -464,7 +464,7 @@
           "type": "slide",
           "settings": {
             "tab": "tab_2",
-            "image": "shopify://shop_images/1476cc0fd2ee83760819bb4f02c305af_6a9ae6d8-aaa2-457d-a54b-952c96cf1c5d.png",
+            "image": "shopify://shop_images/Image.jpg",
             "title": "Pantalones",
             "subtitle": "",
             "button_text": "",
@@ -527,7 +527,7 @@
       "type": "featured-collection",
       "settings": {
         "collection": "lo-mas-vendido-mujer",
-        "products_to_show": 8,
+        "products_to_show": 4,
         "title": "Los mas comprados",
         "heading_size": "h1",
         "description": "",
