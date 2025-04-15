@@ -135,8 +135,8 @@
         "custom_aTPMdm": {
           "type": "custom",
           "settings": {
-            "image": "shopify://shop_images/Item.jpg",
-            "title": "Azul Marino",
+            "image": "shopify://shop_images/Item-1.jpg",
+            "title": "Azul Rey",
             "sub_title": "",
             "url": "shopify://collections"
           }
@@ -144,8 +144,8 @@
         "custom_KnbYAY": {
           "type": "custom",
           "settings": {
-            "image": "shopify://shop_images/Item.jpg",
-            "title": "Azul Marino",
+            "image": "shopify://shop_images/Item-2.jpg",
+            "title": "Blanco",
             "sub_title": "",
             "url": "shopify://collections"
           }
@@ -153,8 +153,8 @@
         "custom_RbbViU": {
           "type": "custom",
           "settings": {
-            "image": "shopify://shop_images/Item.jpg",
-            "title": "Azul Marino",
+            "image": "shopify://shop_images/Item-3.jpg",
+            "title": "Burdeo",
             "sub_title": "",
             "url": "shopify://collections"
           }
@@ -162,8 +162,8 @@
         "custom_E4bymz": {
           "type": "custom",
           "settings": {
-            "image": "shopify://shop_images/Item.jpg",
-            "title": "Azul Marino",
+            "image": "shopify://shop_images/Item-4.jpg",
+            "title": "Caribbean Blue",
             "sub_title": "",
             "url": "shopify://collections"
           }
@@ -171,8 +171,8 @@
         "custom_xDDGnx": {
           "type": "custom",
           "settings": {
-            "image": "shopify://shop_images/Item.jpg",
-            "title": "Azul Marino",
+            "image": "shopify://shop_images/Item-5.jpg",
+            "title": "Celeste",
             "sub_title": "",
             "url": "shopify://collections"
           }
@@ -180,8 +180,8 @@
         "custom_96HKJt": {
           "type": "custom",
           "settings": {
-            "image": "shopify://shop_images/Item.jpg",
-            "title": "Azul Marino",
+            "image": "shopify://shop_images/Item-6.jpg",
+            "title": "Gris",
             "sub_title": "",
             "url": "shopify://collections"
           }
@@ -189,8 +189,8 @@
         "custom_7f6dUL": {
           "type": "custom",
           "settings": {
-            "image": "shopify://shop_images/Item.jpg",
-            "title": "Azul Marino",
+            "image": "shopify://shop_images/Item-7.jpg",
+            "title": "Morado",
             "sub_title": "",
             "url": "shopify://collections"
           }
@@ -198,8 +198,8 @@
         "custom_frnGFy": {
           "type": "custom",
           "settings": {
-            "image": "shopify://shop_images/Item.jpg",
-            "title": "Azul Marino",
+            "image": "shopify://shop_images/Item-8.jpg",
+            "title": "Negro",
             "sub_title": "",
             "url": "shopify://collections"
           }
@@ -208,41 +208,45 @@
           "type": "custom",
           "settings": {
             "image": "shopify://shop_images/Item.jpg",
-            "title": "Azul Marino",
+            "title": "Rojo",
             "sub_title": "",
             "url": "shopify://collections"
           }
         },
-        "custom_dk8kxe": {
+        "custom_HpKKB6": {
           "type": "custom",
           "settings": {
-            "title": "Title",
-            "sub_title": "Sub Title",
-            "url": ""
+            "image": "shopify://shop_images/Item.jpg",
+            "title": "Rosado",
+            "sub_title": "",
+            "url": "shopify://collections"
           }
         },
-        "custom_9pzp6E": {
+        "custom_D6Rkfx": {
           "type": "custom",
           "settings": {
-            "title": "Title",
-            "sub_title": "Sub Title",
-            "url": ""
+            "image": "shopify://shop_images/Item.jpg",
+            "title": "Teal Blue",
+            "sub_title": "",
+            "url": "shopify://collections"
           }
         },
-        "custom_ayRn6W": {
+        "custom_pxnwG3": {
           "type": "custom",
           "settings": {
-            "title": "Title",
-            "sub_title": "Sub Title",
-            "url": ""
+            "image": "shopify://shop_images/Item.jpg",
+            "title": "Turquesa",
+            "sub_title": "",
+            "url": "shopify://collections"
           }
         },
-        "custom_DBapnN": {
+        "custom_t479eT": {
           "type": "custom",
           "settings": {
-            "title": "Title",
-            "sub_title": "Sub Title",
-            "url": ""
+            "image": "shopify://shop_images/Item.jpg",
+            "title": "Verde",
+            "sub_title": "",
+            "url": "shopify://collections"
           }
         }
       },
@@ -257,10 +261,10 @@
         "custom_7f6dUL",
         "custom_frnGFy",
         "custom_gAX6jF",
-        "custom_dk8kxe",
-        "custom_9pzp6E",
-        "custom_ayRn6W",
-        "custom_DBapnN"
+        "custom_HpKKB6",
+        "custom_D6Rkfx",
+        "custom_pxnwG3",
+        "custom_t479eT"
       ],
       "settings": {
         "body_padding_vertical": 46,
