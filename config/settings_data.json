@@ -144,8 +144,8 @@
     },
     "content_for_index": [],
     "blocks": {
-      "7916451724185839711": {
-        "type": "shopify://apps/avis-product-options/blocks/avisplus-product-options/e076618e-4c9c-447f-ad6d-4f1577799c29",
+      "5918707185744429496": {
+        "type": "shopify://apps/optis-product-options-variant/blocks/bss-po-script/2c446099-c349-4e73-80cd-49c9770b7807",
         "disabled": false,
         "settings": {}
       }
