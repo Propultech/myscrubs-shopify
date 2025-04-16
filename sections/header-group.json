@@ -62,7 +62,7 @@
           "type": "menu_block",
           "settings": {
             "parent_link_title": "Mujer",
-            "column_position": 2,
+            "column_position": 1,
             "display_mode": "html_only",
             "heading": "",
             "text": "<ul class=\"menu-links-grid\">\n  <li><a href=\"/collections/lo-mas-vendido\">Lo más vendido</a></li>\n  <li><a href=\"/collections/compra-tu-conjunto\">Compra tu conjunto</a></li>\n  <li><a href=\"/collections/ofertas\">Ofertas</a></li>\n  <li><a href=\"/pages/gift-card\">Gift Card</a></li>\n  <li><a href=\"/collections/desde-9990\">Desde $9.990</a></li>\n</ul>",
