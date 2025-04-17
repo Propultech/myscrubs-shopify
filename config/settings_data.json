@@ -440,7 +440,7 @@
   },
   "platform_customizations": {
     "custom_css": [
-      "a[id*=\"empty\"].mega-menu__link--level-2 {display: none;}"
+      "@media screen and (min-width: 1024px) {#MegaMenu-Content-3 .mega-menu__list {display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; /* separa las columnas */ list-style: none; padding: 0; margin: 0; } #MegaMenu-Content-3 .mega-menu__list li {margin: 0; }}"
     ]
   }
 }
