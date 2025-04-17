@@ -77,7 +77,7 @@
             "column_position": 1,
             "display_mode": "html_only",
             "heading": "",
-            "text": "<ul class=\"menu-links-grid\">\n  <li><a href=\"/collections/lo-mas-vendido\">Lo más vendido</a></li>\n  <li><a href=\"/collections/compra-tu-conjunto\">Compra tu conjunto</a></li>\n  <li><a href=\"/collections/ofertas\">Ofertas</a></li>  <li><a href=\"/collections/desde-9990\">Desde $9.990</a></li>\n</ul>",
+            "text": "<ul class=\"menu-links-grid\">\n  <li><a href=\"/collections/lo-mas-vendido\">Lo más vendido</a></li>\n  <li><a href=\"/collections/lo-mas-vendido/Hombre\">Compra tu conjunto</a></li>\n  <li><a href=\"/collections/ofertas\">Ofertas</a></li>  <li><a href=\"/collections/desde-9990\">Desde $9.990</a></li>\n</ul>",
             "button_label": "",
             "button_link": ""
           }
@@ -89,7 +89,7 @@
             "column_position": 1,
             "display_mode": "html_only",
             "heading": "",
-            "text": "<ul class=\"menu-links-grid\">\n  <li><a href=\"/collections/lo-mas-vendido\">Lo más vendido</a></li>\n  <li><a href=\"/collections/compra-en-conjunto\">Compra tu conjunto</a></li>\n  <li><a href=\"/collections/ofertas\">Ofertas</a></li>  <li><a href=\"/collections/desde-9990\">Desde $9.990</a></li>\n</ul>",
+            "text": "<ul class=\"menu-links-grid\">\n  <li><a href=\"/collections/lo-mas-vendido/Hombre\">Lo más vendido</a></li>\n  <li><a href=\"/collections/compra-en-conjunto\">Compra tu conjunto</a></li>\n  <li><a href=\"/collections/ofertas\">Ofertas</a></li>  \n  <li><a href=\"/collections/desde-9990\">Desde $9.990</a></li>\n  <li><a href=\"/collections/hombre\">Ver todo Hombre</a></li> \n</ul>",
             "button_label": "",
             "button_link": ""
           }
