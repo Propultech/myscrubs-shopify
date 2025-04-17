@@ -61,7 +61,7 @@
         "menu_block_7UWUXR": {
           "type": "menu_block",
           "settings": {
-            "parent_link_title": "Mujer",
+            "parent_link_title": "Hombre",
             "column_position": 5,
             "display_mode": "html_only",
             "heading": "Compra por color",
@@ -71,6 +71,18 @@
           }
         },
         "menu_block_8HXRhk": {
+          "type": "menu_block",
+          "settings": {
+            "parent_link_title": "Mujer",
+            "column_position": 1,
+            "display_mode": "html_only",
+            "heading": "",
+            "text": "<ul class=\"menu-links-grid\">\n  <li><a href=\"/collections/lo-mas-vendido\">Lo más vendido</a></li>\n  <li><a href=\"/collections/compra-tu-conjunto\">Compra tu conjunto</a></li>\n  <li><a href=\"/collections/ofertas\">Ofertas</a></li>  <li><a href=\"/collections/desde-9990\">Desde $9.990</a></li>\n</ul>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "menu_block_ab6JkX": {
           "type": "menu_block",
           "settings": {
             "parent_link_title": "Hombre",
@@ -86,7 +98,8 @@
       "block_order": [
         "menu_block_WiRYJn",
         "menu_block_7UWUXR",
-        "menu_block_8HXRhk"
+        "menu_block_8HXRhk",
+        "menu_block_ab6JkX"
       ],
       "custom_css": [
         "#HeaderMenu-ofertas {color: #d51b62; text-transform: uppercase;}"
