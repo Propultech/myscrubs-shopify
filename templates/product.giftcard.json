@@ -65,6 +65,7 @@
         },
         "collapsible_tab_AG6kPK": {
           "type": "collapsible_tab",
+          "disabled": true,
           "settings": {
             "heading": "Composición",
             "icon": "price_tag",
@@ -74,6 +75,7 @@
         },
         "collapsible_tab_geYVaD": {
           "type": "collapsible_tab",
+          "disabled": true,
           "settings": {
             "heading": "Cuidados de la prenda",
             "icon": "iron",
@@ -83,6 +85,7 @@
         },
         "complementary_mCnT7h": {
           "type": "complementary",
+          "disabled": true,
           "settings": {
             "block_heading": "Combina bien con",
             "make_collapsible_row": false,
