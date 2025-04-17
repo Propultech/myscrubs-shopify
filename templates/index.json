@@ -74,7 +74,7 @@
             "title": "",
             "text": "",
             "link_label": "",
-            "link": "shopify://collections/infinity"
+            "link": "shopify://collections/cherokee-infinity"
           }
         },
         "column_8w6ixf": {
@@ -566,9 +566,6 @@
             "title_color": "",
             "title_size_v2": 30,
             "alignment": "left",
-            "margin_top": 0,
-            "margin_bottom": 20,
-            "margin_sides": 0,
             "show_instagram_link": false,
             "link_alignment": "left",
             "link_color": "#000000",
