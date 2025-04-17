@@ -112,14 +112,14 @@
       "custom_css": [
         "p.product__text.inline-richtext.subtitle {font-size: 1.4rem; font-family: \"IBM Plex Sans Condensed\"; padding: 0 0 0 60px; margin-top: 0;}",
         ".product__info-container > * + *,.product__info-container .product-form {margin: 1.5rem 0 0.5rem;}",
-        "@media screen and (max-width: 749px) {.modal-size-guide {top:19%}}"
+        "@media screen and (max-width: 749px) {.modal-size-guide {top: 19%; }}"
       ],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
         "media_size": "medium",
         "constrain_to_viewport": true,
-        "media_fit": "contain",
+        "media_fit": "cover",
         "gallery_layout": "thumbnail_slider",
         "mobile_thumbnails": "hide",
         "media_position": "left",
