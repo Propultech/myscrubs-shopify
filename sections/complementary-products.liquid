@@ -1,185 +1,57 @@
+{{ 'complementary-products.css' | asset_url | stylesheet_tag }}
+{{ 'quick-add.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'complementary-products.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+
 <section id="complementary-products-section" class="complementary-products">
   <div class="complementary-products__container">
-    <h2 class="complementary-products__title" style="margin:0px;">
+    <h2 class="complementary-products__title">
       {{ section.settings.title | default: 'Completa tu conjunto' }}
     </h2>
-
+    
     {% assign complementary_products = product.metafields.shopify--discovery--product_recommendation.complementary_products.value %}
-
+    
     <div class="complementary-products__grid">
       {% for recommended_product in complementary_products %}
         {% render 'complementary-card-product',
           card_product: recommended_product,
           show_vendor: true,
-          show_rating: section.settings.show_rating,
           show_secondary_image: section.settings.show_secondary_image,
-          quick_add: section.settings.quick_add,
           section_id: section.id
         %}
+        <script>
+          window.productVariants = window.productVariants || {};
+          window.productVariants['{{ recommended_product.id }}'] = {{ recommended_product.variants | json }};
+        </script>
       {% endfor %}
     </div>
   </div>
-
+  
   <style>
-    /* Estilos para la sección */
-    .complementary-products__container {
+    #complementary-products-section .complementary-products__container {
       background: #F8F8F8;
       padding: 2rem 0;
+      margin: 0 auto;
     }
-
-    .complementary-products__title {
-      text-align: center;
-      margin-bottom: 2rem !important;
-      font-size: {{ section.settings.title_font_size }}px;
-    }
-
-    .complementary-products__grid {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      padding: 0 1rem;
-    }
-
-    /* Estilos para el complementary-card-product */
-    .complementary-item {
-      display: grid;
-      grid-template-columns: 20% 40% 40%;
-      gap: 2rem;
-      padding: 2rem;
-      background: #ffffff;
-      border: 1px solid #eee;
-      border-radius: 12px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      align-items: center;
-    }
-
-    .complementary-item__image-wrapper {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      position: relative;
-    }
-
-    .complementary-item__image {
-      max-width: 100%;
-      border-radius: 8px;
-      display: block;
-    }
-
-    .complementary-item__image--secondary {
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .complementary-item__image-link:hover .complementary-item__image--secondary {
-      opacity: 1;
-    }
-
-    .complementary-item__badge {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-    }
-
-    .complementary-item__info {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .complementary-item__vendor {
-      font-size: 0.9rem;
-      color: #555;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .complementary-item__title {
-      margin: 0;
-      font-size: {{ section.settings.title_font_size }}px;
-    }
-
-    .complementary-item__title-link {
-      text-decoration: none;
-      color: #121212;
-    }
-
-    .complementary-item__action {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-    }
-
-    .complementary-item__add-to-cart,
-    .complementary-item__choose-options {
-      background-color: #005E95;
-      color: #fff;
-      padding: 0.75rem 2rem;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      transition: background 0.2s ease;
-    }
-
-    .complementary-item__add-to-cart:hover,
-    .complementary-item__choose-options:hover {
-      background-color: #004a78;
-    }
-
-    .complementary-item__add-to-cart:disabled {
-      background-color: #cccccc;
-      cursor: not-allowed;
-    }
-
-    /* Responsive */
-    @media screen and (max-width: 989px) {
-      .complementary-item {
-        grid-template-columns: 30% 70%;
-        gap: 1.5rem;
-      }
-      
-      .complementary-item__action {
-        grid-column: span 2;
-        justify-content: center;
-        margin-top: 1rem;
-      }
-    }
-
-    @media screen and (max-width: 749px) {
-      .complementary-item {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        padding: 1.5rem;
-      }
-      
-      .complementary-item__action {
-        grid-column: 1;
-        justify-content: center;
-      }
-      
-      .complementary-item__image-wrapper {
-        max-width: 80%;
-        margin: 0 auto;
-      }
-    }
-    
-    @media screen and (min-width: 990px) {      
-      .complementary-products__container {
+    @media screen and (min-width: 990px) {
+      #complementary-products-section .complementary-products__container {
         padding-left: {{ section.settings.side_padding_desktop }}%;
         padding-right: {{ section.settings.side_padding_desktop }}%;
       }
     }
+    #complementary-products-section .complementary-products__title {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: {{ section.settings.title_font_size }}px;
+      font-weight: 600;
+    }
   </style>
-
-  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
-
+  <script>
+    window.translations = window.translations || {};
+    window.translations.addToCart = {{ 'products.product.add_to_cart' | t | json }};
+    window.translations.soldOut = {{ 'products.product.sold_out' | t | json }};
+  </script>
+  
   {% schema %}
   {
     "name": "Productos complementarios",
@@ -193,11 +65,11 @@
       {
         "type": "range",
         "id": "title_font_size",
-        "label": "Tamaño de fuente del título del producto (px)",
-        "min": 10,
-        "max": 32,
+        "label": "Tamaño de fuente del título (px)",
+        "min": 18,
+        "max": 36,
         "step": 1,
-        "default": 18
+        "default": 24
       },
       {
         "type": "checkbox",
@@ -206,37 +78,11 @@
         "label": "Mostrar segunda imagen al pasar el cursor"
       },
       {
-        "type": "checkbox",
-        "id": "show_rating",
-        "default": false,
-        "label": "Mostrar calificación del producto"
-      },
-      {
-        "type": "select",
-        "id": "quick_add",
-        "options": [
-          {
-            "value": "false",
-            "label": "Desactivado"
-          },
-          {
-            "value": "standard",
-            "label": "Estándar"
-          },
-          {
-            "value": "bulk",
-            "label": "A granel"
-          }
-        ],
-        "default": "standard",
-        "label": "Añadir rápido al carrito"
-      },
-      {
         "type": "range",
         "id": "side_padding_desktop",
         "label": "Padding lateral en desktop (%)",
         "min": 1,
-        "max": 30,
+        "max": 20,
         "step": 1,
         "default": 5
       }
@@ -248,4 +94,3 @@
     ]
   }
   {% endschema %}
-</section>

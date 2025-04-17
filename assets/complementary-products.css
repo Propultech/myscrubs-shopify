@@ -1,0 +1,484 @@
+#complementary-products-section h3.complementary-item__title.card__heading { 
+    font-family: var(--font-ibm-plex-condensed);
+    font-size: 24px;
+    font-weight: 700;
+  }
+  
+  #complementary-products-section .complementary-products__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+  
+  #complementary-products-section .price__container .price__regular,
+  #complementary-products-section .price__container .price__sale { 
+    font-family: var(--font-ibm-plex-condensed);
+    font-size: 22px;
+    font-weight: 500;
+    color: #494949;
+  }
+  
+  #complementary-products-section .complementary-item .price .price__sale {
+    display: none;
+  }
+  
+  #complementary-products-section .complementary-item .price--on-sale .price__regular {
+    display: none;
+  }
+  
+  #complementary-products-section .complementary-item .price--on-sale .price__sale {
+    display: block;
+  }
+  
+  #complementary-products-section .complementary-item .price .visually-hidden {
+    position: absolute !important;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0 0 0 0);
+    word-wrap: normal !important;
+  }
+  
+  #complementary-products-section .complementary-item__column.complementary-item__info span.complementary-item__vendor { 
+    font-family: var(--font-ibm-plex-condensed);
+    font-size: 12px;
+    font-weight: 400;
+    color: #494949;
+  }
+  
+  #complementary-products-section .complementary-item {
+    display: grid;
+    grid-template-columns: 15% 25% 35% 25%;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: #ffffff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    align-items: center;
+  }
+  
+  #complementary-products-section .complementary-item__column {
+    position: relative;
+  }
+  
+  #complementary-products-section .complementary-item__image-wrapper {
+    width: 100%;
+    min-height: 100px;
+    position: relative;
+    overflow: visible !important;
+  }
+  
+  #complementary-products-section .complementary-item__image {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  #complementary-products-section .card__media {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    position: relative !important;
+  }
+  
+  #complementary-products-section .complementary-item__badge {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 10;
+  }
+  
+  #complementary-products-section .complementary-item__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  #complementary-products-section .complementary-item__vendor {
+    font-size: 0.875rem;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: -0.5rem;
+  }
+  
+  #complementary-products-section .complementary-item__title {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+  
+  #complementary-products-section .complementary-item__title-link {
+    text-decoration: none;
+    color: #121212;
+  }
+  
+  #complementary-products-section .complementary-item__price {
+    font-weight: 600;
+    font-size: 1.125rem;
+  }
+  
+  #complementary-products-section .complementary-item__price .price__sale {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  #complementary-products-section .complementary-item__price .price__regular {
+    color: #333;
+  }
+  
+  #complementary-products-section .complementary-item__price .price-item--sale {
+    color: #ce0000;
+  }
+  
+  #complementary-products-section .complementary-item__price .price-item--regular.price__compare {
+    color: #777;
+    text-decoration: line-through;
+    font-size: 0.875rem;
+  }
+  #complementary-products-section .complementary-item__variants-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  
+  #complementary-products-section .complementary-item__variants {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+  
+  #complementary-products-section .complementary-item__color-options {
+    margin-bottom: 1rem;
+  }
+  
+  #complementary-products-section .complementary-item__size-options {
+    margin-bottom: 1rem;
+  }
+  
+  #complementary-products-section .complementary-item__option-title {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #121212;
+    text-transform: uppercase;
+  }
+  
+
+  #complementary-products-section .complementary-item .card-product__swatches-container {
+    margin: 0;
+    position: relative;
+    z-index: 2;
+  }
+  
+  #complementary-products-section .complementary-item .card-product__swatches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    justify-content: left !important;
+  }
+  
+  #complementary-products-section .complementary-item .card-product__swatch-link {
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+  }
+  
+  #complementary-products-section .complementary-item__size-swatches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  #complementary-products-section .complementary-item__size-swatch {
+    font-family: var(--font-ibm-plex-condensed);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 58px;
+    height: 37px;
+    border: 1px solid #7D7D7D;
+    background-color: white;
+    color: #121212;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  #complementary-products-section .complementary-item__size-swatch.is-active {
+    background-color: black;
+    color: white;
+    font-weight: 600;
+  }
+  
+  #complementary-products-section .complementary-item__size-swatch.visually-disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  #complementary-products-section .size-swatch-disabled-line {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #complementary-products-section .size-swatch-disabled-line::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: #999;
+    transform: rotate(45deg);
+  }
+  
+  #complementary-products-section .complementary-item__action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #complementary-products-section .complementary-item__add-to-cart {
+    background-color: #005E95;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
+    max-width: 200px;
+    display: inline-block;
+  }
+  
+  #complementary-products-section .complementary-item__add-to-cart:hover {
+    background-color: #004a78;
+  }
+  
+  #complementary-products-section .complementary-item__add-to-cart:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  #complementary-products-section .complementary-item__colors-mobile {
+    display: none;
+  }
+  
+  #complementary-products-section .complementary-item__color-swatches--mobile {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 6px;
+  }
+  
+  #complementary-products-section .desktop-only {
+    display: block;
+  }
+  
+  #complementary-products-section .mobile-only {
+    display: none;
+  }
+  
+  #complementary-products-section .complementary-item__color-swatch-mobile {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    background: none;
+  }
+  
+  #complementary-products-section .complementary-item__color-swatch-mobile .swatch {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  
+  #complementary-products-section .complementary-item__color-swatch-mobile.is-disabled {
+    opacity: 0.7;
+    position: relative;
+  }
+  
+  #complementary-products-section .color-swatch-disabled-line-mobile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  #complementary-products-section .color-swatch-disabled-line-mobile::after {
+    content: '';
+    position: absolute;
+    width: 140%;
+    height: 1px;
+    background-color: #999;
+    top: 50%;
+    left: -20%;
+    transform: rotate(45deg);
+  }
+  
+  #complementary-products-section .complementary-item__color-more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: #777;
+    margin-left: 4px;
+  }
+  
+  #complementary-products-section .complementary-item__available-colors {
+    font-size: 0.75rem;
+    color: #666;
+    margin-bottom: 4px;
+  }
+  
+  /* Estilos específicos para móvil */
+  @media screen and (max-width: 749px) {
+    #complementary-products-section .mobile-only .quick-add__submit {
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      min-width: 0;
+      width: 40px;
+      height: 40px;
+      position: relative;
+    }
+    
+    #complementary-products-section .mobile-only .loading__spinner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  
+  @media screen and (min-width: 750px) {
+    #complementary-products-section .card-wrapper .card-product__swatches-container .card-product__swatches .card-product__swatch-link {
+      margin: 0px;
+    }
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 1023px) {
+    #complementary-products-section .complementary-item__action {
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    
+    #complementary-products-section h3.complementary-item__title.card__heading { 
+      font-size: 16px;
+    }
+    
+    #complementary-products-section .complementary-item__column.complementary-item__info span.complementary-item__vendor { 
+      font-size: 12px;
+    }
+    
+    #complementary-products-section .price__container .price__regular, 
+    #complementary-products-section .price__container .price__sale { 
+      font-size: 16px;
+    }
+    
+    #complementary-products-section .complementary-item__size-swatch {
+      min-width: 38px;
+      height: 25px;
+    }
+  }
+  
+  @media screen and (max-width: 749px) {
+    #complementary-products-section .complementary-item {
+      grid-template-columns: 30% 50% 20%;
+      gap: 0.5rem;
+      padding: 1rem;
+    }
+    
+    #complementary-products-section .complementary-item__image-wrapper {
+      width: 100%;
+    }
+    
+    #complementary-products-section h3.complementary-item__title.card__heading { 
+      font-size: 14px;
+    }
+    
+    #complementary-products-section .complementary-item__column.complementary-item__info span.complementary-item__vendor { 
+      font-size: 10px;
+    }
+    
+    #complementary-products-section .price__container .price__regular, 
+    #complementary-products-section .price__container .price__sale { 
+      font-size: 14px;
+    }
+    
+    #complementary-products-section .complementary-item__variants-column {
+      display: none;
+    }
+    
+    #complementary-products-section .complementary-item__colors-mobile {
+      display: block;
+    }
+    
+    #complementary-products-section .complementary-item__title {
+      font-size: 0.95rem;
+    }
+    
+    #complementary-products-section .complementary-item__price {
+      font-size: 0.95rem;
+    }
+    
+    #complementary-products-section .complementary-item__vendor {
+      font-size: 0.75rem;
+    }
+    
+    #complementary-products-section .desktop-only {
+      display: none;
+    }
+    
+    #complementary-products-section .mobile-only {
+      display: block;
+    }
+    
+    #complementary-products-section .complementary-item__available-colors {
+      font-size: 10px;
+    }
+    
+    #complementary-products-section .complementary-products__title {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    #complementary-products-section .complementary-item .card-product__swatches-container {
+      margin: 0.5rem 0;
+    }
+    
+    #complementary-products-section .complementary-item .card-product__swatches {
+      gap: 0.3rem;
+    }
+    
+    #complementary-products-section .complementary-item .card-product__swatch-link {
+      width: 20px;
+      height: 20px;
+    }
+  }
