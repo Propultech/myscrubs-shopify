@@ -129,7 +129,7 @@
             "image": "shopify://shop_images/Item.jpg",
             "title": "Azul Marino",
             "sub_title": "",
-            "url": "shopify://collections"
+            "url": "/collections/color-azul-marino?filter.v.t.shopify.color-pattern=gid://shopify/Metaobject/94799561026"
           }
         },
         "custom_aTPMdm": {
@@ -147,7 +147,7 @@
             "image": "shopify://shop_images/Item-2.jpg",
             "title": "Blanco",
             "sub_title": "",
-            "url": "shopify://collections"
+            "url": "/collections/color-blanco?filter.v.t.shopify.color-pattern=gid://shopify/Metaobject/96394674498"
           }
         },
         "custom_RbbViU": {
@@ -156,7 +156,7 @@
             "image": "shopify://shop_images/Item-3.jpg",
             "title": "Burdeo",
             "sub_title": "",
-            "url": "shopify://collections"
+            "url": "/collections/color-burdeo?filter.v.t.shopify.color-pattern=gid://shopify/Metaobject/96396345666"
           }
         },
         "custom_E4bymz": {
@@ -165,7 +165,7 @@
             "image": "shopify://shop_images/Item-4.jpg",
             "title": "Caribbean Blue",
             "sub_title": "",
-            "url": "shopify://collections"
+            "url": "/collections/color-carribean-blue?filter.v.t.shopify.color-pattern=gid://shopify/Metaobject/96394740034"
           }
         },
         "custom_xDDGnx": {
@@ -174,7 +174,7 @@
             "image": "shopify://shop_images/Item-5.jpg",
             "title": "Celeste",
             "sub_title": "",
-            "url": "shopify://collections"
+            "url": "/collections/color-celeste?filter.v.t.shopify.color-pattern=gid://shopify/Metaobject/96396411202"
           }
         },
         "custom_96HKJt": {
@@ -183,7 +183,7 @@
             "image": "shopify://shop_images/Item-6.jpg",
             "title": "Gris",
             "sub_title": "",
-            "url": "shopify://collections"
+            "url": "/collections/color-gris?filter.v.t.shopify.color-pattern=gid://shopify/Metaobject/96396542274"
           }
         },
         "custom_7f6dUL": {
@@ -192,7 +192,7 @@
             "image": "shopify://shop_images/Item-7.jpg",
             "title": "Morado",
             "sub_title": "",
-            "url": "shopify://collections"
+            "url": "/collections/color-morado?filter.v.t.shopify.color-pattern=gid://shopify/Metaobject/96396640578"
           }
         },
         "custom_frnGFy": {
@@ -201,7 +201,7 @@
             "image": "shopify://shop_images/Item-8.jpg",
             "title": "Negro",
             "sub_title": "",
-            "url": "shopify://collections"
+            "url": "/collections/color-negro?filter.v.t.shopify.color-pattern=gid://shopify/Metaobject/94799495490"
           }
         },
         "custom_gAX6jF": {
@@ -210,7 +210,7 @@
             "image": "shopify://shop_images/Item.jpg",
             "title": "Rojo",
             "sub_title": "",
-            "url": "shopify://collections"
+            "url": "/collections/color-rojo?filter.v.t.shopify.color-pattern=gid://shopify/Metaobject/96396706114"
           }
         },
         "custom_HpKKB6": {
@@ -219,7 +219,7 @@
             "image": "shopify://shop_images/Item.jpg",
             "title": "Rosado",
             "sub_title": "",
-            "url": "shopify://collections"
+            "url": "/collections/color-rosado?filter.v.t.shopify.color-pattern=gid://shopify/Metaobject/96396771650"
           }
         },
         "custom_D6Rkfx": {
@@ -228,7 +228,7 @@
             "image": "shopify://shop_images/Item.jpg",
             "title": "Teal Blue",
             "sub_title": "",
-            "url": "shopify://collections"
+            "url": "/collections/color-teal-blue?filter.v.t.shopify.color-pattern=gid://shopify/Metaobject/96396804418"
           }
         },
         "custom_pxnwG3": {
@@ -237,7 +237,7 @@
             "image": "shopify://shop_images/Item.jpg",
             "title": "Turquesa",
             "sub_title": "",
-            "url": "shopify://collections"
+            "url": "/collections/color-turquesa?filter.v.t.shopify.color-pattern=gid://shopify/Metaobject/96396869954"
           }
         },
         "custom_t479eT": {
@@ -246,7 +246,7 @@
             "image": "shopify://shop_images/Item.jpg",
             "title": "Verde",
             "sub_title": "",
-            "url": "shopify://collections"
+            "url": "/collections/color-verde?filter.v.t.shopify.color-pattern=gid://shopify/Metaobject/96396902722"
           }
         }
       },
@@ -566,6 +566,9 @@
             "title_color": "",
             "title_size_v2": 30,
             "alignment": "left",
+            "instafeed_margin_top": 0,
+            "instafeed_margin_bottom": 0,
+            "instafeed_margin_sides": 0,
             "show_instagram_link": false,
             "link_alignment": "left",
             "link_color": "#000000",
