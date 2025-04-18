@@ -138,7 +138,7 @@
             "image": "shopify://shop_images/Item-1.jpg",
             "title": "Azul Rey",
             "sub_title": "",
-            "url": "shopify://collections"
+            "url": "/collections/color-azul-rey?sort_by=best-selling&filter.v.t.shopify.color-pattern=gid%3A%2F%2Fshopify%2FMetaobject%2F96396280130&filter.v.price.gte=&filter.v.price.lte="
           }
         },
         "custom_KnbYAY": {
