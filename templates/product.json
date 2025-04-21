@@ -112,7 +112,8 @@
       "custom_css": [
         "p.product__text.inline-richtext.subtitle {font-size: 1.4rem; font-family: \"IBM Plex Sans Condensed\"; padding: 0 0 0 60px; margin-top: 0;}",
         ".product__info-container > * + *,.product__info-container .product-form {margin: 1.5rem 0 0.5rem;}",
-        "@media screen and (max-width: 749px) {.modal-size-guide {top: 19%; }}"
+        ".modal-size-guide {top: 130px; }",
+        "@media screen and (max-width: 749px) {.modal-size-guide {top: 130px; }}"
       ],
       "settings": {
         "enable_sticky_info": true,
