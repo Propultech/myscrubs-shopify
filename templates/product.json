@@ -68,7 +68,7 @@
           "settings": {
             "heading": "Composición",
             "icon": "price_tag",
-            "content": "",
+            "content": "<p>{{ product.metafields.custom.composicion.value }}</p>",
             "page": ""
           }
         },
