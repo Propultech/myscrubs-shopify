@@ -333,6 +333,7 @@ if (!customElements.get('product-info')) {
               mediaItem.classList.remove('hide-image');
             }
           });
+        setTimeout(actualizarDotsNavegacion, 150);
       }
 
       setQuantityBoundries() {

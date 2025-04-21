@@ -45,7 +45,8 @@ if (!customElements.get('media-gallery')) {
 
           if (this.elements.thumbnails) {
             const activeThumbnail = this.elements.thumbnails.querySelector(`[data-target="${mediaId}"]`);
-            activeThumbnail.parentElement.firstChild !== activeThumbnail && activeThumbnail.parentElement.prepend(activeThumbnail);
+            activeThumbnail.parentElement.firstChild !== activeThumbnail &&
+              activeThumbnail.parentElement.prepend(activeThumbnail);
           }
 
           if (this.elements.viewer.slider) this.elements.viewer.resetPages();
@@ -115,3 +116,71 @@ if (!customElements.get('media-gallery')) {
     }
   );
 }
+
+function actualizarDotsNavegacion() {
+  if (!window.location.pathname.includes('/products')) return;
+
+  const mediaGallery = document.querySelector('media-gallery');
+  if (!mediaGallery) return;
+  const slidesVisibles = mediaGallery.querySelectorAll('.product__media-item:not(.hide-image)');
+  const totalSlides = slidesVisibles.length;
+
+  const dotsContainer = mediaGallery.querySelector('.slideshow__control-wrapper');
+  if (!dotsContainer) return;
+  const dots = dotsContainer.querySelectorAll('.slider-counter__link');
+
+  dots.forEach((dot) => {
+    dot.style.display = 'none';
+  });
+  slidesVisibles.forEach((slide, index) => {
+    if (index < dots.length) {
+      dots[index].style.display = '';
+    }
+  });
+
+  const totalCounter = mediaGallery.querySelector('.slider-counter--total');
+  if (totalCounter) {
+    totalCounter.textContent = totalSlides.toString();
+  }
+  restaurarNavegacion(mediaGallery);
+}
+
+function restaurarNavegacion(mediaGallery) {
+  if (!mediaGallery) return;
+  const sliderViewer = mediaGallery.querySelector('[id^="GalleryViewer-"]');
+  if (!sliderViewer || !sliderViewer.slider) return;
+
+  if (typeof sliderViewer.resetPages === 'function') {
+    sliderViewer.resetPages();
+  }
+  const activeSlide = mediaGallery.querySelector('.product__media-item.is-active:not(.hide-image)');
+  const visibleSlides = mediaGallery.querySelectorAll('.product__media-item:not(.hide-image)');
+
+  if (!activeSlide && visibleSlides.length > 0) {
+    visibleSlides[0].classList.add('is-active');
+
+    if (sliderViewer.slider) {
+      sliderViewer.scrollTo({
+        left: visibleSlides[0].offsetLeft,
+      });
+    }
+  }
+}
+
+document.addEventListener('variant:change', function () {
+  setTimeout(actualizarDotsNavegacion, 150);
+  setTimeout(actualizarDotsNavegacion, 500);
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  setTimeout(actualizarDotsNavegacion, 300);
+});
+
+document.addEventListener('click', function (event) {
+  if (
+    window.location.pathname.includes('/products') &&
+    (event.target.closest('.slider-button--prev') || event.target.closest('.slider-button--next'))
+  ) {
+    setTimeout(restaurarNavegacion, 50, document.querySelector('media-gallery'));
+  }
+});

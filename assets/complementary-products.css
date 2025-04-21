@@ -356,7 +356,6 @@
     margin-bottom: 4px;
   }
   
-  /* Estilos específicos para móvil */
   @media screen and (max-width: 749px) {
     #complementary-products-section .mobile-only .quick-add__submit {
       background-color: transparent;
@@ -381,8 +380,45 @@
       margin: 0px;
     }
   }
+
+
+  @media screen and (min-width: 1024px) and (max-width: 1200px) {
+    #complementary-products-section h3.complementary-item__title.card__heading {
+      font-size: 20px;
+    }
+    
+    #complementary-products-section .complementary-item__title-link {
+      font-size: 16px;
+    }
+    
+    #complementary-products-section .price__container .price__regular, 
+    #complementary-products-section .price__container .price__sale {
+      font-size: 18px;
+    }
+    
+    #complementary-products-section .complementary-item__option-title {
+      font-size: 14px;
+    }
+    
+    #complementary-products-section .complementary-item__title {
+      font-size: 1rem;
+    }
+    
+    #complementary-products-section .complementary-item__price {
+      font-size: 1rem;
+    }
+    
+    #complementary-products-section .complementary-item__price .price-item--regular.price__compare {
+      font-size: 0.8rem;
+    }
+    
+    #complementary-products-section .complementary-item__size-swatch {
+      min-width: 50px;
+      height: 32px;
+      font-size: 13px;
+    }
+  }
   
-  /* Responsive Styles */
   @media screen and (max-width: 1023px) {
     #complementary-products-section .complementary-item__action {
       justify-content: center;
