@@ -35,22 +35,6 @@
           <label class="field__label" for="region">Región</label>
           <select class="field__input" id="region" name="region">
             <option value="">Selecciona una región</option>
-            <option value="arica">Arica y Parinacota</option>
-            <option value="tarapaca">Tarapacá</option>
-            <option value="antofagasta">Antofagasta</option>
-            <option value="atacama">Atacama</option>
-            <option value="coquimbo">Coquimbo</option>
-            <option value="valparaiso">Valparaíso</option>
-            <option value="metropolitana">Metropolitana de Santiago</option>
-            <option value="ohiggins">Libertador General Bernardo O'Higgins</option>
-            <option value="maule">Maule</option>
-            <option value="nuble">Ñuble</option>
-            <option value="biobio">Biobío</option>
-            <option value="araucania">La Araucanía</option>
-            <option value="rios">Los Ríos</option>
-            <option value="lagos">Los Lagos</option>
-            <option value="aysen">Aysén del General Carlos Ibáñez del Campo</option>
-            <option value="magallanes">Magallanes y de la Antártica Chilena</option>
           </select>
         </div>
 
@@ -82,30 +66,57 @@
     const shippingResult = document.getElementById('shipping-result');
     const shippingCost = document.getElementById('shipping-cost');
 
-    // Mapeo de regiones a comunas
-    const regionCommunes = {
-      metropolitana: [
-        'Santiago',
-        'Providencia',
-        'Las Condes',
-        'Ñuñoa',
-        'Maipú',
-        'La Florida',
-        'Puente Alto',
-        'San Bernardo',
-      ],
-      valparaiso: ['Valparaíso', 'Viña del Mar', 'Quilpué', 'Villa Alemana', 'San Antonio'],
-      // Agregar más regiones y sus comunas según sea necesario
+    // Mapeo de regiones a comunas y códigos
+    const regionData = {
+      RM: {
+        name: 'Metropolitana de Santiago',
+        communes: [
+          'Santiago',
+          'Providencia',
+          'Las Condes',
+          'Ñuñoa',
+          'Maipú',
+          'La Florida',
+          'Puente Alto',
+          'San Bernardo',
+        ],
+      },
+      VS: {
+        name: 'Valparaíso',
+        communes: ['Valparaíso', 'Viña del Mar', 'Quilpué', 'Villa Alemana', 'San Antonio'],
+      },
+      BI: {
+        name: 'Biobío',
+        communes: ['Concepción', 'Talcahuano', 'Chillán', 'Los Ángeles'],
+      },
+      AR: {
+        name: 'La Araucanía',
+        communes: ['Temuco', 'Villarrica', 'Pucón'],
+      },
+      LL: {
+        name: 'Los Lagos',
+        communes: ['Puerto Montt', 'Osorno', 'Castro'],
+      },
     };
+
+    // Actualizar el selector de regiones
+    regionSelect.innerHTML = '<option value="">Selecciona una región</option>';
+
+    Object.entries(regionData).forEach(([code, data]) => {
+      const option = document.createElement('option');
+      option.value = code;
+      option.textContent = data.name;
+      regionSelect.appendChild(option);
+    });
 
     // Actualizar comunas cuando se selecciona una región
     regionSelect.addEventListener('change', function () {
       const selectedRegion = this.value;
       communeSelect.innerHTML = '<option value="">Selecciona una comuna</option>';
 
-      if (selectedRegion && regionCommunes[selectedRegion]) {
+      if (selectedRegion && regionData[selectedRegion]) {
         communeSelect.disabled = false;
-        regionCommunes[selectedRegion].forEach((commune) => {
+        regionData[selectedRegion].communes.forEach((commune) => {
           const option = document.createElement('option');
           option.value = commune.toLowerCase().replace(/\s+/g, '-');
           option.textContent = commune;
@@ -131,12 +142,19 @@
         const cartResponse = await fetch('/cart.js');
         const cart = await cartResponse.json();
 
+        if (!cart.items || cart.items.length === 0) {
+          alert('Por favor agrega productos al carrito antes de calcular el envío');
+          return;
+        }
+
         // Preparar la dirección de envío
         const shippingAddress = {
-          country: 'Chile',
-          province: region,
+          address1: 'Dirección de ejemplo',
           city: commune,
-          zip: '000000', // Código postal genérico para Chile
+          province: region, // Ahora usamos directamente el código de región
+          country: 'Chile',
+          zip: '000000',
+          phone: '912345678',
         };
 
         // Preparar el cálculo de tarifas de envío
@@ -144,24 +162,32 @@
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            Accept: 'application/json',
           },
-          body: JSON.stringify({ shipping_address: shippingAddress }),
+          body: JSON.stringify({
+            shipping_address: shippingAddress,
+          }),
         });
 
         if (!prepareResponse.ok) {
-          throw new Error('Error al preparar las tarifas de envío');
+          const errorData = await prepareResponse.json();
+          throw new Error(errorData.message || 'Error al preparar las tarifas de envío');
         }
+
+        // Esperar un momento para que Shopify calcule las tarifas
+        await new Promise((resolve) => setTimeout(resolve, 1000));
 
         // Obtener las tarifas de envío
         const ratesResponse = await fetch('/cart/async_shipping_rates.json', {
           method: 'GET',
           headers: {
-            'Content-Type': 'application/json',
+            Accept: 'application/json',
           },
         });
 
         if (!ratesResponse.ok) {
-          throw new Error('Error al obtener las tarifas de envío');
+          const errorData = await ratesResponse.json();
+          throw new Error(errorData.message || 'Error al obtener las tarifas de envío');
         }
 
         const ratesData = await ratesResponse.json();
@@ -179,7 +205,7 @@
         }
       } catch (error) {
         console.error('Error:', error);
-        alert('Hubo un error al calcular el costo de envío. Por favor intenta nuevamente.');
+        alert(error.message || 'Hubo un error al calcular el costo de envío. Por favor intenta nuevamente.');
       }
     });
   });
