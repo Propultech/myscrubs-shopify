@@ -89,14 +89,58 @@
       RM: {
         name: 'Metropolitana de Santiago',
         communes: [
-          'Santiago',
-          'Providencia',
-          'Las Condes',
-          'Ñuñoa',
-          'Maipú',
+          'Alhué',
+          'Buin',
+          'Calera de Tango',
+          'Cerrillos',
+          'Cerro Navia',
+          'Colina',
+          'Conchalí',
+          'Curacaví',
+          'El Bosque',
+          'El Monte',
+          'Estación Central',
+          'Huechuraba',
+          'Independencia',
+          'Isla de Maipo',
+          'La Cisterna',
           'La Florida',
+          'La Granja',
+          'La Pintana',
+          'La Reina',
+          'Lampa',
+          'Las Condes',
+          'Lo Barnechea',
+          'Lo Espejo',
+          'Lo Prado',
+          'Macul',
+          'Maipú',
+          'María Pinto',
+          'Melipilla',
+          'Ñuñoa',
+          'Padre Hurtado',
+          'Paine',
+          'Pedro Aguirre Cerda',
+          'Peñaflor',
+          'Peñalolén',
+          'Pirque',
+          'Providencia',
+          'Pudahuel',
           'Puente Alto',
+          'Quilicura',
+          'Quinta Normal',
+          'Recoleta',
+          'Renca',
           'San Bernardo',
+          'San Joaquín',
+          'San José de Maipo',
+          'San Miguel',
+          'San Pedro',
+          'San Ramón',
+          'Santiago',
+          'Talagante',
+          'Tiltil',
+          'Vitacura',
         ],
       },
       VS: {
@@ -136,7 +180,7 @@
         communeSelect.disabled = false;
         regionData[selectedRegion].communes.forEach((commune) => {
           const option = document.createElement('option');
-          option.value = commune.toLowerCase().replace(/\s+/g, '-');
+          option.value = commune;
           option.textContent = commune;
           communeSelect.appendChild(option);
         });
@@ -210,7 +254,12 @@
 
         const ratesData = await ratesResponse.json();
 
-        if (ratesData.shipping_rates && ratesData.shipping_rates.length > 0) {
+        // Verificar que la respuesta tenga la estructura esperada
+        if (!ratesData || !ratesData.shipping_rates) {
+          throw new Error('NO_SHIPPING_RATES');
+        }
+
+        if (ratesData.shipping_rates.length > 0) {
           // Mostrar todas las tarifas disponibles
           shippingDetails.innerHTML = ratesData.shipping_rates
             .map(
