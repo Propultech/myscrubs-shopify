@@ -1,0 +1,273 @@
+{% schema %}
+{
+  "name": "Calculadora de envío",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Calcula el costo de envío"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtítulo",
+      "default": "Ingresa tu región y comuna para calcular el costo de envío"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Calculadora de envío",
+      "category": "Envío"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="shipping-calculator">
+  <div class="page-width">
+    <div class="shipping-calculator__container">
+      <h2 class="shipping-calculator__title">{{ section.settings.title }}</h2>
+      <p class="shipping-calculator__subtitle">{{ section.settings.subtitle }}</p>
+
+      <div class="shipping-calculator__form">
+        <div class="field">
+          <label class="field__label" for="region">Región</label>
+          <select class="field__input" id="region" name="region">
+            <option value="">Selecciona una región</option>
+            <option value="arica">Arica y Parinacota</option>
+            <option value="tarapaca">Tarapacá</option>
+            <option value="antofagasta">Antofagasta</option>
+            <option value="atacama">Atacama</option>
+            <option value="coquimbo">Coquimbo</option>
+            <option value="valparaiso">Valparaíso</option>
+            <option value="metropolitana">Metropolitana de Santiago</option>
+            <option value="ohiggins">Libertador General Bernardo O'Higgins</option>
+            <option value="maule">Maule</option>
+            <option value="nuble">Ñuble</option>
+            <option value="biobio">Biobío</option>
+            <option value="araucania">La Araucanía</option>
+            <option value="rios">Los Ríos</option>
+            <option value="lagos">Los Lagos</option>
+            <option value="aysen">Aysén del General Carlos Ibáñez del Campo</option>
+            <option value="magallanes">Magallanes y de la Antártica Chilena</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="commune">Comuna</label>
+          <select class="field__input" id="commune" name="commune" disabled>
+            <option value="">Selecciona una comuna</option>
+          </select>
+        </div>
+
+        <button type="button" class="button button--primary" id="calculate-shipping">Calcular envío</button>
+      </div>
+
+      <div class="shipping-calculator__result" id="shipping-result" style="display: none;">
+        <div class="shipping-calculator__result-content">
+          <h3>Costo de envío</h3>
+          <p id="shipping-cost"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const regionSelect = document.getElementById('region');
+    const communeSelect = document.getElementById('commune');
+    const calculateButton = document.getElementById('calculate-shipping');
+    const shippingResult = document.getElementById('shipping-result');
+    const shippingCost = document.getElementById('shipping-cost');
+
+    // Mapeo de regiones a comunas
+    const regionCommunes = {
+      metropolitana: [
+        'Santiago',
+        'Providencia',
+        'Las Condes',
+        'Ñuñoa',
+        'Maipú',
+        'La Florida',
+        'Puente Alto',
+        'San Bernardo',
+      ],
+      valparaiso: ['Valparaíso', 'Viña del Mar', 'Quilpué', 'Villa Alemana', 'San Antonio'],
+      // Agregar más regiones y sus comunas según sea necesario
+    };
+
+    // Actualizar comunas cuando se selecciona una región
+    regionSelect.addEventListener('change', function () {
+      const selectedRegion = this.value;
+      communeSelect.innerHTML = '<option value="">Selecciona una comuna</option>';
+
+      if (selectedRegion && regionCommunes[selectedRegion]) {
+        communeSelect.disabled = false;
+        regionCommunes[selectedRegion].forEach((commune) => {
+          const option = document.createElement('option');
+          option.value = commune.toLowerCase().replace(/\s+/g, '-');
+          option.textContent = commune;
+          communeSelect.appendChild(option);
+        });
+      } else {
+        communeSelect.disabled = true;
+      }
+    });
+
+    // Calcular envío
+    calculateButton.addEventListener('click', async function () {
+      const region = regionSelect.value;
+      const commune = communeSelect.value;
+
+      if (!region || !commune) {
+        alert('Por favor selecciona una región y comuna');
+        return;
+      }
+
+      try {
+        // Obtener el carrito actual
+        const cartResponse = await fetch('/cart.js');
+        const cart = await cartResponse.json();
+
+        // Preparar la dirección de envío
+        const shippingAddress = {
+          country: 'Chile',
+          province: region,
+          city: commune,
+          zip: '000000', // Código postal genérico para Chile
+        };
+
+        // Preparar el cálculo de tarifas de envío
+        const prepareResponse = await fetch('/cart/prepare_shipping_rates.json', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ shipping_address: shippingAddress }),
+        });
+
+        if (!prepareResponse.ok) {
+          throw new Error('Error al preparar las tarifas de envío');
+        }
+
+        // Obtener las tarifas de envío
+        const ratesResponse = await fetch('/cart/async_shipping_rates.json', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (!ratesResponse.ok) {
+          throw new Error('Error al obtener las tarifas de envío');
+        }
+
+        const ratesData = await ratesResponse.json();
+
+        if (ratesData.shipping_rates && ratesData.shipping_rates.length > 0) {
+          // Mostrar la tarifa más económica
+          const lowestRate = ratesData.shipping_rates.reduce((prev, current) => {
+            return parseFloat(prev.price) < parseFloat(current.price) ? prev : current;
+          });
+
+          shippingCost.textContent = `$${parseFloat(lowestRate.price).toLocaleString('es-CL')}`;
+          shippingResult.style.display = 'block';
+        } else {
+          throw new Error('No se encontraron tarifas de envío disponibles');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Hubo un error al calcular el costo de envío. Por favor intenta nuevamente.');
+      }
+    });
+  });
+</script>
+
+<style>
+  .shipping-calculator {
+    padding: 2rem 0;
+  }
+
+  .shipping-calculator__container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #f8f8f8;
+    border-radius: 8px;
+  }
+
+  .shipping-calculator__title {
+    margin: 0 0 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .shipping-calculator__subtitle {
+    margin: 0 0 2rem;
+    text-align: center;
+    color: #666;
+  }
+
+  .shipping-calculator__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .field__label {
+    font-weight: 500;
+  }
+
+  .field__input {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+
+  .button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  .button--primary {
+    background-color: #000;
+    color: #fff;
+  }
+
+  .button--primary:hover {
+    background-color: #333;
+  }
+
+  .shipping-calculator__result {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 4px;
+    text-align: center;
+  }
+
+  .shipping-calculator__result h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.2rem;
+  }
+
+  .shipping-calculator__result p {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #000;
+  }
+</style>
