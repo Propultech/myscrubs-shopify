@@ -51,7 +51,24 @@
       <div class="shipping-calculator__result" id="shipping-result" style="display: none;">
         <div class="shipping-calculator__result-content">
           <h3>Costo de envío</h3>
-          <p id="shipping-cost"></p>
+          <div id="shipping-details"></div>
+          <div class="shipping-calculator__actions">
+            <a href="/cart" class="button button--secondary">Ver carrito</a>
+            <a href="/checkout" class="button button--primary">Ir al checkout</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="shipping-calculator__error" id="shipping-error" style="display: none;">
+        <div class="shipping-calculator__error-content">
+          <h3>No pudimos calcular el envío en este momento</h3>
+          <p>
+            Te recomendamos avanzar al checkout donde podrás ver todas las opciones de envío disponibles para tu pedido.
+          </p>
+          <div class="shipping-calculator__actions">
+            <a href="/cart" class="button button--secondary">Ver carrito</a>
+            <a href="/checkout" class="button button--primary">Ir al checkout</a>
+          </div>
         </div>
       </div>
     </div>
@@ -64,7 +81,8 @@
     const communeSelect = document.getElementById('commune');
     const calculateButton = document.getElementById('calculate-shipping');
     const shippingResult = document.getElementById('shipping-result');
-    const shippingCost = document.getElementById('shipping-cost');
+    const shippingError = document.getElementById('shipping-error');
+    const shippingDetails = document.getElementById('shipping-details');
 
     // Mapeo de regiones a comunas y códigos
     const regionData = {
@@ -151,7 +169,7 @@
         const shippingAddress = {
           address1: 'Dirección de ejemplo',
           city: commune,
-          province: region, // Ahora usamos directamente el código de región
+          province: region,
           country: 'Chile',
           zip: '000000',
           phone: '912345678',
@@ -193,19 +211,32 @@
         const ratesData = await ratesResponse.json();
 
         if (ratesData.shipping_rates && ratesData.shipping_rates.length > 0) {
-          // Mostrar la tarifa más económica
-          const lowestRate = ratesData.shipping_rates.reduce((prev, current) => {
-            return parseFloat(prev.price) < parseFloat(current.price) ? prev : current;
-          });
+          // Mostrar todas las tarifas disponibles
+          shippingDetails.innerHTML = ratesData.shipping_rates
+            .map(
+              (rate) => `
+            <div class="shipping-rate">
+              <div class="shipping-rate__name">${rate.name}</div>
+              <div class="shipping-rate__price">$${parseFloat(rate.price).toLocaleString('es-CL')}</div>
+            </div>
+          `
+            )
+            .join('');
 
-          shippingCost.textContent = `$${parseFloat(lowestRate.price).toLocaleString('es-CL')}`;
           shippingResult.style.display = 'block';
+          shippingError.style.display = 'none';
         } else {
-          throw new Error('No se encontraron tarifas de envío disponibles');
+          throw new Error('NO_SHIPPING_RATES');
         }
       } catch (error) {
         console.error('Error:', error);
-        alert(error.message || 'Hubo un error al calcular el costo de envío. Por favor intenta nuevamente.');
+
+        if (error.message === 'NO_SHIPPING_RATES') {
+          shippingResult.style.display = 'none';
+          shippingError.style.display = 'block';
+        } else {
+          alert(error.message || 'Hubo un error al calcular el costo de envío. Por favor intenta nuevamente.');
+        }
       }
     });
   });
@@ -266,6 +297,9 @@
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.2s;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
   }
 
   .button--primary {
@@ -277,23 +311,60 @@
     background-color: #333;
   }
 
-  .shipping-calculator__result {
+  .button--secondary {
+    background-color: #f8f8f8;
+    color: #000;
+    border: 1px solid #ddd;
+  }
+
+  .button--secondary:hover {
+    background-color: #eee;
+  }
+
+  .shipping-calculator__result,
+  .shipping-calculator__error {
     margin-top: 2rem;
-    padding: 1rem;
+    padding: 1.5rem;
     background: #fff;
     border-radius: 4px;
     text-align: center;
   }
 
-  .shipping-calculator__result h3 {
-    margin: 0 0 0.5rem;
+  .shipping-calculator__result h3,
+  .shipping-calculator__error h3 {
+    margin: 0 0 1rem;
     font-size: 1.2rem;
   }
 
-  .shipping-calculator__result p {
-    margin: 0;
-    font-size: 1.5rem;
+  .shipping-calculator__error p {
+    margin: 0 0 1.5rem;
+    color: #666;
+  }
+
+  .shipping-rate {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  .shipping-rate:last-child {
+    border-bottom: none;
+  }
+
+  .shipping-rate__name {
     font-weight: 500;
-    color: #000;
+  }
+
+  .shipping-rate__price {
+    font-weight: 600;
+  }
+
+  .shipping-calculator__actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
   }
 </style>
