@@ -16,7 +16,6 @@
         {% render 'complementary-card-product',
           card_product: recommended_product,
           show_vendor: true,
-          show_secondary_image: section.settings.show_secondary_image,
           section_id: section.id
         %}
         <script>
@@ -70,12 +69,6 @@
         "max": 36,
         "step": 1,
         "default": 24
-      },
-      {
-        "type": "checkbox",
-        "id": "show_secondary_image",
-        "default": false,
-        "label": "Mostrar segunda imagen al pasar el cursor"
       },
       {
         "type": "range",
