@@ -112,7 +112,7 @@
       "custom_css": [
         "p.product__text.inline-richtext.subtitle {font-size: 1.4rem; font-family: \"IBM Plex Sans Condensed\"; padding: 0 0 0 60px; margin-top: 0;}",
         ".product__info-container > * + *,.product__info-container .product-form {margin: 1.5rem 0 0.5rem;}",
-        ".modal-size-guide {top: 130px; }",
+        ".modal-size-guide {top: 130px;}",
         "@media screen and (max-width: 749px) {.modal-size-guide {top: 130px; }}"
       ],
       "settings": {
@@ -140,8 +140,8 @@
       "settings": {
         "heading": "También podría interesarte",
         "heading_size": "h2",
-        "products_to_show": 4,
-        "columns_desktop": 4,
+        "products_to_show": 5,
+        "columns_desktop": 5,
         "columns_mobile": "2",
         "color_scheme": "scheme-1",
         "image_ratio": "portrait",
