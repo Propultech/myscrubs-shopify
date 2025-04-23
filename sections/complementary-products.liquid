@@ -1,0 +1,96 @@
+{{ 'complementary-products.css' | asset_url | stylesheet_tag }}
+{{ 'quick-add.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'complementary-products.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+
+<section id="complementary-products-section" class="complementary-products">
+  <div class="complementary-products__container">
+    <h2 class="complementary-products__title">
+      {{ section.settings.title | default: 'Completa tu conjunto' }}
+    </h2>
+    
+    {% assign complementary_products = product.metafields.shopify--discovery--product_recommendation.complementary_products.value %}
+    
+    <div class="complementary-products__grid">
+      {% for recommended_product in complementary_products %}
+        {% render 'complementary-card-product',
+          card_product: recommended_product,
+          show_vendor: true,
+          show_secondary_image: section.settings.show_secondary_image,
+          section_id: section.id
+        %}
+        <script>
+          window.productVariants = window.productVariants || {};
+          window.productVariants['{{ recommended_product.id }}'] = {{ recommended_product.variants | json }};
+        </script>
+      {% endfor %}
+    </div>
+  </div>
+  
+  <style>
+    #complementary-products-section .complementary-products__container {
+      background: #F8F8F8;
+      padding: 2rem 0;
+      margin: 0 auto;
+    }
+    @media screen and (min-width: 990px) {
+      #complementary-products-section .complementary-products__container {
+        padding-left: {{ section.settings.side_padding_desktop }}%;
+        padding-right: {{ section.settings.side_padding_desktop }}%;
+      }
+    }
+    #complementary-products-section .complementary-products__title {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: {{ section.settings.title_font_size }}px;
+      font-weight: 600;
+    }
+  </style>
+  <script>
+    window.translations = window.translations || {};
+    window.translations.addToCart = {{ 'products.product.add_to_cart' | t | json }};
+    window.translations.soldOut = {{ 'products.product.sold_out' | t | json }};
+  </script>
+  
+  {% schema %}
+  {
+    "name": "Productos complementarios",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Título de la sección",
+        "default": "Completa tu conjunto"
+      },
+      {
+        "type": "range",
+        "id": "title_font_size",
+        "label": "Tamaño de fuente del título (px)",
+        "min": 18,
+        "max": 36,
+        "step": 1,
+        "default": 24
+      },
+      {
+        "type": "checkbox",
+        "id": "show_secondary_image",
+        "default": false,
+        "label": "Mostrar segunda imagen al pasar el cursor"
+      },
+      {
+        "type": "range",
+        "id": "side_padding_desktop",
+        "label": "Padding lateral en desktop (%)",
+        "min": 1,
+        "max": 20,
+        "step": 1,
+        "default": 5
+      }
+    ],
+    "presets": [
+      {
+        "name": "Productos complementarios"
+      }
+    ]
+  }
+  {% endschema %}

@@ -1,0 +1,325 @@
+{%- unless skip_styles -%}
+  {{ 'component-price.css' | asset_url | stylesheet_tag }}
+  {{ 'component-swatch.css' | asset_url | stylesheet_tag }}
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+{%- endunless -%}
+
+{%- if card_product and card_product != empty -%}
+  <article class="complementary-item card-wrapper product-card-wrapper">
+    <!-- Columna 1 -->
+    <div class="complementary-item__column complementary-item__image-wrapper">
+      {%- if card_product.featured_image -%}
+        <div class="card__media">
+          <img 
+            src="{{ card_product.featured_image | img_url: '360x' }}" 
+            alt="{{ card_product.featured_image.alt | escape }}"
+            class="complementary-item__image"
+            style="display: block; width: 100%; height: auto; max-width: 100%;"
+            loading="lazy"
+          >
+        </div>
+      {%- else -%}
+        <div class="complementary-item__image-placeholder">
+          {{ 'product-apparel-2' | placeholder_svg_tag: 'complementary-item__image placeholder-svg' }}
+        </div>
+      {%- endif -%}
+      
+      <div class="complementary-item__badge">
+        {%- if card_product.available == false -%}
+          <span class="badge badge--sold-out color-{{ settings.sold_out_badge_color_scheme }}">
+            {{- 'products.product.sold_out' | t -}}
+          </span>
+        {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
+          <span class="badge badge--sale color-{{ settings.sale_badge_color_scheme }}">
+            {{- 'products.product.on_sale' | t -}}
+          </span>
+        {%- endif -%}
+      </div>
+    </div>
+    
+    <!-- Columna 2 -->
+    <div class="complementary-item__column complementary-item__info">
+      {%- if show_vendor -%}
+        <span class="complementary-item__vendor caption-with-letter-spacing light">
+          {{ card_product.vendor }}
+        </span>
+      {%- endif -%}
+      
+      <h3 class="complementary-item__title card__heading">
+        <a href="{{ card_product.url }}" class="complementary-item__title-link full-unstyled-link" id="CardLink-{{ section_id }}-{{ card_product.id }}">
+          {{ card_product.title | escape }}
+        </a>
+      </h3>
+      
+      <div class="complementary-item__price card-information">
+        {%- liquid
+          assign compare_at_price = card_product.compare_at_price
+          assign price = card_product.price
+          assign has_discount = false
+          if compare_at_price > price
+            assign has_discount = true
+          endif
+        -%}
+        
+        <div class="price{% if has_discount %} price--on-sale{% endif %}">
+          <div class="price__container">
+            <div class="price__regular">
+              <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
+              <span class="price-item price-item--regular">{{ price | money }}</span>
+            </div>
+            <div class="price__sale">
+              <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
+              <span><s class="price-item price-item--regular">{{ compare_at_price | money }}</s></span>
+              <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
+              <span class="price-item price-item--sale price-item--last">{{ price | money }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Swatches para móvil -->
+      <div class="complementary-item__colors-mobile">
+        {% if card_product.options_by_name['Color'].values.size > 0 %}
+          {% assign color_option = card_product.options_by_name['Color'] %}
+          {% assign colors_count = color_option.values.size %}
+          
+          <div class="complementary-item__available-colors">
+            {{ colors_count }} colores disponibles
+          </div>
+          
+          <div class="complementary-item__color-swatches complementary-item__color-swatches--mobile">
+            {% for value in color_option.values %}
+              {% if forloop.index <= 5 %}
+                {% assign option_index = color_option.position | minus: 1 %}
+                {% assign variant_for_value = null %}
+                {% assign variant_available = false %}
+                
+                {% for variant in card_product.variants %}
+                  {% if variant.options[option_index] == value.name %}
+                    {% assign variant_for_value = variant %}
+                    {% if variant.available %}
+                      {% assign variant_available = true %}
+                      {% break %}
+                    {% endif %}
+                  {% endif %}
+                {% endfor %}
+                
+                <button 
+                  type="button"
+                  class="complementary-item__color-swatch-mobile js-card-swatch-link-mobile{% if variant_available == false %} is-disabled{% endif %}"
+                  data-swatch-color="{{ value.name | escape }}"
+                  data-product-url="{{ card_product.url }}?variant={{ variant_for_value.id }}"
+                  {% if variant_for_value %}
+                    data-variant-id="{{ variant_for_value.id }}"
+                    data-variant-available="{{ variant_available }}"
+                  {% endif %}
+                  onclick="window.location.href = this.dataset.productUrl"
+                >
+                  {% render 'swatch', swatch: value.swatch, shape: 'circle' %}
+                  {% if variant_available == false %}
+                    <span class="visually-hidden">{{ 'products.product.sold_out' | t }}</span>
+                    <span class="color-swatch-disabled-line-mobile"></span>
+                  {% endif %}
+                </button>
+              {% endif %}
+              
+              {% if forloop.index == 5 and colors_count > 5 %}
+                <div class="complementary-item__color-more">+{{ colors_count | minus: 5 }}</div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Columna 3 -->
+    <div class="complementary-item__column complementary-item__variants-column">
+      <div class="complementary-item__variants">
+        {% if card_product.options_by_name['Color'].values.size > 0 %}
+          <div class="complementary-item__color-options">
+            <span class="complementary-item__option-title">COLOR</span>
+            <div class="complementary-item__color-swatches desktop-only">
+              {% render 'card-product-swatches', card_product: card_product, max_swatches: 8 %}
+            </div>
+          </div>
+        {% endif %}
+        
+        {% if card_product.options_by_name['Talla'] or card_product.options_by_name['Size'] %}
+          {% assign size_option = card_product.options_by_name['Talla'] | default: card_product.options_by_name['Size'] %}
+          {% if size_option.values.size > 0 %}
+            <div class="complementary-item__size-options">
+              <span class="complementary-item__option-title">TALLA</span>
+              <div class="complementary-item__size-swatches">
+                {% for value in size_option.values %}
+                  {% assign size_id = value | handle %}
+                  {% liquid
+                    assign variant_for_value = null
+                    assign size_available = false
+                    
+                    for variant in card_product.variants
+                      if variant.options[1] == value
+                        assign variant_for_value = variant
+                        if variant.available
+                          assign size_available = true
+                          break
+                        endif
+                      endif
+                    endfor
+                  %}
+                  
+                  <button 
+                    type="button"
+                    class="complementary-item__size-swatch js-size-swatch-link{% if forloop.first %} is-active{% endif %}{% if size_available == false %} visually-disabled{% endif %}"
+                    aria-label="Seleccionar talla {{ value | escape }}{% if size_available == false %} - Agotado{% endif %}"
+                    data-variant-id="{% if variant_for_value %}{{ variant_for_value.id }}{% endif %}"
+                    data-option-position="2"
+                    data-option-value="{{ value }}"
+                    data-product-id="{{ card_product.id }}"
+                    {% if variant_for_value %}
+                      data-variant-available="{{ size_available }}"
+                    {% endif %}
+                    {% if size_available == false %}
+                      data-variant-unavailable="true"
+                      aria-disabled="true"
+                    {% endif %}
+                  >
+                    {{ value }}
+                    {% if size_available == false %}
+                      <span class="size-swatch-disabled-line"></span>
+                    {% endif %}
+                  </button>
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+        {% endif %}
+      </div>
+    </div>
+    
+    <!-- Columna 4-->
+    <div class="complementary-item__column complementary-item__action">
+      {% assign product_form_id = 'complementary-product-' | append: section_id | append: card_product.id %}
+      
+      <div class="complementary-item__quick-add">
+        <!-- Botón para desktop -->
+        <product-form class="product-form desktop-only" data-section-id="{{ section.id }}" data-product-id="{{ card_product.id }}">
+          {%- form 'product',
+            card_product,
+            id: product_form_id,
+            class: 'form',
+            novalidate: 'novalidate',
+            data-type: 'add-to-cart-form'
+          -%}
+            <input
+              type="hidden"
+              name="id"
+              value="{{ card_product.selected_or_first_available_variant.id }}"
+              class="product-variant-id"
+              data-product-id="{{ card_product.id }}"
+            >
+            <button
+              id="{{ product_form_id }}-submit"
+              type="submit"
+              name="add"
+              class="complementary-item__add-to-cart button button--full-width button--secondary"
+              aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ card_product.id }}"
+              aria-live="polite"
+              {% if card_product.selected_or_first_available_variant.available == false %}
+                disabled
+              {% endif %}
+            >
+              <span>
+                {%- if card_product.selected_or_first_available_variant.available -%}
+                  {{ 'products.product.add_to_cart' | t }}
+                {%- else -%}
+                  {{ 'products.product.sold_out' | t }}
+                {%- endif -%}
+              </span>
+              {%- render 'loading-spinner' -%}
+            </button>
+          {%- endform -%}
+        </product-form>
+        
+        <!-- Versión Mobile - Modal de quick-add -->
+        <div class="mobile-only">
+          <div class="quick-add no-js-hidden">
+            <modal-opener data-modal="#QuickAdd-{{ card_product.id }}">
+              <button
+                id="quick-add-{{ section_id }}{{ card_product.id }}-submit"
+                type="submit"
+                name="add"
+                class="quick-add__submit button button--full-width button--secondary"
+                aria-haspopup="dialog"
+                aria-labelledby="quick-add-{{ section_id }}{{ card_product.id }}-submit title-{{ section_id }}-{{ card_product.id }}"
+                data-product-url="{{ card_product.url }}"
+              >
+                <span class="mobile-only">
+                  <img src="https://cdn.shopify.com/s/files/1/0922/9706/8866/files/cart-filled.png?v=1742901732" alt="{{ 'products.product.add_to_cart' | t }}" class="cart-icon-mobile">
+                </span>
+                <span class="desktop-only">{{ 'products.product.choose_options' | t }}</span>
+                <div class="loading__spinner hidden">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="spinner" viewBox="0 0 66 66"><circle stroke-width="6" cx="33" cy="33" r="30" fill="none" class="path"></circle></svg>
+                </div>
+              </button>
+            </modal-opener>
+            
+            <quick-add-modal id="QuickAdd-{{ card_product.id }}" class="quick-add-modal">
+              <div
+                role="dialog"
+                aria-label="{{ 'products.product.choose_product_options' | t: product_name: card_product.title | escape }}"
+                aria-modal="true"
+                class="quick-add-modal__content global-settings-popup"
+                tabindex="-1"
+              >
+                <button
+                  id="ModalClose-{{ card_product.id }}"
+                  type="button"
+                  class="quick-add-modal__toggle"
+                  aria-label="{{ 'accessibility.close' | t }}"
+                >
+                  {{- 'icon-close.svg' | inline_asset_content -}}
+                </button>
+                <div id="QuickAddInfo-{{ card_product.id }}" class="quick-add-modal__content-info"></div>
+              </div>
+            </quick-add-modal>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+{%- else -%}
+  <article class="complementary-item complementary-item--placeholder">
+    <div class="complementary-item__column complementary-item__image-wrapper">
+      <div class="complementary-item__image-placeholder">
+        {{ 'product-apparel-2' | placeholder_svg_tag: 'complementary-item__image placeholder-svg' }}
+      </div>
+    </div>
+    
+    <div class="complementary-item__column complementary-item__info">
+      {%- if show_vendor -%}
+        <span class="complementary-item__vendor">
+          {{ 'products.product.vendor' | t }}
+        </span>
+      {%- endif -%}
+      
+      <h3 class="complementary-item__title">
+        <a role="link" aria-disabled="true" class="complementary-item__title-link">
+          {{ 'onboarding.product_title' | t }}
+        </a>
+      </h3>
+      
+      <div class="complementary-item__price">
+        {% render 'price', placeholder: true, show_compare_at_price: true %}
+      </div>
+    </div>
+    
+    <div class="complementary-item__column complementary-item__variants-column">
+    </div>
+    
+    <div class="complementary-item__column complementary-item__action">
+      <button type="button" class="complementary-item__add-to-cart button button--full-width button--secondary" disabled>
+        {{ 'products.product.add_to_cart' | t }}
+      </button>
+    </div>
+  </article>
+{%- endif -%}
