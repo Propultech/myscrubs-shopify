@@ -114,7 +114,7 @@
         "column_alignment": "center",
         "background_style": "none",
         "color_scheme": "scheme-3",
-        "columns_mobile": "2",
+        "columns_mobile": "3",
         "swipe_on_mobile": false,
         "padding_top": 16,
         "padding_bottom": 16
