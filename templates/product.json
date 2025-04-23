@@ -121,6 +121,14 @@
         "padding_bottom": 12
       }
     },
+    "complementary_products_6RxtdQ": {
+      "type": "complementary-products",
+      "settings": {
+        "title": "",
+        "title_font_size": 24,
+        "side_padding_desktop": 5
+      }
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -137,14 +145,6 @@
         "show_rating": true,
         "padding_top": 36,
         "padding_bottom": 28
-      }
-    },
-    "complementary_products_6RxtdQ": {
-      "type": "complementary-products",
-      "settings": {
-        "title": "Completa tu conjunto",
-        "title_font_size": 24,
-        "side_padding_desktop": 5
       }
     }
   },
