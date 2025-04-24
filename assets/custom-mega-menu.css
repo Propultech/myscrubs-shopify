@@ -270,7 +270,7 @@
 .color-gris {
   background-color: #636574;
 }
-.color-cafe {
+.color-khaki {
   background-color: #d9c8b4;
 }
 .color-morado {
@@ -284,9 +284,6 @@
 }
 .color-fucsia {
   background-color: #cf5385;
-}
-.color-khaki {
-  background-color: #d9c8b4;
 }
 
 @media screen and (max-width: 749px) {
