@@ -12,6 +12,23 @@
     "slideshow_propul_jBNUpE": {
       "type": "slideshow-propul",
       "blocks": {
+        "slide_Yjx4n4": {
+          "type": "slide",
+          "settings": {
+            "image_overlay_opacity": 0,
+            "heading": "Diapositiva de imagen",
+            "heading_size": "h1",
+            "subheading": "Cuenta la historia de tu marca a través de imágenes",
+            "button_label": "Etiqueta de botón",
+            "link": "",
+            "button_style_secondary": false,
+            "show_text_box": true,
+            "box_align": "middle-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-1"
+          }
+        },
         "slide_MAX8qt": {
           "type": "slide",
           "disabled": true,
@@ -34,7 +51,7 @@
         "slide_MfkVb7": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Copia_de_Horizontal_7-13_Abril_2025_1920_x_704_px_6.png",
+            "image": "shopify://shop_images/Copia_de_Horizontal_7-13_Abril_2025_1920_x_704_px_7.png",
             "image_overlay_opacity": 0,
             "heading": "",
             "heading_size": "h1",
@@ -48,11 +65,31 @@
             "text_alignment_mobile": "center",
             "color_scheme": "scheme-1"
           }
+        },
+        "slide_xe8yjC": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Copia_de_Horizontal_7-13_Abril_2025_1920_x_704_px_8.png",
+            "image_overlay_opacity": 0,
+            "heading": "Diapositiva de imagen",
+            "heading_size": "h1",
+            "subheading": "Cuenta la historia de tu marca a través de imágenes",
+            "button_label": "Etiqueta de botón",
+            "link": "",
+            "button_style_secondary": false,
+            "show_text_box": true,
+            "box_align": "middle-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-1"
+          }
         }
       },
       "block_order": [
+        "slide_Yjx4n4",
         "slide_MAX8qt",
-        "slide_MfkVb7"
+        "slide_MfkVb7",
+        "slide_xe8yjC"
       ],
       "settings": {
         "layout": "full_bleed",
