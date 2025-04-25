@@ -1,0 +1,156 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "rating_7TjLPR": {
+          "type": "rating",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "popup_size_guide_WFtC4C": {
+          "type": "popup-size-guide",
+          "settings": {
+            "text": "Guía de tallas",
+            "page": "{{ product.metafields.custom.guia_de_talles.value }}"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true
+          }
+        },
+        "text_rdiqnP": {
+          "type": "text",
+          "settings": {
+            "text": "ENVÍO GRATUITO PARA PEDIDOS SOBRE $70.000",
+            "text_style": "subtitle"
+          }
+        },
+        "description_BK4QYg": {
+          "type": "description",
+          "settings": {}
+        },
+        "collapsible_tab_AG6kPK": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Composición",
+            "icon": "price_tag",
+            "content": "<p>{{ product.metafields.custom.composicion.value }}</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_geYVaD": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Cuidados de la prenda",
+            "icon": "iron",
+            "content": "<p>Lavar a máquina en frío con colores similares.</p><p>No utilizar blanqueadores.</p><p>Secar en secadora a baja temperatura.</p><p>Planchar a baja temperatura si es necesario.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "rating_7TjLPR",
+        "title",
+        "price",
+        "popup_size_guide_WFtC4C",
+        "variant_picker",
+        "buy_buttons",
+        "text_rdiqnP",
+        "description_BK4QYg",
+        "collapsible_tab_AG6kPK",
+        "collapsible_tab_geYVaD"
+      ],
+      "custom_css": [
+        "p.product__text.inline-richtext.subtitle {font-size: 1.4rem; font-family: \"IBM Plex Sans Condensed\"; padding: 0 0 0 60px; margin-top: 0;}",
+        ".product__info-container > * + *,.product__info-container .product-form {margin: 1.5rem 0 0.5rem;}",
+        ".modal-size-guide {top: 130px;}",
+        "@media screen and (max-width: 749px) {.modal-size-guide {top: 130px; }}"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "cover",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": true,
+        "group_variants_enable": true,
+        "group_variants_source": "alttext",
+        "variant_grouping_delimiter": "__",
+        "variant_grouping_position": 1,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "complementary_products_6RxtdQ": {
+      "type": "complementary-products",
+      "settings": {
+        "title": "",
+        "title_font_size": 24,
+        "side_padding_desktop": 5
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "También podría interesarte",
+        "heading_size": "h2",
+        "products_to_show": 5,
+        "columns_desktop": 5,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": true,
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    }
+  },
+  "order": [
+    "main",
+    "complementary_products_6RxtdQ",
+    "related-products"
+  ]
+}
