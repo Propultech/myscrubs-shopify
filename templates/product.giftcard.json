@@ -33,6 +33,7 @@
         },
         "popup_size_guide_WFtC4C": {
           "type": "popup-size-guide",
+          "disabled": true,
           "settings": {
             "text": "Guía de tallas",
             "page": "{{ product.metafields.custom.guia_de_talles.value }}"
