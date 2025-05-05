@@ -14,8 +14,9 @@
       "blocks": {
         "slide_Yjx4n4": {
           "type": "slide",
+          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/Copia_de_Horizontal_7-13_Abril_2025_1920_x_704_px_1920_x_704_px.png",
+            "image": "shopify://shop_images/Copia_de_Horizontal_7-13_Abril_2025_1920_x_704_px_1920_x_704_px_3.png",
             "image_overlay_opacity": 0,
             "heading": "",
             "heading_size": "h1",
